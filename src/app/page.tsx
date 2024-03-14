@@ -1,7 +1,13 @@
+import Header from "@/components/Header";
+import { ThemeProvider } from "@mui/material";
+import { theme } from "./theme";
+
 export default function Home() {
   return (
-    <p>
-      start
-    </p>
+    <>
+      <ThemeProvider theme={theme}>
+        <Header />
+      </ThemeProvider>
+    </>
   );
 }
