@@ -1,35 +1,63 @@
 'use client';
-import logo from '/public/images/logo.svg';
-import star from '/public/images/icons/yellowStar.svg';
 import { styled } from '@mui/material';
 import { CustomContainer } from './CustomElements';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useRef } from 'react';
+import logo from '/public/images/logo.svg';
+import star from '/public/images/icons/yellowStar.svg';
+import burgerMenuIcon from '/public/images/icons/burgerMenu.svg';
 
-const HeaderUI = styled('header')(({ }) => ({
+const HeaderUI = styled('header')(({ theme }) => ({
   width: '100%',
+  maxWidth: '1920px',
+  padding: '0 110px',
+  borderBottom: '1px solid #4f4f4f',
+  [theme.breakpoints.down("xl")]: {
+    padding: "0 50px",
+  },
+  [theme.breakpoints.down(1280)]: {
+    padding: "0 30px",
+  },
 }));
 
-const HeaderWrapper = styled('div')(({ }) => ({
-  margin: '24px 0 19.5px 0',
+const CustomizedContainer = styled(CustomContainer)(({ theme }) => ({
+  paddingTop: '24px',
+  paddingBottom: '19.5px',
+  [theme.breakpoints.down(1024)]: {
+    paddingTop: '0',
+    paddingBottom: '0',
+  },
+}));
+
+const HeaderWrapper = styled('div')(({ theme }) => ({
   width: '100%',
   height: '70px',
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
+  [theme.breakpoints.down(1024)]: {
+    height: 'auto',
+    padding: '38px 0 32px 0',
+  },
 }));
 
 const Navigation = styled("nav")(({ theme }) => ({
   display: "block",
-  [theme.breakpoints.down("md")]: {
+  [theme.breakpoints.down(1024)]: {
     display: "none",
   },
 }));
 
-const NavigationList = styled("ul")(({ }) => ({
+const NavigationList = styled("ul")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   gap: "54px",
+  [theme.breakpoints.down('xl')]: {
+    gap: '40px',
+  },
+  [theme.breakpoints.down('xl')]: {
+    gap: '30px',
+  }
 }));
 
 const NavigationItem = styled("li")(({ theme }) => ({
@@ -39,6 +67,10 @@ const NavigationItem = styled("li")(({ theme }) => ({
   textTransform: 'uppercase',
   color: "#bbb",
   cursor: "pointer",
+  transition: 'color 0.3s',
+  '&:hover': {
+    color: '#fbb41a',
+  }
 }));
 
 const Button = styled('button')(({ theme }) => ({
@@ -65,16 +97,24 @@ const Button = styled('button')(({ theme }) => ({
     transform: 'scale(80)',
     zIndex: '-1'
   },
-  // '&:not(:hover) img:first-child': {
-  //   animation: 'pulse 0.5s alternate',
-  // },
-  // '@keyframes pulse': {
-  //   '0%': { transform: 'translateX(0) scale(1)' },
-  //   '25%': { transform: 'translateX(-5px) scale(2)' },
-  //   '50%': { transform: 'translateX(0) scale(1)' },
-  //   '75%': { transform: 'translateX(5px) scale(2)' },
-  //   '100%': { transform: 'translateX(0) scale(1)' },
-  // },
+  '@keyframes pulse': {
+    '0%': { transform: 'translateX(0) scale(80)' },
+    '40%': { transform: 'translateX(0) scale(1)' },
+    '55%': { transform: 'translateX(-5px) scale(2)' },
+    '70%': { transform: 'translateX(0) scale(1)' },
+    '85%': { transform: 'translateX(5px) scale(2)' },
+    '100%': { transform: 'translateX(0) scale(1)' },
+  },
+  [theme.breakpoints.down(1550)]: {
+    padding: '8px 40px',
+  },
+  [theme.breakpoints.down(1280)]: {
+    padding: '15px 30px',
+    border: '2px solid #fff',
+  },
+  [theme.breakpoints.down(1024)]: {
+    display: "none",
+  },
 }));
 
 const ButtonBox = styled('div')(({ }) => ({
@@ -89,45 +129,58 @@ const ButtonText = styled('span')(({ theme }) => ({
   fontSize: '24px',
   lineHeight: '200%',
   color: '#fff',
+  [theme.breakpoints.down(1280)]: {
+    fontSize: '18px',
+    lineHeight: '0',
+  }
 }));
 
-const PulseStar = styled(Image)(({ }) => ({
-  animation: 'pulse 0.5s alternate',
-  '@keyframes pulse': {
-    '0%': { transform: 'translateX(0) scale(1)' },
-    '25%': { transform: 'translateX(-5px) scale(2)' },
-    '50%': { transform: 'translateX(0) scale(1)' },
-    '75%': { transform: 'translateX(5px) scale(2)' },
-    '100%': { transform: 'translateX(0) scale(1)' },
-  },
+const Logo = styled(Image)(({ theme }) => ({
+  [theme.breakpoints.down(1280)]: {
+    width: '127px',
+    height: '34px',
+  }
+}));
+
+const BurgerMenuBtn = styled('button')(({ theme }) => ({
+  display: 'none',
+  background: 'transparent',
+  [theme.breakpoints.down(1024)]: {
+    display: 'block',
+  }
 }));
 
 const Header = () => {
-  // const [isHovered, setIsHovered] = useState(false);
-  const [afterHovered, setAfterHovered] = useState(false);
+  const ref = useRef<HTMLImageElement>(null);
 
-  // const handleMouseEnter = () => {
-  //   setIsHovered(true);
-  // };
-
-  const handleMouseLeave = () => {
-    setTimeout(() => {
-      setAfterHovered(true);
+  const scaleStar = () => {
+    if (ref.current) {
+      ref.current.style.animation = 'pulse 0.5s alternate';
       setTimeout(() => {
-        setAfterHovered(false);
-      }, 500)
-    }, 500);
-  };
+        ref.current ? ref.current.style.animation = '' : '';
+      }, 500);
+    }
+  }
+
   return (
     <HeaderUI>
-      <CustomContainer>
+      <CustomizedContainer>
         <HeaderWrapper>
-          <Image
+          <Logo
             src={logo}
             width={171}
             height={50}
             alt="Logo"
           />
+
+          <BurgerMenuBtn>
+            <Image
+              src={burgerMenuIcon}
+              width={38}
+              height={28}
+              alt="menu"
+            />
+          </BurgerMenuBtn>
 
           <Navigation>
             <NavigationList>
@@ -140,20 +193,16 @@ const Header = () => {
           </Navigation>
 
           <Button
-            onMouseLeave={handleMouseLeave}
+            onMouseLeave={scaleStar}
           >
             <ButtonBox>
-              {afterHovered ? (<PulseStar
+              <Image
+                ref={ref}
                 src={star}
                 width={22}
                 height={22}
                 alt="star"
-              />) : (<Image
-                src={star}
-                width={22}
-                height={22}
-                alt="star"
-              />)}
+              />
               <ButtonText>BUY a Sheep</ButtonText>
               <Image
                 src={star}
@@ -164,7 +213,7 @@ const Header = () => {
             </ButtonBox>
           </Button>
         </HeaderWrapper>
-      </CustomContainer>
+      </CustomizedContainer>
     </HeaderUI>
   )
 }
