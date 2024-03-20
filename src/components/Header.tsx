@@ -82,7 +82,6 @@ const Button = styled('button')(({ theme }) => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  transition: 'transform 11s easy-in-out',
   position: 'relative',
   '&:hover span': {
     transition: 'all .3s',
@@ -93,7 +92,6 @@ const Button = styled('button')(({ theme }) => ({
     transform: 'scale(1)',
   },
   '&:hover div img:first-child': {
-    transition: 'transform 11s easy-in-out',
     transform: 'scale(80)',
     zIndex: '-1'
   },
@@ -155,7 +153,7 @@ const Header = () => {
 
   const scaleStar = () => {
     if (ref.current) {
-      ref.current.style.animation = 'pulse 0.5s alternate';
+      ref.current.style.animation = `pulse 0.5s alternate`;
       setTimeout(() => {
         ref.current ? ref.current.style.animation = '' : '';
       }, 500);

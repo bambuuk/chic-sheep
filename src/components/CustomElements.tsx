@@ -9,8 +9,15 @@ export const CustomContainer = styled('div')({
   borderRight: '1px solid #4f4f4f',
 });
 
-export const Section = styled('section')({
+export const Section = styled('section')(({ theme }) => ({
+  width: '100%',
   maxWidth: '1920px',
   padding: '0 110px',
   borderBottom: '1px solid #4f4f4f',
-});
+  [theme.breakpoints.down("xl")]: {
+    padding: "0 50px",
+  },
+  [theme.breakpoints.down(1280)]: {
+    padding: "0 30px",
+  },
+}));
