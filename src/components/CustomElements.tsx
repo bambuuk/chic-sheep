@@ -18,6 +18,9 @@ export const Section = styled('section')(({ theme }) => ({
     padding: "0 50px",
   },
   [theme.breakpoints.down(1280)]: {
+    padding: "0 46px",
+  },
+  [theme.breakpoints.down(768)]: {
     padding: "0 30px",
   },
 }));

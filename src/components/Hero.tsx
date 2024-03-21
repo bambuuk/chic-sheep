@@ -1,8 +1,6 @@
 'use client';
 import { Box, styled } from '@mui/material';
 import { CustomContainer, Section } from './CustomElements';
-import Image from 'next/image';
-import mainImg from '/public/images/heroSheep.png';
 import Button from './Button';
 
 const HeroUI = styled(Section)(({ }) => ({}));
@@ -11,28 +9,21 @@ const CustomizedContainer = styled(CustomContainer)(({ }) => ({
   position: 'relative',
 }));
 
-const LineBox = styled('div')(({ }) => ({
+const LineBox = styled('div')(({ theme }) => ({
   position: 'absolute',
   width: '100%',
   height: '100%',
   zIndex: '-10',
   display: 'grid',
   gridTemplateColumns: 'repeat(3, 1fr)',
+  [theme.breakpoints.down(991)]: {
+    display: 'none',
+  },
 }));
 
 const DefaultLineBlock = styled('div')(({ }) => ({
   width: '100%',
   height: '100%',
-}));
-
-const TitleDescr = styled('p')(({ theme }) => ({
-  paddingTop: '238.5px',
-  fontFamily: theme.typography.fontFamily,
-  fontWeight: 300,
-  fontSize: '26px',
-  color: '#bbb',
-  maxWidth: '495px',
-  width: '100%',
 }));
 
 const MainLineBlock = styled('div')(({ }) => ({
@@ -59,11 +50,112 @@ const Title = styled('h1')(({ theme }) => ({
   fontSize: '354px',
   lineHeight: '100%',
   color: '#fff',
+  [theme.breakpoints.down(1920)]: {
+    fontSize: '335px',
+    left: '-3px',
+  },
+  [theme.breakpoints.down(1700)]: {
+    fontSize: '265px',
+    lineHeight: '90%',
+    left: '-5px',
+  },
+  [theme.breakpoints.down(1500)]: {
+    fontSize: '240px',
+    lineHeight: '97%',
+  },
+  [theme.breakpoints.down(1280)]: {
+    fontSize: '190px',
+  },
+  [theme.breakpoints.down(991)]: {
+    fontSize: '144px',
+    marginTop: '100px',
+  },
+  [theme.breakpoints.down(768)]: {
+    fontSize: '105px',
+    marginTop: '80px',
+  },
+  [theme.breakpoints.down(576)]: {
+    fontSize: '53px',
+    lineHeight: '86%',
+    left: '-3px',
+  },
+}));
+
+const TitleDescr = styled('p')(({ theme }) => ({
+  paddingTop: '238.5px',
+  fontFamily: theme.typography.fontFamily,
+  fontWeight: 300,
+  fontSize: '26px',
+  color: '#bbb',
+  maxWidth: '495px',
+  width: '100%',
+  [theme.breakpoints.down(1700)]: {
+    fontSize: '22px',
+    maxWidth: '395px',
+    paddingTop: '180px',
+  },
+  [theme.breakpoints.down(1280)]: {
+    fontSize: '16px',
+    maxWidth: '275px',
+    paddingTop: '150px',
+  },
+}));
+
+const TabletTitleDescr = styled('p')(({ theme }) => ({
+  display: 'none',
+  marginTop: '30px',
+  fontFamily: theme.typography.fontFamily,
+  fontWeight: 300,
+  fontSize: '24px',
+  color: '#bbb',
+  maxWidth: '552px',
+  width: '100%',
+  [theme.breakpoints.down(1280)]: {
+    fontSize: '24px',
+  },
+  [theme.breakpoints.down(991)]: {
+    display: 'block'
+  },
+  [theme.breakpoints.down(768)]: {
+    maxWidth: 'auto',
+    fontSize: '22px',
+  },
+  [theme.breakpoints.down(576)]: {
+    marginTop: '25px',
+    maxWidth: 'auto',
+    fontSize: '20px',
+  },
 }));
 
 const SpecialColor = styled('span')(({ }) => ({
   color: '#efad26',
   flexShrink: 1,
+}));
+
+const MainImg = styled('img')(({ theme }) => ({
+  marginTop: '58px',
+  display: 'block',
+  maxWidth: '1920px',
+  width: '100%',
+  objectFit: 'cover',
+  [theme.breakpoints.down(991)]: {
+    marginTop: '32px',
+    minHeight: '432px',
+    borderRadius: '30px'
+  },
+  [theme.breakpoints.down(768)]: {
+    marginTop: '32px',
+    minHeight: '380px',
+    borderRadius: '30px'
+  },
+  [theme.breakpoints.down(576)]: {
+    marginTop: '30px',
+    minHeight: '300px',
+  },
+  [theme.breakpoints.down(400)]: {
+    marginTop: '30px',
+    minHeight: '250px',
+  },
 }));
 
 const Hero = () => {
@@ -84,6 +176,7 @@ const Hero = () => {
         <HeroWrapper>
           <Title>
             CHIC
+            <br />
             <Box sx={{ display: 'flex' }}>
               SH
               <SpecialColor>EE</SpecialColor>
@@ -91,15 +184,18 @@ const Hero = () => {
             </Box>
           </Title>
 
-          <Image
-            src={mainImg}
-            width={1700}
-            height={810}
+          <TabletTitleDescr>
+            Step into a world where imagination roams freely among the woolly
+            wonders. Explore, Collect, and Create with Our Unique NFT Sheeps.
+          </TabletTitleDescr>
+
+          <MainImg
+            src='/images/heroSheep.png'
             alt="Sheep"
           />
 
           <Box sx={{ marginTop: '60px', maxWidth: '1700px', width: '100%' }}>
-            <Button text={'Start your sheepish journey now'} />
+            <Button text={'Start your sheepish journey'} />
           </Box>
         </HeroWrapper>
       </CustomizedContainer>

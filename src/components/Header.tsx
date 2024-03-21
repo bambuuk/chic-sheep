@@ -16,6 +16,9 @@ const HeaderUI = styled('header')(({ theme }) => ({
     padding: "0 50px",
   },
   [theme.breakpoints.down(1280)]: {
+    padding: "0 46px",
+  },
+  [theme.breakpoints.down(768)]: {
     padding: "0 30px",
   },
 }));
@@ -55,8 +58,8 @@ const NavigationList = styled("ul")(({ theme }) => ({
   [theme.breakpoints.down('xl')]: {
     gap: '40px',
   },
-  [theme.breakpoints.down('xl')]: {
-    gap: '30px',
+  [theme.breakpoints.down(1280)]: {
+    gap: '20px',
   }
 }));
 
@@ -70,6 +73,9 @@ const NavigationItem = styled("li")(({ theme }) => ({
   transition: 'color 0.3s',
   '&:hover': {
     color: '#fbb41a',
+  },
+  [theme.breakpoints.down(1280)]: {
+    fontSize: "16px",
   }
 }));
 

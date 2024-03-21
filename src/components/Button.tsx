@@ -3,7 +3,7 @@ import Image from "next/image";
 import star from '/public/images/icons/yellowStar.svg';
 import useControlButton from "@/hooks/useControlButton";
 
-const ButtonUI = styled('button')(({ theme }) => ({
+const LargeButton = styled('button')(({ theme }) => ({
   width: '100%',
   height: '117px',
   border: '3px solid #fff',
@@ -43,34 +43,89 @@ const ButtonUI = styled('button')(({ theme }) => ({
   '&:hover div img:first-child': {
     transform: 'scale(180)',
   },
-  [theme.breakpoints.down(1550)]: {
-    padding: '8px 40px',
+  [theme.breakpoints.down(1700)]: {
+    height: '100px',
   },
-  [theme.breakpoints.down(1280)]: {
-    padding: '15px 30px',
-    border: '2px solid #fff',
+  [theme.breakpoints.down(1500)]: {
+    height: '90px',
   },
   [theme.breakpoints.down(1024)]: {
-    display: "none",
+    height: '80px',
+  },
+  [theme.breakpoints.down(768)]: {
+    height: '70px',
+  },
+  [theme.breakpoints.down(576)]: {
+    height: '66px',
+    padding: '0 10px',
   },
 }));
 
-const ButtonBox = styled('div')(({ }) => ({
+const LargeButtonBox = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
-  gap: '10px',
+  gap: '25px',
+  [theme.breakpoints.down(1280)]: {
+    gap: '20px',
+  },
+  [theme.breakpoints.down(991)]: {
+    gap: '10px',
+  },
+  [theme.breakpoints.down(576)]: {
+    gap: '5px',
+  },
 }));
 
-const ButtonText = styled('span')(({ theme }) => ({
+const LargeButtonText = styled('span')(({ theme }) => ({
   fontFamily: theme.typography.secondFamily,
   fontWeight: 400,
   fontSize: '50px',
-  lineHeight: '0',
   color: '#fff',
+  [theme.breakpoints.down(1700)]: {
+    fontSize: '40px',
+  },
+  [theme.breakpoints.down(1500)]: {
+    fontSize: '30px',
+  },
   [theme.breakpoints.down(1280)]: {
-    fontSize: '18px',
-    lineHeight: '0',
-  }
+    fontSize: '25px',
+  },
+  [theme.breakpoints.down(991)]: {
+    fontSize: '24px',
+  },
+  [theme.breakpoints.down(768)]: {
+    fontSize: '16px',
+  },
+  [theme.breakpoints.down(576)]: {
+    fontSize: '13px',
+  },
+}));
+
+const Star = styled(Image)(({ theme }) => ({
+  display: 'block',
+  width: '47px',
+  height: '47px',
+  objectFit: 'cover',
+  [theme.breakpoints.down(1700)]: {
+    width: '40px',
+    height: '40px',
+  },
+  [theme.breakpoints.down(1500)]: {
+    width: '38px',
+    height: '38px',
+  },
+  [theme.breakpoints.down(1280)]: {
+    width: '30px',
+    height: '30px',
+  },
+  [theme.breakpoints.down(991)]: {
+    width: '26px',
+    height: '26px',
+  },
+  [theme.breakpoints.down(768)]: {
+    width: '18px',
+    height: '18px',
+  },
 }));
 
 interface ButtonProps {
@@ -81,26 +136,26 @@ const Button = ({ text }: ButtonProps) => {
   const { ref, scaleStar } = useControlButton({ type: 'large' });
 
   return (
-    <ButtonUI
+    <LargeButton
       onMouseLeave={scaleStar}
     >
-      <ButtonBox>
-        <Image
+      <LargeButtonBox>
+        <Star
           ref={ref}
           src={star}
           width={47}
           height={47}
           alt="star"
         />
-        <ButtonText>{text}</ButtonText>
-        <Image
+        <LargeButtonText>{text}</LargeButtonText>
+        <Star
           src={star}
           width={47}
           height={47}
           alt="star"
         />
-      </ButtonBox>
-    </ButtonUI>
+      </LargeButtonBox>
+    </LargeButton>
   )
 }
 
