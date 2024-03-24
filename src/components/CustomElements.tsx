@@ -24,3 +24,27 @@ export const Section = styled('section')(({ theme }) => ({
     padding: "0 30px",
   },
 }));
+
+export const LineBox = styled('div')(({ theme }) => ({
+  position: 'absolute',
+  width: '100%',
+  height: '100%',
+  zIndex: '-10',
+  display: 'grid',
+  gridTemplateColumns: 'repeat(3, 1fr)',
+  [theme.breakpoints.down(991)]: {
+    display: 'none',
+  },
+}));
+
+export const DefaultLineBlock = styled('div')(({ }) => ({
+  width: '100%',
+  height: '100%',
+}));
+
+export const MainLineBlock = styled('div')(({ }) => ({
+  width: '100%',
+  height: '100%',
+  borderLeft: '1px solid #4f4f4f',
+  borderRight: '1px solid #4f4f4f',
+}));

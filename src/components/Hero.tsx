@@ -1,6 +1,6 @@
 'use client';
 import { Box, styled } from '@mui/material';
-import { CustomContainer, Section } from './CustomElements';
+import { CustomContainer, DefaultLineBlock, LineBox, MainLineBlock, Section } from './CustomElements';
 import Button from './Button';
 
 const HeroUI = styled(Section)(({ }) => ({}));
@@ -9,33 +9,16 @@ const CustomizedContainer = styled(CustomContainer)(({ }) => ({
   position: 'relative',
 }));
 
-const LineBox = styled('div')(({ theme }) => ({
-  position: 'absolute',
-  width: '100%',
-  height: '100%',
-  zIndex: '-10',
-  display: 'grid',
-  gridTemplateColumns: 'repeat(3, 1fr)',
-  [theme.breakpoints.down(991)]: {
-    display: 'none',
-  },
-}));
-
-const DefaultLineBlock = styled('div')(({ }) => ({
-  width: '100%',
-  height: '100%',
-}));
-
-const MainLineBlock = styled('div')(({ }) => ({
-  width: '100%',
-  height: '100%',
-  borderLeft: '1px solid #4f4f4f',
-  borderRight: '1px solid #4f4f4f',
-}));
-
-const HeroWrapper = styled('div')(({ }) => ({
+const HeroWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
+  paddingBottom: '150px',
+  [theme.breakpoints.down(991)]: {
+    paddingBottom: '119.5px',
+  },
+  [theme.breakpoints.down(768)]: {
+    paddingBottom: '89.5px',
+  },
 }));
 
 const Title = styled('h1')(({ theme }) => ({
