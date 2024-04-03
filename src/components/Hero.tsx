@@ -7,6 +7,7 @@ const HeroUI = styled(Section)(({ }) => ({}));
 
 const CustomizedContainer = styled(CustomContainer)(({ }) => ({
   position: 'relative',
+  zIndex: '100'
 }));
 
 const HeroWrapper = styled('div')(({ theme }) => ({
