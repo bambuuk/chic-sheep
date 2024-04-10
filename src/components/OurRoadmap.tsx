@@ -54,6 +54,19 @@ const StageItem = styled('li')(({ theme }) => ({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
+  transition: 'all 0.3s',
+  [theme.breakpoints.down(1700)]: {
+    padding: '30px 47px',
+  },
+  '&:hover': {
+    backgroundColor: '#fbb41a',
+  },
+  '&:hover > :first-of-type': {
+    color: 'black',
+  },
+  '&:hover > :last-child': {
+    color: '#1b1b1b',
+  },
 }));
 
 const StageSubtitle = styled('div')(({ theme }) => ({
@@ -78,8 +91,8 @@ const StageDescription = styled('div')(({ theme }) => ({
   maxWidth: '598px',
   width: '100%',
   [theme.breakpoints.down(1700)]: {
-    maxWidth: '500px',
-    fontSize: '22px'
+    maxWidth: '450px',
+    fontSize: '20px'
   },
 }));
 
