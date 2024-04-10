@@ -64,7 +64,8 @@ const StageItem = styled('li')(({ theme }) => ({
   justifyContent: 'space-between',
   alignItems: 'center',
   transition: 'all 0.3s',
-  [theme.breakpoints.down(1700)]: {
+  cursor: 'pointer',
+  [theme.breakpoints.down(1920)]: {
     padding: '30px 47px',
   },
   '&:hover': {
@@ -91,7 +92,7 @@ const StageSubtitle = styled('div')(({ theme }) => ({
   maxWidth: '440px',
   width: '100%',
   [theme.breakpoints.down(1700)]: {
-    maxWidth: '400px',
+    maxWidth: '360px',
     fontSize: '37.5px'
   },
 }));
@@ -109,12 +110,24 @@ const StageDescription = styled('div')(({ theme }) => ({
   },
 }));
 
-const StageImage = styled(Image)(({ }) => ({
+const StageImage = styled(Image)(({ theme }) => ({
   position: 'absolute',
   top: '-68%',
   left: '50%',
   transform: 'translateX(-70%)',
-  opacity: '0'
+  opacity: '0',
+  [theme.breakpoints.down(1920)]: {
+    width: '300px',
+    height: '300px',
+    transform: 'translateX(-82%)',
+    top: '-60%',
+  },
+  [theme.breakpoints.down(1700)]: {
+    width: '290px',
+    height: '290px',
+    transform: 'translateX(-79%)',
+    top: '-80%',
+  },
 }));
 
 const OurRoadmap = () => {
@@ -144,20 +157,6 @@ const OurRoadmap = () => {
                 </StageItem>
               )
             })}
-            {/* <StageItem>
-              <StageSubtitle>Community Engagement</StageSubtitle>
-              <StageImage
-                src='/images/roadmap/blockchain-integration.png'
-                width={345}
-                height={345}
-                alt="Sheep"
-              />
-              <StageDescription>
-                Our journey began with visionary artists shaping unique Sheep designs.
-                Using cutting-edge tools, we brought your Chic Sheeps to life.
-              </StageDescription>
-            </StageItem> */}
-
           </Stages>
         </ContentWrapper>
       </CustomizedContainer>
