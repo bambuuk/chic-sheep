@@ -1,4 +1,4 @@
-const roadmap = [
+export const roadmap = [
   {
     title: "Concept & Creation",
     description:

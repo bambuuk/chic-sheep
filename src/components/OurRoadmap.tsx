@@ -1,6 +1,14 @@
 'use client';
 import { styled } from "@mui/material";
-import { Section, CustomContainer, LineBox, DefaultLineBlock, MainLineBlock } from "./CustomElements";
+import {
+  Section,
+  CustomContainer,
+  LineBox,
+  DefaultLineBlock,
+  MainLineBlock
+} from "./CustomElements";
+import Image from "next/image";
+import { roadmap } from "@/asserts/data";
 
 const CustomizedContainer = styled(CustomContainer)(({ theme }) => ({
   position: 'relative',
@@ -46,6 +54,7 @@ const Stages = styled('ul')(({ theme }) => ({
 }));
 
 const StageItem = styled('li')(({ theme }) => ({
+  position: 'relative',
   width: '100%',
   borderRadius: '50px',
   padding: '39px 62px',
@@ -66,6 +75,10 @@ const StageItem = styled('li')(({ theme }) => ({
   },
   '&:hover > :last-child': {
     color: '#1b1b1b',
+  },
+  '&:hover img': {
+    transition: 'all 0.4s',
+    opacity: '1',
   },
 }));
 
@@ -96,6 +109,14 @@ const StageDescription = styled('div')(({ theme }) => ({
   },
 }));
 
+const StageImage = styled(Image)(({ }) => ({
+  position: 'absolute',
+  top: '-68%',
+  left: '50%',
+  transform: 'translateX(-70%)',
+  opacity: '0'
+}));
+
 const OurRoadmap = () => {
   return (
     <Section>
@@ -109,34 +130,34 @@ const OurRoadmap = () => {
         <ContentWrapper>
           <Title>OUR Roadmap</Title>
           <Stages>
-            <StageItem>
+            {roadmap.map(({ id, title, description, img }) => {
+              return (
+                <StageItem key={id}>
+                  <StageSubtitle>{title}</StageSubtitle>
+                  <StageImage
+                    src={img}
+                    width={345}
+                    height={345}
+                    alt="Sheep"
+                  />
+                  <StageDescription>{description}</StageDescription>
+                </StageItem>
+              )
+            })}
+            {/* <StageItem>
               <StageSubtitle>Community Engagement</StageSubtitle>
+              <StageImage
+                src='/images/roadmap/blockchain-integration.png'
+                width={345}
+                height={345}
+                alt="Sheep"
+              />
               <StageDescription>
                 Our journey began with visionary artists shaping unique Sheep designs.
                 Using cutting-edge tools, we brought your Chic Sheeps to life.
               </StageDescription>
-            </StageItem>
-            <StageItem>
-              <StageSubtitle>Concept & Creation</StageSubtitle>
-              <StageDescription>
-                Our journey began with visionary artists shaping unique Sheep designs.
-                Using cutting-edge tools, we brought your Chic Sheeps to life.
-              </StageDescription>
-            </StageItem>
-            <StageItem>
-              <StageSubtitle>Concept & Creation</StageSubtitle>
-              <StageDescription>
-                Our journey began with visionary artists shaping unique Sheep designs.
-                Using cutting-edge tools, we brought your Chic Sheeps to life.
-              </StageDescription>
-            </StageItem>
-            <StageItem>
-              <StageSubtitle>Concept & Creation</StageSubtitle>
-              <StageDescription>
-                Our journey began with visionary artists shaping unique Sheep designs.
-                Using cutting-edge tools, we brought your Chic Sheeps to life.
-              </StageDescription>
-            </StageItem>
+            </StageItem> */}
+
           </Stages>
         </ContentWrapper>
       </CustomizedContainer>
