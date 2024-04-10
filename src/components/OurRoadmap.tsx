@@ -68,6 +68,9 @@ const StageItem = styled('li')(({ theme }) => ({
   [theme.breakpoints.down(1920)]: {
     padding: '30px 47px',
   },
+  [theme.breakpoints.down(1280)]: {
+    padding: '30px',
+  },
   '&:hover': {
     backgroundColor: '#fbb41a',
   },
@@ -95,6 +98,10 @@ const StageSubtitle = styled('div')(({ theme }) => ({
     maxWidth: '360px',
     fontSize: '37.5px'
   },
+  [theme.breakpoints.down(1280)]: {
+    maxWidth: '270px',
+    fontSize: '28px'
+  },
 }));
 
 const StageDescription = styled('div')(({ theme }) => ({
@@ -107,6 +114,10 @@ const StageDescription = styled('div')(({ theme }) => ({
   [theme.breakpoints.down(1700)]: {
     maxWidth: '450px',
     fontSize: '20px'
+  },
+  [theme.breakpoints.down(1280)]: {
+    maxWidth: '350px',
+    fontSize: '18px'
   },
 }));
 
@@ -127,6 +138,18 @@ const StageImage = styled(Image)(({ theme }) => ({
     height: '290px',
     transform: 'translateX(-79%)',
     top: '-80%',
+  },
+  [theme.breakpoints.down(1500)]: {
+    width: '260px',
+    height: '260px',
+    transform: 'translateX(-79%)',
+    top: '-57%',
+  },
+  [theme.breakpoints.down(1280)]: {
+    width: '200px',
+    height: '200px',
+    transform: 'translateX(-79%)',
+    top: '-30%',
   },
 }));
 
