@@ -8,6 +8,7 @@ import {
   MainLineBlock
 } from "./CustomElements";
 import Image from "next/image";
+import useMediaQuery from "@/hooks/useMediaquery";
 import { roadmap } from "@/asserts/data";
 
 const CustomizedContainer = styled(CustomContainer)(({ theme }) => ({
@@ -19,6 +20,10 @@ const CustomizedContainer = styled(CustomContainer)(({ theme }) => ({
   overflow: 'hidden',
   [theme.breakpoints.down(1700)]: {
     paddingTop: '75.5px',
+  },
+  [theme.breakpoints.down(991)]: {
+    paddingTop: '120.5px',
+    top: '0',
   },
 }));
 
@@ -40,6 +45,9 @@ const Title = styled('h2')(({ theme }) => ({
   [theme.breakpoints.down(1700)]: {
     fontSize: '105px'
   },
+  [theme.breakpoints.down(991)]: {
+    fontSize: '90px'
+  },
 }));
 
 const Stages = styled('ul')(({ theme }) => ({
@@ -50,6 +58,10 @@ const Stages = styled('ul')(({ theme }) => ({
   width: '100%',
   [theme.breakpoints.down(1700)]: {
     marginTop: '114px'
+  },
+  [theme.breakpoints.down(991)]: {
+    marginTop: '60px',
+    gap: '60px',
   },
 }));
 
@@ -70,6 +82,11 @@ const StageItem = styled('li')(({ theme }) => ({
   },
   [theme.breakpoints.down(1280)]: {
     padding: '30px',
+  },
+  [theme.breakpoints.down(991)]: {
+    padding: '31px 31px 40px 31px',
+    flexDirection: 'column',
+    justifyContent: 'initial',
   },
   '&:hover': {
     backgroundColor: '#fbb41a',
@@ -102,12 +119,20 @@ const StageSubtitle = styled('div')(({ theme }) => ({
     maxWidth: '270px',
     fontSize: '28px'
   },
+  [theme.breakpoints.down(991)]: {
+    fontSize: '28px',
+    lineHeight: '136%',
+    maxWidth: '100%',
+    textAlign: 'start',
+    marginTop: '25px',
+  },
 }));
 
 const StageDescription = styled('div')(({ theme }) => ({
   fontFamily: theme.typography.fontFamily,
   fontWeight: 300,
   fontSize: '26px',
+  lineHeight: 'normal',
   color: '#bbb',
   maxWidth: '598px',
   width: '100%',
@@ -118,6 +143,12 @@ const StageDescription = styled('div')(({ theme }) => ({
   [theme.breakpoints.down(1280)]: {
     maxWidth: '350px',
     fontSize: '18px'
+  },
+  [theme.breakpoints.down(991)]: {
+    fontSize: '24px',
+    maxWidth: '100%',
+    textAlign: 'start',
+    marginTop: '15px',
   },
 }));
 
@@ -149,11 +180,26 @@ const StageImage = styled(Image)(({ theme }) => ({
     width: '200px',
     height: '200px',
     transform: 'translateX(-79%)',
-    top: '-30%',
+    top: '-20%',
+  },
+  [theme.breakpoints.down(991)]: {
+    order: -1,
+    width: '100%',
+    maxHeight: '439px',
+    height: '100%',
+    objectFit: 'cover',
+    transform: 'translateX(0)',
+    top: '0',
+    left: '0',
+    position: 'static',
+    opacity: '1',
+    borderRadius: '30px'
   },
 }));
 
 const OurRoadmap = () => {
+  const { isTablet } = useMediaQuery();
+
   return (
     <Section>
       <CustomizedContainer>
@@ -166,12 +212,12 @@ const OurRoadmap = () => {
         <ContentWrapper>
           <Title>OUR Roadmap</Title>
           <Stages>
-            {roadmap.map(({ id, title, description, img }) => {
+            {roadmap.map(({ id, title, description, img, imgTablet }) => {
               return (
                 <StageItem key={id}>
                   <StageSubtitle>{title}</StageSubtitle>
                   <StageImage
-                    src={img}
+                    src={isTablet ? imgTablet : img}
                     width={345}
                     height={345}
                     alt="Sheep"
