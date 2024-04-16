@@ -25,6 +25,9 @@ const CustomizedContainer = styled(CustomContainer)(({ theme }) => ({
     paddingTop: '120.5px',
     top: '0',
   },
+  [theme.breakpoints.down(576)]: {
+    paddingTop: '85.5px',
+  },
 }));
 
 const ContentWrapper = styled('div')(({ theme }) => ({
@@ -33,6 +36,9 @@ const ContentWrapper = styled('div')(({ theme }) => ({
   flexDirection: 'column',
   [theme.breakpoints.down(1700)]: {
     marginTop: '144px',
+  },
+  [theme.breakpoints.down(991)]: {
+    marginTop: '0',
   },
 }));
 
@@ -48,6 +54,10 @@ const Title = styled('h2')(({ theme }) => ({
   [theme.breakpoints.down(991)]: {
     fontSize: '90px'
   },
+  [theme.breakpoints.down(576)]: {
+    fontSize: '44px',
+    lineHeight: '121 %',
+  },
 }));
 
 const Stages = styled('ul')(({ theme }) => ({
@@ -62,6 +72,10 @@ const Stages = styled('ul')(({ theme }) => ({
   [theme.breakpoints.down(991)]: {
     marginTop: '60px',
     gap: '60px',
+  },
+  [theme.breakpoints.down(576)]: {
+    marginTop: '40px',
+    gap: '30px',
   },
 }));
 
@@ -87,6 +101,9 @@ const StageItem = styled('li')(({ theme }) => ({
     padding: '31px 31px 40px 31px',
     flexDirection: 'column',
     justifyContent: 'initial',
+  },
+  [theme.breakpoints.down(576)]: {
+    padding: '20px 20px 30px 20px',
   },
   '&:hover': {
     backgroundColor: '#fbb41a',
@@ -126,6 +143,11 @@ const StageSubtitle = styled('div')(({ theme }) => ({
     textAlign: 'start',
     marginTop: '25px',
   },
+  [theme.breakpoints.down(576)]: {
+    fontSize: '20px',
+    lineHeight: '150%',
+    marginTop: '15px',
+  },
 }));
 
 const StageDescription = styled('div')(({ theme }) => ({
@@ -149,6 +171,10 @@ const StageDescription = styled('div')(({ theme }) => ({
     maxWidth: '100%',
     textAlign: 'start',
     marginTop: '15px',
+  },
+  [theme.breakpoints.down(576)]: {
+    fontSize: '18px',
+    marginTop: '10px',
   },
 }));
 
