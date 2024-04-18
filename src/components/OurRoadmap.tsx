@@ -8,7 +8,7 @@ import {
   MainLineBlock
 } from "./CustomElements";
 import Image from "next/image";
-import useMediaQuery from "@/hooks/useMediaquery";
+import useMediaQuery from "@/hooks/useMediaQuery";
 import { roadmap } from "@/asserts/data";
 
 const CustomizedContainer = styled(CustomContainer)(({ theme }) => ({
@@ -211,7 +211,7 @@ const StageImage = styled(Image)(({ theme }) => ({
   [theme.breakpoints.down(991)]: {
     order: -1,
     width: '100%',
-    maxHeight: '439px',
+    maxHeight: '10%',
     height: '100%',
     objectFit: 'cover',
     transform: 'translateX(0)',
