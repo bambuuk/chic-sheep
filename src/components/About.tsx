@@ -1,5 +1,5 @@
 'use client';
-import { Box, styled } from "@mui/material";
+import { styled } from "@mui/material";
 import { Section, CustomContainer, LineBox, DefaultLineBlock, MainLineBlock } from "./CustomElements";
 
 const CustomizedContainer = styled(CustomContainer)(({ }) => ({

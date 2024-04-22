@@ -10,7 +10,7 @@ const useControlButton = ({ type }: UseControlButtonProps) => {
   const scaleStar = () => {
     if (ref.current) {
       ref.current.style.animation = `${
-        type === "large" ? "largePulse" : "pulse"
+        type === "large" ? "largePulse" : "normal" ? "pulse" : "pulse"
       } 0.5s alternate`;
       setTimeout(() => {
         ref.current ? (ref.current.style.animation = "") : "";
