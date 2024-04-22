@@ -9,6 +9,7 @@ import {
 } from "./CustomElements";
 import Image from "next/image";
 import CardButton from "./CardButton";
+import { stareSheep } from "@/asserts/data";
 
 const CustomizedContainer = styled(CustomContainer)(({ }) => ({
   position: 'relative',
@@ -135,7 +136,6 @@ const SheepFeatures = styled('div')(({ }) => ({
 const SheepFeature = styled('div')(({ theme }) => ({
   borderRadius: '50px',
   padding: '8px 20px',
-  width: '112px',
   height: '40px',
   background: '#bfddfa',
   fontFamily: theme.typography.fontFamily,
@@ -144,6 +144,7 @@ const SheepFeature = styled('div')(({ theme }) => ({
   lineHeight: '118%',
   color: '#141414',
   textTransform: 'capitalize',
+  textAlign: 'center'
 }));
 
 const StareSheep = () => {
@@ -165,7 +166,46 @@ const StareSheep = () => {
             </Title>
 
             <SheepList>
-              <SheepItem>
+              {stareSheep.map(({ title, description, features, bgColor, textColor, img }) => {
+                return (
+                  <SheepItem key={title}>
+                    <SheepImg
+                      src={img}
+                      width={815}
+                      height={835}
+                      alt="Sheep"
+                    />
+                    <SecondBlock>
+                      <SheepTitle>{title}</SheepTitle>
+
+                      <SheepDescr>{description}</SheepDescr>
+
+                      <SheepFeatures>
+                        {features.map((item) => {
+                          return (
+                            <SheepFeature
+                              key={item}
+                              sx={{ backgroundColor: bgColor, fontSize: textColor }}
+                            >
+                              {item}
+                            </SheepFeature>
+                          )
+                        })}
+                        {/* <SheepFeature>Actress</SheepFeature>
+                        <SheepFeature>Creator</SheepFeature>
+                        <SheepFeature>elegant</SheepFeature> */}
+                      </SheepFeatures>
+
+                      <Box sx={{ marginTop: '45px', maxWidth: '419px', width: '100%' }}>
+                        <CardButton
+                          text={'BUY a Sheep'}
+                        />
+                      </Box>
+                    </SecondBlock>
+                  </SheepItem>
+                )
+              })}
+              {/* <SheepItem>
                 <SheepImg
                   src='/images/stareSheep/eleanor.png'
                   width={815}
@@ -188,19 +228,11 @@ const StareSheep = () => {
                   </SheepFeatures>
 
                   <Box sx={{ marginTop: '45px', maxWidth: '419px', width: '100%' }}>
-                    <CardButton text={'BUY a Sheep'} />
+                    <CardButton text={'BUY a Sheep'} bgColor={'#141414'} textColor={'#62b8b9'} />
                   </Box>
                 </SecondBlock>
               </SheepItem>
-
-              <SheepItem>
-                <SheepImg
-                  src='/images/stareSheep/eleanor.png'
-                  width={815}
-                  height={835}
-                  alt="Sheep"
-                />
-              </SheepItem>
+              */}
 
             </SheepList>
           </SectionWrapper>
