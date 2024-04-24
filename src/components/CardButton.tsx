@@ -56,6 +56,9 @@ const ButtonText = styled('span')(({ theme }) => ({
   color: '#fff',
   position: 'relative',
   zIndex: '10',
+  [theme.breakpoints.down(1280)]: {
+    fontSize: '20px',
+  },
   [theme.breakpoints.down(576)]: {
     fontSize: '13px',
   },

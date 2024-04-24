@@ -21,7 +21,7 @@ const CustomizedContainer = styled(CustomContainer)(({ theme }) => ({
   [theme.breakpoints.down(1700)]: {
     paddingTop: '75.5px',
   },
-  [theme.breakpoints.down(991)]: {
+  [theme.breakpoints.down(1024)]: {
     paddingTop: '120.5px',
     top: '0',
   },
@@ -37,7 +37,7 @@ const ContentWrapper = styled('div')(({ theme }) => ({
   [theme.breakpoints.down(1700)]: {
     marginTop: '144px',
   },
-  [theme.breakpoints.down(991)]: {
+  [theme.breakpoints.down(1024)]: {
     marginTop: '0',
   },
 }));
@@ -51,7 +51,7 @@ const Title = styled('h2')(({ theme }) => ({
   [theme.breakpoints.down(1700)]: {
     fontSize: '105px'
   },
-  [theme.breakpoints.down(991)]: {
+  [theme.breakpoints.down(1024)]: {
     fontSize: '90px'
   },
   [theme.breakpoints.down(576)]: {
@@ -69,7 +69,7 @@ const Stages = styled('ul')(({ theme }) => ({
   [theme.breakpoints.down(1700)]: {
     marginTop: '114px'
   },
-  [theme.breakpoints.down(991)]: {
+  [theme.breakpoints.down(1024)]: {
     marginTop: '60px',
     gap: '60px',
   },
@@ -97,7 +97,7 @@ const StageItem = styled('li')(({ theme }) => ({
   [theme.breakpoints.down(1280)]: {
     padding: '30px',
   },
-  [theme.breakpoints.down(991)]: {
+  [theme.breakpoints.down(1024)]: {
     padding: '31px 31px 40px 31px',
     flexDirection: 'column',
     justifyContent: 'initial',
@@ -136,7 +136,7 @@ const StageSubtitle = styled('div')(({ theme }) => ({
     maxWidth: '270px',
     fontSize: '28px'
   },
-  [theme.breakpoints.down(991)]: {
+  [theme.breakpoints.down(1024)]: {
     fontSize: '28px',
     lineHeight: '136%',
     maxWidth: '100%',
@@ -166,7 +166,7 @@ const StageDescription = styled('div')(({ theme }) => ({
     maxWidth: '350px',
     fontSize: '18px'
   },
-  [theme.breakpoints.down(991)]: {
+  [theme.breakpoints.down(1024)]: {
     fontSize: '24px',
     maxWidth: '100%',
     textAlign: 'start',
@@ -208,7 +208,7 @@ const StageImage = styled(Image)(({ theme }) => ({
     transform: 'translateX(-79%)',
     top: '-20%',
   },
-  [theme.breakpoints.down(991)]: {
+  [theme.breakpoints.down(1024)]: {
     order: -1,
     width: '100%',
     maxHeight: '10%',

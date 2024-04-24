@@ -91,7 +91,7 @@ const SheepImg = styled(Image)(({ }) => ({
   objectFit: 'cover',
 }));
 
-const SecondBlock = styled('div')(({ }) => ({
+const SecondBlock = styled('div')(({ theme }) => ({
   backgroundColor: 'rgba(20, 20, 20, 0.8)',
   position: 'absolute',
   top: 0,
@@ -104,6 +104,7 @@ const SecondBlock = styled('div')(({ }) => ({
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
+  padding: '10px',
 }));
 
 const SheepTitle = styled('h3')(({ theme }) => ({
@@ -114,6 +115,12 @@ const SheepTitle = styled('h3')(({ theme }) => ({
   textAlign: 'center',
   color: '#fff',
   textTransform: 'uppercase',
+  [theme.breakpoints.down(1550)]: {
+    fontSize: '37px',
+  },
+  [theme.breakpoints.down(1280)]: {
+    fontSize: '26px',
+  },
 }));
 
 const SheepDescr = styled('p')(({ theme }) => ({
@@ -125,18 +132,25 @@ const SheepDescr = styled('p')(({ theme }) => ({
   color: '#bbb',
   maxWidth: '75%',
   width: '100%',
+  [theme.breakpoints.down(1550)]: {
+    fontSize: '20px',
+  },
+  [theme.breakpoints.down(1280)]: {
+    maxWidth: '90%',
+    fontSize: '18px',
+  },
 }));
 
 const SheepFeatures = styled('div')(({ }) => ({
   display: 'flex',
   gap: '10px',
+  flexWrap: 'wrap',
   marginTop: '25px',
 }));
 
 const SheepFeature = styled('div')(({ theme }) => ({
   borderRadius: '50px',
   padding: '8px 20px',
-  height: '40px',
   background: '#bfddfa',
   fontFamily: theme.typography.fontFamily,
   fontWeight: 400,
@@ -144,7 +158,19 @@ const SheepFeature = styled('div')(({ theme }) => ({
   lineHeight: '118%',
   color: '#141414',
   textTransform: 'capitalize',
-  textAlign: 'center'
+  textAlign: 'center',
+  [theme.breakpoints.down(1280)]: {
+    fontSize: '18px',
+  },
+}));
+
+const ButtonWrapper = styled('div')(({ theme }) => ({
+  marginTop: '45px',
+  maxWidth: '419px',
+  width: '100%',
+  [theme.breakpoints.down(1280)]: {
+    maxWidth: '80%',
+  },
 }));
 
 const StareSheep = () => {
@@ -191,49 +217,17 @@ const StareSheep = () => {
                             </SheepFeature>
                           )
                         })}
-                        {/* <SheepFeature>Actress</SheepFeature>
-                        <SheepFeature>Creator</SheepFeature>
-                        <SheepFeature>elegant</SheepFeature> */}
                       </SheepFeatures>
 
-                      <Box sx={{ marginTop: '45px', maxWidth: '419px', width: '100%' }}>
+                      <ButtonWrapper>
                         <CardButton
                           text={'BUY a Sheep'}
                         />
-                      </Box>
+                      </ButtonWrapper>
                     </SecondBlock>
                   </SheepItem>
                 )
               })}
-              {/* <SheepItem>
-                <SheepImg
-                  src='/images/stareSheep/eleanor.png'
-                  width={815}
-                  height={835}
-                  alt="Sheep"
-                />
-                <SecondBlock>
-                  <SheepTitle>Eleanor the Eloquent</SheepTitle>
-
-                  <SheepDescr>
-                    Eleanor adores the grandeur of theater, the eloquence of poetry, and the enchantment
-                    of the stage. She revels in the rustling of velvety curtains, the scent of vintage
-                    costumes, and the hushed anticipation before the curtains rise.
-                  </SheepDescr>
-
-                  <SheepFeatures>
-                    <SheepFeature>Actress</SheepFeature>
-                    <SheepFeature>Creator</SheepFeature>
-                    <SheepFeature>elegant</SheepFeature>
-                  </SheepFeatures>
-
-                  <Box sx={{ marginTop: '45px', maxWidth: '419px', width: '100%' }}>
-                    <CardButton text={'BUY a Sheep'} bgColor={'#141414'} textColor={'#62b8b9'} />
-                  </Box>
-                </SecondBlock>
-              </SheepItem>
-              */}
-
             </SheepList>
           </SectionWrapper>
         </MainWrapper>

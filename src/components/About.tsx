@@ -8,7 +8,7 @@ const CustomizedContainer = styled(CustomContainer)(({ }) => ({
 
 const MainWrapper = styled('div')(({ theme }) => ({
   paddingTop: '69.5px',
-  [theme.breakpoints.down(991)]: {
+  [theme.breakpoints.down(1024)]: {
     paddingTop: '0',
   },
 }));
@@ -22,7 +22,7 @@ const SectionWrapper = styled('div')(({ theme }) => ({
   [theme.breakpoints.down(1280)]: {
     gap: '50px',
   },
-  [theme.breakpoints.down(991)]: {
+  [theme.breakpoints.down(1024)]: {
     padding: '120.5px 0 120px 0',
     gridTemplateColumns: '1fr',
     gridTemplateRows: 'auto auto',
@@ -45,7 +45,7 @@ const Picture = styled('img')(({ theme }) => ({
     maxWidth: '695px',
     maxHeight: '490px',
   },
-  [theme.breakpoints.down(991)]: {
+  [theme.breakpoints.down(1024)]: {
     gridRowStart: '2',
     maxWidth: '100%',
     maxHeight: '100%',
@@ -63,7 +63,7 @@ const TextBlock = styled('div')(({ theme }) => ({
   [theme.breakpoints.down(1280)]: {
     top: '-15px',
   },
-  [theme.breakpoints.down(991)]: {
+  [theme.breakpoints.down(1024)]: {
     gridRowStart: '1',
     gridRowEnd: '2',
   },
@@ -112,7 +112,7 @@ const Description = styled('p')(({ theme }) => ({
       fontSize: '20px',
     },
   },
-  [theme.breakpoints.down(991)]: {
+  [theme.breakpoints.down(1024)]: {
     '& span': {
       fontSize: '24px',
     },

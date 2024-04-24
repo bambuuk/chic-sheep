@@ -68,7 +68,7 @@ const LargeButtonBox = styled('div')(({ theme }) => ({
   [theme.breakpoints.down(1280)]: {
     gap: '20px',
   },
-  [theme.breakpoints.down(991)]: {
+  [theme.breakpoints.down(1024)]: {
     gap: '10px',
   },
   [theme.breakpoints.down(576)]: {
@@ -90,7 +90,7 @@ const LargeButtonText = styled('span')(({ theme }) => ({
   [theme.breakpoints.down(1280)]: {
     fontSize: '25px',
   },
-  [theme.breakpoints.down(991)]: {
+  [theme.breakpoints.down(1024)]: {
     fontSize: '24px',
   },
   [theme.breakpoints.down(768)]: {
@@ -118,7 +118,7 @@ const Star = styled(Image)(({ theme }) => ({
     width: '30px',
     height: '30px',
   },
-  [theme.breakpoints.down(991)]: {
+  [theme.breakpoints.down(1024)]: {
     width: '26px',
     height: '26px',
   },

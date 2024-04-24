@@ -14,7 +14,7 @@ const HeroWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   paddingBottom: '150px',
-  [theme.breakpoints.down(991)]: {
+  [theme.breakpoints.down(1024)]: {
     paddingBottom: '119.5px',
   },
   [theme.breakpoints.down(768)]: {
@@ -50,7 +50,7 @@ const Title = styled('h1')(({ theme }) => ({
   [theme.breakpoints.down(1280)]: {
     fontSize: '190px',
   },
-  [theme.breakpoints.down(991)]: {
+  [theme.breakpoints.down(1024)]: {
     fontSize: '144px',
     marginTop: '100px',
   },
@@ -97,7 +97,7 @@ const TabletTitleDescr = styled('p')(({ theme }) => ({
   [theme.breakpoints.down(1280)]: {
     fontSize: '24px',
   },
-  [theme.breakpoints.down(991)]: {
+  [theme.breakpoints.down(1024)]: {
     display: 'block'
   },
   [theme.breakpoints.down(768)]: {
@@ -122,7 +122,7 @@ const MainImg = styled('img')(({ theme }) => ({
   maxWidth: '1920px',
   width: '100%',
   objectFit: 'cover',
-  [theme.breakpoints.down(991)]: {
+  [theme.breakpoints.down(1024)]: {
     marginTop: '32px',
     minHeight: '432px',
     borderRadius: '30px'

@@ -33,7 +33,7 @@ export const LineBox = styled('div')(({ theme }) => ({
   zIndex: '-10',
   display: 'grid',
   gridTemplateColumns: 'repeat(3, 1fr)',
-  [theme.breakpoints.down(991)]: {
+  [theme.breakpoints.down(1024)]: {
     display: 'none',
   },
 }));
