@@ -17,7 +17,7 @@ const CustomizedContainer = styled(CustomContainer)(({ }) => ({
 
 const MainWrapper = styled('div')(({ theme }) => ({
   paddingTop: '166.5px',
-  [theme.breakpoints.down(991)]: {
+  [theme.breakpoints.down(1024)]: {
     paddingTop: '0',
   },
 }));
@@ -31,7 +31,7 @@ const SectionWrapper = styled('div')(({ theme }) => ({
   [theme.breakpoints.down(1280)]: {
     gap: '50px',
   },
-  [theme.breakpoints.down(991)]: {
+  [theme.breakpoints.down(1024)]: {
     padding: '120.5px 0 120px 0',
     gridTemplateColumns: '1fr',
     gridTemplateRows: 'auto auto',
@@ -52,7 +52,7 @@ const Title = styled('h2')(({ theme }) => ({
   [theme.breakpoints.down(1700)]: {
     fontSize: '105px'
   },
-  [theme.breakpoints.down(991)]: {
+  [theme.breakpoints.down(1024)]: {
     fontSize: '90px'
   },
   [theme.breakpoints.down(576)]: {
@@ -98,7 +98,7 @@ const SecondBlock = styled('div')(({ theme }) => ({
   left: 0,
   width: '100%',
   height: '100%',
-  borderRadius: '50px',
+  borderRadius: '46px',
   transition: 'all 0.7s ease-in-out',
   display: 'flex',
   flexDirection: 'column',

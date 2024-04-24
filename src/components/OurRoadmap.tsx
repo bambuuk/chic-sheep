@@ -14,6 +14,7 @@ import { roadmap } from "@/asserts/data";
 const CustomizedContainer = styled(CustomContainer)(({ theme }) => ({
   position: 'relative',
   paddingTop: '101.5px',
+  paddingBottom: '72.5px',
   zIndex: 100,
   top: '-1px',
   backgroundColor: '#141414',
@@ -23,6 +24,7 @@ const CustomizedContainer = styled(CustomContainer)(({ theme }) => ({
   },
   [theme.breakpoints.down(1024)]: {
     paddingTop: '120.5px',
+    paddingBottom: '119.5px',
     top: '0',
   },
   [theme.breakpoints.down(576)]: {
