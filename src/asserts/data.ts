@@ -67,7 +67,7 @@ export const stareSheep = [
     features: ["Fashionista", "Designer", "Good girl"],
     bgColor: "#b6346b",
     textColor: "#fff",
-    img: "/images/stareSheep/leo.png",
+    img: "/images/stareSheep/fiona.png",
   },
   {
     title: "Felix the Fearless",

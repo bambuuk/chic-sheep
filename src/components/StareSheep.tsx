@@ -10,6 +10,8 @@ import {
 import Image from "next/image";
 import CardButton from "./CardButton";
 import { stareSheep } from "@/asserts/data";
+import Button from "./Button";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 const CustomizedContainer = styled(CustomContainer)(({ }) => ({
   position: 'relative',
@@ -35,10 +37,11 @@ const SectionWrapper = styled('div')(({ theme }) => ({
     padding: '120.5px 0 120px 0',
     gridTemplateColumns: '1fr',
     gridTemplateRows: 'auto auto',
+    gap: '60px',
   },
   [theme.breakpoints.down(576)]: {
     padding: '90.5px 0 89.5px 0',
-    gap: '30px',
+    gap: '40px',
   },
 }));
 
@@ -46,27 +49,41 @@ const Title = styled('h2')(({ theme }) => ({
   fontFamily: theme.typography.secondFamily,
   fontWeight: 400,
   fontSize: '140px',
-  lineHeight: '111 %',
+  lineHeight: '111%',
   color: '#fff',
   textTransform: 'uppercase',
   [theme.breakpoints.down(1700)]: {
     fontSize: '105px'
   },
   [theme.breakpoints.down(1024)]: {
-    fontSize: '90px'
+    fontSize: '85px'
+  },
+  [theme.breakpoints.down(768)]: {
+    fontSize: '64px',
   },
   [theme.breakpoints.down(576)]: {
     fontSize: '44px',
-    lineHeight: '121 %',
+    lineHeight: '121%',
+  },
+  [theme.breakpoints.down(400)]: {
+    fontSize: '31px',
   },
 }));
 
-const SheepList = styled('div')(({ }) => ({
+const SheepList = styled('div')(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: 'repeat(2, 1fr)',
   gridTemplateRows: 'repeat(auto-fill, 1fr)',
   columnGap: '70px',
   rowGap: '90px',
+  [theme.breakpoints.down(1024)]: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '60px',
+  },
+  [theme.breakpoints.down(576)]: {
+    gap: '40px',
+  },
 }));
 
 const SheepItem = styled('div')(({ }) => ({
@@ -121,12 +138,27 @@ const SheepTitle = styled('h3')(({ theme }) => ({
   [theme.breakpoints.down(1280)]: {
     fontSize: '26px',
   },
+  [theme.breakpoints.down(1024)]: {
+    fontSize: '40px',
+  },
+  [theme.breakpoints.down(768)]: {
+    fontSize: '28px',
+  },
+  [theme.breakpoints.down(576)]: {
+    fontSize: '23px',
+    lineHeight: '148%',
+  },
+  [theme.breakpoints.down(400)]: {
+    fontSize: '16px',
+    lineHeight: '130%',
+  },
 }));
 
 const SheepDescr = styled('p')(({ theme }) => ({
   marginTop: '20px',
   fontFamily: theme.typography.fontFamily,
   fontWeight: 300,
+  lineHeight: 'normal',
   fontSize: '26px',
   textAlign: 'center',
   color: '#bbb',
@@ -139,13 +171,34 @@ const SheepDescr = styled('p')(({ theme }) => ({
     maxWidth: '90%',
     fontSize: '18px',
   },
+  [theme.breakpoints.down(1024)]: {
+    fontSize: '24px',
+  },
+  [theme.breakpoints.down(768)]: {
+    fontSize: '18px',
+  },
+  [theme.breakpoints.down(576)]: {
+    fontSize: '16px',
+    marginTop: '5px',
+    maxWidth: '100%',
+  },
+  [theme.breakpoints.down(400)]: {
+    fontSize: '12px',
+    display: '-webkit-box',
+    WebkitBoxOrient: 'vertical',
+    WebkitLineClamp: 6,
+    overflow: 'hidden',
+  },
 }));
 
-const SheepFeatures = styled('div')(({ }) => ({
+const SheepFeatures = styled('div')(({ theme }) => ({
   display: 'flex',
   gap: '10px',
   flexWrap: 'wrap',
   marginTop: '25px',
+  [theme.breakpoints.down(576)]: {
+    marginTop: '15px',
+  },
 }));
 
 const SheepFeature = styled('div')(({ theme }) => ({
@@ -162,6 +215,16 @@ const SheepFeature = styled('div')(({ theme }) => ({
   [theme.breakpoints.down(1280)]: {
     fontSize: '18px',
   },
+  [theme.breakpoints.down(1024)]: {
+    fontSize: '20px',
+  },
+  [theme.breakpoints.down(768)]: {
+    fontSize: '18px',
+  },
+  [theme.breakpoints.down(576)]: {
+    fontSize: '12px',
+    lineHeight: '196%',
+  },
 }));
 
 const ButtonWrapper = styled('div')(({ theme }) => ({
@@ -171,9 +234,14 @@ const ButtonWrapper = styled('div')(({ theme }) => ({
   [theme.breakpoints.down(1280)]: {
     maxWidth: '80%',
   },
+  [theme.breakpoints.down(576)]: {
+    marginTop: '20px',
+  },
 }));
 
 const StareSheep = () => {
+  const { isSmallMobile } = useMediaQuery();
+
   return (
     <Section>
       <CustomizedContainer>
@@ -206,18 +274,21 @@ const StareSheep = () => {
 
                       <SheepDescr>{description}</SheepDescr>
 
-                      <SheepFeatures>
-                        {features.map((item) => {
-                          return (
-                            <SheepFeature
-                              key={item}
-                              sx={{ backgroundColor: bgColor, fontSize: textColor }}
-                            >
-                              {item}
-                            </SheepFeature>
-                          )
-                        })}
-                      </SheepFeatures>
+                      {
+                        !isSmallMobile ?
+                          <SheepFeatures>
+                            {features.map((item) => {
+                              return (
+                                <SheepFeature
+                                  key={item}
+                                  sx={{ backgroundColor: bgColor, fontSize: textColor }}
+                                >
+                                  {item}
+                                </SheepFeature>
+                              )
+                            })}
+                          </SheepFeatures> : ''
+                      }
 
                       <ButtonWrapper>
                         <CardButton
@@ -229,6 +300,10 @@ const StareSheep = () => {
                 )
               })}
             </SheepList>
+
+            <Box sx={{ marginTop: '60px', maxWidth: '1700px', width: '100%' }}>
+              <Button text={'Start your sheepish journey'} />
+            </Box>
           </SectionWrapper>
         </MainWrapper>
       </CustomizedContainer>

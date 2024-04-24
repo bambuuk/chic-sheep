@@ -37,8 +37,6 @@ const LargeButton = styled('button')(({ theme }) => ({
   '& img': {
     transition: 'transform 0.5s ease-in-out',
     transform: 'scale(1)',
-    position: 'relative',
-    zIndex: '-1'
   },
   '&:hover div img:first-child': {
     transform: 'scale(180)',
@@ -81,6 +79,8 @@ const LargeButtonText = styled('span')(({ theme }) => ({
   fontWeight: 400,
   fontSize: '50px',
   color: '#fff',
+  position: 'relative',
+  zIndex: '10',
   [theme.breakpoints.down(1700)]: {
     fontSize: '40px',
   },
