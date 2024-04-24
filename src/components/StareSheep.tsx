@@ -301,7 +301,7 @@ const StareSheep = () => {
               })}
             </SheepList>
 
-            <Box sx={{ marginTop: '60px', maxWidth: '1700px', width: '100%' }}>
+            <Box sx={{ maxWidth: '1700px', width: '100%' }}>
               <Button text={'Start your sheepish journey'} />
             </Box>
           </SectionWrapper>
