@@ -5,7 +5,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import OurRoadmap from "@/components/OurRoadmap";
 import StareSheep from "@/components/StareSheep";
-import HowToBuy from "@/components/HowToBuy";
+import HowToBuy from "@/components/HowToBuy/HowToBuy";
 
 export default function Home() {
   return (

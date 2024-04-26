@@ -12,7 +12,6 @@ import CardButton from "./CardButton";
 import { stareSheep } from "@/assets/data";
 import Button from "./Button";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import { MouseEvent, useRef } from "react";
 
 const CustomizedContainer = styled(CustomContainer)(({ }) => ({
   position: 'relative',
