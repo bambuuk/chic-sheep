@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import OurRoadmap from "@/components/OurRoadmap";
 import StareSheep from "@/components/StareSheep";
+import HowToBuy from "@/components/HowToBuy";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
           <About />
           <OurRoadmap />
           <StareSheep />
+          <HowToBuy />
         </main>
       </ThemeProvider>
     </>

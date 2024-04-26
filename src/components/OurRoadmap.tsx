@@ -9,7 +9,7 @@ import {
 } from "./CustomElements";
 import Image from "next/image";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import { roadmap } from "@/asserts/data";
+import { roadmap } from "@/assets/data";
 
 const CustomizedContainer = styled(CustomContainer)(({ theme }) => ({
   position: 'relative',

@@ -9,9 +9,10 @@ import {
 } from "./CustomElements";
 import Image from "next/image";
 import CardButton from "./CardButton";
-import { stareSheep } from "@/asserts/data";
+import { stareSheep } from "@/assets/data";
 import Button from "./Button";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import { MouseEvent, useRef } from "react";
 
 const CustomizedContainer = styled(CustomContainer)(({ }) => ({
   position: 'relative',
@@ -96,6 +97,16 @@ const SheepItem = styled('div')(({ }) => ({
     opacity: 0,
     visibility: 'hidden',
   },
+  '& > div > div': {
+    transform: 'translateY(50%)',
+    transition: 'all 0.5s ease-in-out',
+    opacity: 0,
+  },
+  '&:hover > div > div': {
+    transform: 'translateY(0%)',
+    transition: 'all 0.5s ease-in-out',
+    opacity: 1,
+  },
   '&:hover > div': {
     opacity: 1,
     visibility: 'visible',
@@ -117,6 +128,12 @@ const SecondBlock = styled('div')(({ theme }) => ({
   height: '100%',
   borderRadius: '46px',
   transition: 'all 0.7s ease-in-out',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+}));
+
+const SecondBlockWrapper = styled('div')(({ }) => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
@@ -262,7 +279,9 @@ const StareSheep = () => {
             <SheepList>
               {stareSheep.map(({ title, description, features, bgColor, textColor, img }) => {
                 return (
-                  <SheepItem key={title}>
+                  <SheepItem
+                    key={title}
+                  >
                     <SheepImg
                       src={img}
                       width={815}
@@ -270,31 +289,33 @@ const StareSheep = () => {
                       alt="Sheep"
                     />
                     <SecondBlock>
-                      <SheepTitle>{title}</SheepTitle>
+                      <SecondBlockWrapper>
+                        <SheepTitle>{title}</SheepTitle>
 
-                      <SheepDescr>{description}</SheepDescr>
+                        <SheepDescr>{description}</SheepDescr>
 
-                      {
-                        !isSmallMobile ?
-                          <SheepFeatures>
-                            {features.map((item) => {
-                              return (
-                                <SheepFeature
-                                  key={item}
-                                  sx={{ backgroundColor: bgColor, fontSize: textColor }}
-                                >
-                                  {item}
-                                </SheepFeature>
-                              )
-                            })}
-                          </SheepFeatures> : ''
-                      }
+                        {
+                          !isSmallMobile ?
+                            <SheepFeatures>
+                              {features.map((item) => {
+                                return (
+                                  <SheepFeature
+                                    key={item}
+                                    sx={{ backgroundColor: bgColor, fontSize: textColor }}
+                                  >
+                                    {item}
+                                  </SheepFeature>
+                                )
+                              })}
+                            </SheepFeatures> : ''
+                        }
 
-                      <ButtonWrapper>
-                        <CardButton
-                          text={'BUY a Sheep'}
-                        />
-                      </ButtonWrapper>
+                        <ButtonWrapper>
+                          <CardButton
+                            text={'BUY a Sheep'}
+                          />
+                        </ButtonWrapper>
+                      </SecondBlockWrapper>
                     </SecondBlock>
                   </SheepItem>
                 )
