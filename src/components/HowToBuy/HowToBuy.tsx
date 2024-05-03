@@ -7,29 +7,47 @@ import {
 import Image from "next/image";
 import CustomizedAccordions from "./Accordion";
 
-const MainWrapper = styled('div')(({ }) => ({
+const MainWrapper = styled('div')(({ theme }) => ({
   padding: '191.5px 0 220px 0',
   width: '100%',
-  display: 'flex',
-  gap: '60px',
+  display: 'grid',
+  gridTemplateColumns: '52% 1fr',
+  columnGap: '60px',
+  [theme.breakpoints.down(1700)]: {
+    columnGap: '50px',
+  }
 }));
 
 const SheepImg = styled(Image)(({ }) => ({
   width: '100%',
   height: '100%',
-  objectFit: 'cover',
+  objectFit: 'contain',
   position: 'relative',
   left: '-2px',
 }));
 
-const InfoBox = styled('div')(({ }) => ({
+const InfoBox = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   gap: '60px',
-  maxWidth: '780px',
   width: '100%',
   position: 'relative',
-  top: '-25px',
+  top: '-29px',
+  [theme.breakpoints.down(1920)]: {
+    top: '-0',
+    gap: '50px',
+  },
+  [theme.breakpoints.down(1700)]: {
+    gap: '40px',
+    top: '-15px',
+  },
+  [theme.breakpoints.down(1500)]: {
+    top: '-10px',
+  },
+  [theme.breakpoints.down(1280)]: {
+    top: '-0',
+    gap: '20px',
+  },
 }));
 
 const Title = styled('h2')(({ theme }) => ({
@@ -39,6 +57,18 @@ const Title = styled('h2')(({ theme }) => ({
   lineHeight: '111%',
   color: '#fff',
   textTransform: 'uppercase',
+  [theme.breakpoints.down(1920)]: {
+    fontSize: '100px',
+  },
+  [theme.breakpoints.down(1700)]: {
+    fontSize: '90px',
+  },
+  [theme.breakpoints.down(1500)]: {
+    fontSize: '60px',
+  },
+  [theme.breakpoints.down(1280)]: {
+    fontSize: '40px',
+  },
 }));
 
 const HowToBuy = () => {
@@ -54,7 +84,11 @@ const HowToBuy = () => {
           />
 
           <InfoBox>
-            <Title>HOW TO BUY NFT</Title>
+            <Title>
+              HOW TO
+              <br/> 
+              BUY NFT
+            </Title>
             <CustomizedAccordions />
           </InfoBox>
         </MainWrapper>
