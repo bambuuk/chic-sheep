@@ -4,7 +4,6 @@ import {
   Section,
   CustomContainer,
 } from "../CustomElements";
-import Image from "next/image";
 import CustomizedAccordions from "./Accordion";
 
 const MainWrapper = styled('div')(({ theme }) => ({
@@ -15,15 +14,29 @@ const MainWrapper = styled('div')(({ theme }) => ({
   columnGap: '60px',
   [theme.breakpoints.down(1700)]: {
     columnGap: '50px',
-  }
+  },
+  [theme.breakpoints.down(1024)]: {
+    padding: '120px 0',
+    gridTemplateColumns: '1fr',
+    gridTemplateRows: 'auto auto',
+    gap: '60px',
+  },
+  [theme.breakpoints.down(576)]: {
+    padding: '90px 0',
+    gap: '40px',
+  },
 }));
 
-const SheepImg = styled(Image)(({ }) => ({
+const SheepImg = styled('img')(({ theme }) => ({
   width: '100%',
   height: '100%',
   objectFit: 'contain',
   position: 'relative',
   left: '-2px',
+  [theme.breakpoints.down(1024)]: {
+    gridRow: '2 / 3',
+    left: 0,
+  },
 }));
 
 const InfoBox = styled('div')(({ theme }) => ({
@@ -48,6 +61,12 @@ const InfoBox = styled('div')(({ theme }) => ({
     top: '-0',
     gap: '20px',
   },
+  [theme.breakpoints.down(1024)]: {
+    gap: '62px',
+  },
+  [theme.breakpoints.down(576)]: {
+    gap: '40px',
+  },
 }));
 
 const Title = styled('h2')(({ theme }) => ({
@@ -69,6 +88,16 @@ const Title = styled('h2')(({ theme }) => ({
   [theme.breakpoints.down(1280)]: {
     fontSize: '40px',
   },
+  [theme.breakpoints.down(1024)]: {
+    fontSize: '90px',
+    position: 'relative',
+    left: '-4px',
+  },
+  [theme.breakpoints.down(1024)]: {
+    fontSize: '47px',
+    lineHeight: '121%',
+    left: '-4px',
+  },
 }));
 
 const HowToBuy = () => {
@@ -78,8 +107,6 @@ const HowToBuy = () => {
         <MainWrapper>
           <SheepImg
             src={'/images/howToBuyNftSheep.png'}
-            width={860}
-            height={776}
             alt="Sheep"
           />
 

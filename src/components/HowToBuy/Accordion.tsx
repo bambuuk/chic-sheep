@@ -7,7 +7,6 @@ import MuiAccordionSummary, {
 } from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import { Box } from "@mui/material";
-import Image from "next/image";
 
 const Accordion = styled((props: AccordionProps) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -28,6 +27,9 @@ const Accordion = styled((props: AccordionProps) => (
   },
   [theme.breakpoints.down(1280)]: {
     padding: "17px 0",
+  },
+  [theme.breakpoints.down(576)]: {
+    padding: "20px 0 25px 0",
   },
 }));
 
@@ -71,6 +73,12 @@ const Title = styled("h3")(({ theme }) => ({
   [theme.breakpoints.down(1280)]: {
     fontSize: "22px",
   },
+  [theme.breakpoints.down(1024)]: {
+    fontSize: "28px",
+  },
+  [theme.breakpoints.down(576)]: {
+    fontSize: "20px",
+  },
 }));
 
 const Subtitle = styled("p")(({ theme }) => ({
@@ -84,8 +92,16 @@ const Subtitle = styled("p")(({ theme }) => ({
     fontSize: "20px",
     marginTop: "15px",
   },
-  [theme.breakpoints.down(1700)]: {
+  [theme.breakpoints.down(1280)]: {
     fontSize: "16px",
+    marginTop: "10px",
+  },
+  [theme.breakpoints.down(1024)]: {
+    fontSize: "24px",
+    marginTop: "20px",
+  },
+  [theme.breakpoints.down(576)]: {
+    fontSize: "20px",
     marginTop: "10px",
   },
 }));
@@ -98,6 +114,7 @@ const ImgStyle = styled("img")(({theme}) => ({
   [theme.breakpoints.down(1280)]: {
     width: '30px',
     height: '30px',
+    marginLeft: '10px',
   },
 }));
 
