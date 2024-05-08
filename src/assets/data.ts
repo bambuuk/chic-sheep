@@ -97,3 +97,31 @@ export const stareSheep = [
     img: "/images/stareSheep/leonardo.png",
   },
 ];
+
+const FAQs = [
+  {
+    title: 'What is a digital wallet, and why do I need one?',
+    description: `Sheep minting commences, each gaining a unique identity. They debut in our digital gallery, ready for collectors worldwide.
+    It&rsquo;s a celebration of imagination and technology.`,
+  },
+  {
+    title: 'Which cryptocurrencies are accepted for purchasing NFT Sheeps?',
+    description: `            Ethereum (ETH) is the most commonly accepted cryptocurrency for buying NFTs, including NFT Sheeps. 
+    Ensure your digital wallet contains enough ETH to make the purchase.`,
+  },
+  {
+    title: 'Is there a limit to how many NFT Sheeps I can own?',
+    description: `No, there&rsquo;s typically no limit to how many NFT Sheeps you can own. You can collect as many as you desire and can afford. 
+    NFT Sheeps are unique and valuable due to their rarity, artistic quality, and the creative vision of their creators.`,
+  },
+  {
+    title: 'What happens to my NFT Sheeps if the website shuts down?',
+    description: `If the platform hosting your NFT Sheeps were to shut down, your ownership of the NFTs would remain unaffected. 
+    The NFTs are stored on the blockchain, and you can access them using your digital wallet.`,
+  },
+  {
+    title: 'What is the community like for NFT Sheeps collectors?',
+    description: `          The NFT Sheeps community is a vibrant and creative space. 
+    You can engage with other collectors, artists, and enthusiasts through social media, online forums, and virtual events.`,
+  },
+];

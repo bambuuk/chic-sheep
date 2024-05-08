@@ -6,6 +6,7 @@ import About from "@/components/About";
 import OurRoadmap from "@/components/OurRoadmap";
 import StareSheep from "@/components/StareSheep";
 import HowToBuy from "@/components/HowToBuy/HowToBuy";
+import YourFAQ from "@/components/YourFAQ/YourFAQ";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
           <OurRoadmap />
           <StareSheep />
           <HowToBuy />
+          <YourFAQ />
         </main>
       </ThemeProvider>
     </>
