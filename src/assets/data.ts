@@ -98,7 +98,7 @@ export const stareSheep = [
   },
 ];
 
-const FAQs = [
+export const FAQs = [
   {
     title: 'What is a digital wallet, and why do I need one?',
     description: `Sheep minting commences, each gaining a unique identity. They debut in our digital gallery, ready for collectors worldwide.
