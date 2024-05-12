@@ -1,4 +1,5 @@
-import { styled } from "@mui/material";
+import { Box, styled } from "@mui/material";
+import { useState } from "react";
 
 const AccordionItemUI = styled("div")(({}) => ({
   padding: "39px 60px",
@@ -6,7 +7,8 @@ const AccordionItemUI = styled("div")(({}) => ({
   borderRadius: "50px",
   display: "flex",
   flexDirection: "column",
-  gap: "30px",
+  transition: "all 0.5s",
+  overflow: 'hidden',
 }));
 
 const TitleBox = styled("div")(({}) => ({
@@ -32,9 +34,10 @@ const Trigger = styled("div")(({}) => ({
   backgroundColor: "#fff",
   borderRadius: "100%",
   position: "relative",
+  cursor: "pointer",
 }));
 
-const HorizontalRow = styled("div")(({}) => ({
+const HorizontalRow = styled(Box)(({}) => ({
   borderRadius: "30px",
   width: "49px",
   height: "9px",
@@ -51,6 +54,7 @@ const VerticalRow = styled(HorizontalRow)(({}) => ({
 }));
 
 const Description = styled("p")(({ theme }) => ({
+  marginTop: "30px",
   fontFamily: theme.typography.fontFamily,
   fontWeight: 300,
   fontSize: "26px",
@@ -65,21 +69,34 @@ interface AccordionItem {
 }
 
 export const AccordionItem = ({ title, description }: AccordionItem) => {
+  const [activeTrigger, setActiveTrigger] = useState(false);
+
+  const toggleTrigger = () => {
+    setActiveTrigger((state) => (state ? false : true));
+  };
+
   return (
     <AccordionItemUI>
-        <TitleBox>
-          <Title>
-            {title}
-          </Title>
-          <Trigger>
-            <HorizontalRow />
-            <VerticalRow />
-          </Trigger>
-        </TitleBox>
+      <TitleBox>
+        <Title>{title}</Title>
+        <Trigger onClick={toggleTrigger}>
+          <HorizontalRow />
+          <VerticalRow />
+        </Trigger>
+      </TitleBox>
 
-        <Description>
+      <Box 
+        sx={{
+          maxHeight: activeTrigger ? "200px" : "0px",
+          overflow: "hidden",
+          transition: "all 0.5s ease-in-out",
+          opacity: activeTrigger ? 1 : 0,
+        }}
+      >
+      <Description>
           {description}
         </Description>
-      </AccordionItemUI>
-  )
-}
+      </Box>
+    </AccordionItemUI>
+  );
+};
