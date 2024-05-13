@@ -1,7 +1,7 @@
 import { Box, styled } from "@mui/material";
 import { useState } from "react";
 
-const AccordionItemUI = styled(Box)(({}) => ({
+const AccordionItemUI = styled(Box)(({ theme }) => ({
   padding: "39px 60px",
   border: "1px solid #4f4f4f",
   borderRadius: "50px",
@@ -9,6 +9,12 @@ const AccordionItemUI = styled(Box)(({}) => ({
   flexDirection: "column",
   transition: "all 0.5s",
   overflow: "hidden",
+  [theme.breakpoints.down(1024)]: {
+    padding: "47px 40px",
+  },
+  [theme.breakpoints.down(768)]: {
+    padding: "41px 21px",
+  },
 }));
 
 const TitleBox = styled("div")(({}) => ({
@@ -27,9 +33,29 @@ const Title = styled("h3")(({ theme }) => ({
   maxWidth: "85%",
   width: "100%",
   transition: "all 0.5s",
+  [theme.breakpoints.down(1920)]: {
+    fontSize: "44px",
+  },
+  [theme.breakpoints.down(1700)]: {
+    fontSize: "38px",
+  },
+  [theme.breakpoints.down(1500)]: {
+    fontSize: "34px",
+  },
+  [theme.breakpoints.down(1280)]: {
+    fontSize: "26px",
+  },
+  [theme.breakpoints.down(1024)]: {
+    fontSize: "28px",
+    lineHeight: "136%",
+  },
+  [theme.breakpoints.down(768)]: {
+    fontSize: "16px",
+    lineHeight: "136%",
+  },
 }));
 
-const Trigger = styled(Box)(({}) => ({
+const Trigger = styled(Box)(({ theme }) => ({
   width: "96px",
   height: "96px",
   backgroundColor: "#fff",
@@ -37,9 +63,25 @@ const Trigger = styled(Box)(({}) => ({
   position: "relative",
   cursor: "pointer",
   transition: "all 0.5s",
+  [theme.breakpoints.down(1700)]: {
+    width: "80px",
+    height: "80px",
+  },
+  [theme.breakpoints.down(1280)]: {
+    width: "66px",
+    height: "66px",
+  },
+  [theme.breakpoints.down(1024)]: {
+    width: "76px",
+    height: "76px",
+  },
+  [theme.breakpoints.down(768)]: {
+    width: "44px",
+    height: "44px",
+  },
 }));
 
-const HorizontalRow = styled(Box)(({}) => ({
+const HorizontalRow = styled(Box)(({ theme }) => ({
   borderRadius: "30px",
   width: "49px",
   height: "9px",
@@ -49,11 +91,27 @@ const HorizontalRow = styled(Box)(({}) => ({
   top: "50%",
   transform: "translate(-50%, -50%)",
   transition: "all 0.5s",
+  [theme.breakpoints.down(1280)]: {
+    width: "38px",
+    height: "7px",
+  },
+  [theme.breakpoints.down(768)]: {
+    width: "23px",
+    height: "5px",
+  },
 }));
 
-const VerticalRow = styled(HorizontalRow)(({}) => ({
+const VerticalRow = styled(HorizontalRow)(({ theme }) => ({
   width: "9px",
   height: "49px",
+  [theme.breakpoints.down(1280)]: {
+    width: "7px",
+    height: "38px",
+  },
+  [theme.breakpoints.down(768)]: {
+    width: "5px",
+    height: "23px",
+  },
 }));
 
 const Description = styled("p")(({ theme }) => ({
@@ -65,6 +123,19 @@ const Description = styled("p")(({ theme }) => ({
   maxWidth: "85%",
   width: "100%",
   transition: "all 0.5s",
+  [theme.breakpoints.down(1700)]: {
+    fontSize: "20px",
+  },
+  [theme.breakpoints.down(1280)]: {
+    fontSize: "18px",
+    marginTop: "20px",
+  },
+  [theme.breakpoints.down(1024)]: {
+    fontSize: "24px",
+  },
+  [theme.breakpoints.down(768)]: {
+    fontSize: "16px",
+  },
 }));
 
 interface AccordionItem {
@@ -105,10 +176,16 @@ export const AccordionItem = ({ title, description }: AccordionItem) => {
             }}
           />
           <VerticalRow
-            sx={{
+            sx={(theme) => ({
               height: activeTrigger ? "9px" : "49px",
               backgroundColor: activeTrigger ? "#fff" : "#141414",
-            }}
+              [theme.breakpoints.down(1280)]: {
+                height: activeTrigger ? "7px" : "38px",
+              },
+              [theme.breakpoints.down(768)]: {
+                height: activeTrigger ? "5px" : "23px",
+              },
+            })}
           />
         </Trigger>
       </TitleBox>
