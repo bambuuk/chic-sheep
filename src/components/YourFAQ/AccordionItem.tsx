@@ -1,14 +1,14 @@
 import { Box, styled } from "@mui/material";
 import { useState } from "react";
 
-const AccordionItemUI = styled("div")(({}) => ({
+const AccordionItemUI = styled(Box)(({}) => ({
   padding: "39px 60px",
   border: "1px solid #4f4f4f",
   borderRadius: "50px",
   display: "flex",
   flexDirection: "column",
   transition: "all 0.5s",
-  overflow: 'hidden',
+  overflow: "hidden",
 }));
 
 const TitleBox = styled("div")(({}) => ({
@@ -26,15 +26,17 @@ const Title = styled("h3")(({ theme }) => ({
   color: "#fff",
   maxWidth: "85%",
   width: "100%",
+  transition: "all 0.5s",
 }));
 
-const Trigger = styled("div")(({}) => ({
+const Trigger = styled(Box)(({}) => ({
   width: "96px",
   height: "96px",
   backgroundColor: "#fff",
   borderRadius: "100%",
   position: "relative",
   cursor: "pointer",
+  transition: "all 0.5s",
 }));
 
 const HorizontalRow = styled(Box)(({}) => ({
@@ -46,6 +48,7 @@ const HorizontalRow = styled(Box)(({}) => ({
   left: "50%",
   top: "50%",
   transform: "translate(-50%, -50%)",
+  transition: "all 0.5s",
 }));
 
 const VerticalRow = styled(HorizontalRow)(({}) => ({
@@ -61,6 +64,7 @@ const Description = styled("p")(({ theme }) => ({
   color: "#fff",
   maxWidth: "85%",
   width: "100%",
+  transition: "all 0.5s",
 }));
 
 interface AccordionItem {
@@ -76,16 +80,40 @@ export const AccordionItem = ({ title, description }: AccordionItem) => {
   };
 
   return (
-    <AccordionItemUI>
+    <AccordionItemUI
+      sx={{
+        backgroundColor: activeTrigger ? "#efad26" : "#141414",
+      }}
+    >
       <TitleBox>
-        <Title>{title}</Title>
-        <Trigger onClick={toggleTrigger}>
-          <HorizontalRow />
-          <VerticalRow />
+        <Title
+          sx={{
+            color: activeTrigger ? "#1b1b1b" : "#fff",
+          }}
+        >
+          {title}
+        </Title>
+        <Trigger
+          onClick={toggleTrigger}
+          sx={{
+            backgroundColor: activeTrigger ? "#141414" : "#fff",
+          }}
+        >
+          <HorizontalRow
+            sx={{
+              backgroundColor: activeTrigger ? "#fff" : "#141414",
+            }}
+          />
+          <VerticalRow
+            sx={{
+              height: activeTrigger ? "9px" : "49px",
+              backgroundColor: activeTrigger ? "#fff" : "#141414",
+            }}
+          />
         </Trigger>
       </TitleBox>
 
-      <Box 
+      <Box
         sx={{
           maxHeight: activeTrigger ? "200px" : "0px",
           overflow: "hidden",
@@ -93,7 +121,11 @@ export const AccordionItem = ({ title, description }: AccordionItem) => {
           opacity: activeTrigger ? 1 : 0,
         }}
       >
-      <Description>
+        <Description
+          sx={{
+            color: activeTrigger ? "#1b1b1b" : "#fff",
+          }}
+        >
           {description}
         </Description>
       </Box>
