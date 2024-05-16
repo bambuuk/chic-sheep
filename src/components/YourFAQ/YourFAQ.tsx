@@ -9,6 +9,7 @@ import {
   Section,
 } from "../CustomElements";
 import Accordion from "./Accordion";
+import { JoinUs } from "../JoinUs";
 
 const CustomizedContainer = styled(CustomContainer)(({}) => ({
   position: "relative",
@@ -19,13 +20,13 @@ const YourFAQWrapper = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   gap: "100px",
-  padding: "192px 0 986px 0",
+  padding: "192px 0 17px 0",
   [theme.breakpoints.down(1024)]: {
-    padding: "120px 0 986px 0",
+    padding: "120px 0 17px 0",
     gap: "60px",
   },
   [theme.breakpoints.down(576)]: {
-    padding: "90px 0 986px 0",
+    padding: "90px 0 17px 0",
     gap: "40px",
   },
 }));
@@ -74,6 +75,8 @@ const YourFAQ = () => {
           </Title>
           <Accordion />
         </YourFAQWrapper>
+
+        <JoinUs />
       </CustomizedContainer>
     </Section>
   );
