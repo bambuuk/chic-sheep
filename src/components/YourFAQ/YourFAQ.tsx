@@ -21,12 +21,16 @@ const YourFAQWrapper = styled("div")(({ theme }) => ({
   flexDirection: "column",
   gap: "100px",
   padding: "192px 0 17px 0",
+  [theme.breakpoints.down(1280)]: {
+    padding: "192px 0 0 0",
+    gap: "60px",
+  },
   [theme.breakpoints.down(1024)]: {
-    padding: "120px 0 17px 0",
+    padding: "120px 0 0 0",
     gap: "60px",
   },
   [theme.breakpoints.down(576)]: {
-    padding: "90px 0 17px 0",
+    padding: "90px 0 0 0",
     gap: "40px",
   },
 }));
