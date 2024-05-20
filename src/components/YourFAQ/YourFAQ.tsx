@@ -59,7 +59,7 @@ const YourFAQ = () => {
   const { isTablet } = useMediaQuery();
 
   return (
-    <Section>
+    <Section id="faqs">
       <CustomizedContainer>
         <LineBox>
           <DefaultLineBlock />
