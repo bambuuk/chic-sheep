@@ -1,6 +1,7 @@
 import { styled } from "@mui/material";
 import Image from "next/image";
 import logo from "/public/images/logo.svg";
+import Link from "next/link";
 
 const LogoUI = styled(Image)(({ theme }) => ({
   [theme.breakpoints.down(1280)]: {
@@ -10,7 +11,11 @@ const LogoUI = styled(Image)(({ theme }) => ({
 }));
 
 const Logo = () => {
-  return <LogoUI src={logo} width={171} height={50} alt="Logo" />;
+  return (
+    <Link href="#top">
+      <LogoUI src={logo} width={171} height={50} alt="Logo" />
+    </Link>
+  );
 };
 
 export default Logo;

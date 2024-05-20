@@ -126,7 +126,7 @@ const Header = () => {
   };
 
   return (
-    <HeaderUI>
+    <HeaderUI id="top">
       <CustomizedContainer>
         <HeaderWrapper>
           <Logo />
@@ -135,7 +135,7 @@ const Header = () => {
             <Image src={burgerMenuIcon} width={38} height={28} alt="menu" />
           </BurgerMenuBtn>
 
-          <Navigation place={'header'} />
+          <Navigation place={"header"} />
 
           <Button onMouseLeave={scaleStar}>
             <ButtonBox>
