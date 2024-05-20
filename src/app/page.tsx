@@ -7,6 +7,7 @@ import OurRoadmap from "@/components/OurRoadmap";
 import StareSheep from "@/components/StareSheep";
 import HowToBuy from "@/components/HowToBuy/HowToBuy";
 import YourFAQ from "@/components/YourFAQ/YourFAQ";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
           <HowToBuy />
           <YourFAQ />
         </main>
+        <Footer />
       </ThemeProvider>
     </>
   );

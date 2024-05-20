@@ -1,17 +1,18 @@
-'use client';
-import { styled } from '@mui/material';
-import { CustomContainer } from './CustomElements';
-import Image from 'next/image';
-import { useRef } from 'react';
-import logo from '/public/images/logo.svg';
-import star from '/public/images/icons/yellowStar.svg';
-import burgerMenuIcon from '/public/images/icons/burgerMenu.svg';
+"use client";
+import { styled } from "@mui/material";
+import { CustomContainer } from "./CustomElements";
+import Image from "next/image";
+import { useRef } from "react";
+import Logo from "./Logo";
+import star from "/public/images/icons/yellowStar.svg";
+import burgerMenuIcon from "/public/images/icons/burgerMenu.svg";
+import Navigation from "./Navigation";
 
-const HeaderUI = styled('header')(({ theme }) => ({
-  width: '100%',
-  maxWidth: '1920px',
-  padding: '0 110px',
-  borderBottom: '1px solid #4f4f4f',
+const HeaderUI = styled("header")(({ theme }) => ({
+  width: "100%",
+  maxWidth: "1920px",
+  padding: "0 110px",
+  borderBottom: "1px solid #4f4f4f",
   [theme.breakpoints.down("xl")]: {
     padding: "0 50px",
   },
@@ -24,134 +25,92 @@ const HeaderUI = styled('header')(({ theme }) => ({
 }));
 
 const CustomizedContainer = styled(CustomContainer)(({ theme }) => ({
-  paddingTop: '24px',
-  paddingBottom: '19.5px',
+  paddingTop: "24px",
+  paddingBottom: "19.5px",
   [theme.breakpoints.down(1024)]: {
-    paddingTop: '0',
-    paddingBottom: '0',
+    paddingTop: "0",
+    paddingBottom: "0",
   },
 }));
 
-const HeaderWrapper = styled('div')(({ theme }) => ({
-  width: '100%',
-  height: '70px',
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  [theme.breakpoints.down(1024)]: {
-    height: 'auto',
-    padding: '38px 0 32px 0',
-  },
-}));
-
-const Navigation = styled("nav")(({ theme }) => ({
-  display: "block",
-  [theme.breakpoints.down(1024)]: {
-    display: "none",
-  },
-}));
-
-const NavigationList = styled("ul")(({ theme }) => ({
+const HeaderWrapper = styled("div")(({ theme }) => ({
+  width: "100%",
+  height: "70px",
   display: "flex",
+  justifyContent: "space-between",
   alignItems: "center",
-  gap: "54px",
-  [theme.breakpoints.down('xl')]: {
-    gap: '40px',
+  [theme.breakpoints.down(1024)]: {
+    height: "auto",
+    padding: "38px 0 32px 0",
   },
-  [theme.breakpoints.down(1280)]: {
-    gap: '20px',
-  }
 }));
 
-const NavigationItem = styled("li")(({ theme }) => ({
-  fontFamily: theme.typography.fontFamily,
-  fontWeight: 400,
-  fontSize: "18px",
-  textTransform: 'uppercase',
-  color: "#bbb",
-  cursor: "pointer",
-  transition: 'color 0.3s',
-  '&:hover': {
-    color: '#fbb41a',
+const Button = styled("button")(({ theme }) => ({
+  border: "3px solid #fff",
+  overflow: "hidden",
+  borderRadius: "100px",
+  backgroundColor: "transparent",
+  padding: "8px 80px",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  position: "relative",
+  "&:hover span": {
+    transition: "all .3s",
+    color: "#141414",
   },
-  [theme.breakpoints.down(1280)]: {
-    fontSize: "16px",
-  }
-}));
-
-const Button = styled('button')(({ theme }) => ({
-  border: '3px solid #fff',
-  overflow: 'hidden',
-  borderRadius: '100px',
-  backgroundColor: 'transparent',
-  padding: '8px 80px',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  position: 'relative',
-  '&:hover span': {
-    transition: 'all .3s',
-    color: '#141414',
+  "& img": {
+    transition: "transform 0.5s ease-in-out",
+    transform: "scale(1)",
   },
-  '& img': {
-    transition: 'transform 0.5s ease-in-out',
-    transform: 'scale(1)',
+  "&:hover div img:first-child": {
+    transform: "scale(80)",
+    zIndex: "-1",
   },
-  '&:hover div img:first-child': {
-    transform: 'scale(80)',
-    zIndex: '-1'
-  },
-  '@keyframes pulse': {
-    '0%': { transform: 'translateX(0) scale(80)' },
-    '40%': { transform: 'translateX(0) scale(1)' },
-    '55%': { transform: 'translateX(-5px) scale(2)' },
-    '70%': { transform: 'translateX(0) scale(1)' },
-    '85%': { transform: 'translateX(5px) scale(2)' },
-    '100%': { transform: 'translateX(0) scale(1)' },
+  "@keyframes pulse": {
+    "0%": { transform: "translateX(0) scale(80)" },
+    "40%": { transform: "translateX(0) scale(1)" },
+    "55%": { transform: "translateX(-5px) scale(2)" },
+    "70%": { transform: "translateX(0) scale(1)" },
+    "85%": { transform: "translateX(5px) scale(2)" },
+    "100%": { transform: "translateX(0) scale(1)" },
   },
   [theme.breakpoints.down(1550)]: {
-    padding: '8px 40px',
+    padding: "8px 40px",
   },
   [theme.breakpoints.down(1280)]: {
-    padding: '15px 30px',
-    border: '2px solid #fff',
+    padding: "15px 30px",
+    border: "2px solid #fff",
   },
   [theme.breakpoints.down(1024)]: {
     display: "none",
   },
 }));
 
-const ButtonBox = styled('div')(({ }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  gap: '10px',
+const ButtonBox = styled("div")(({}) => ({
+  display: "flex",
+  alignItems: "center",
+  gap: "10px",
 }));
 
-const ButtonText = styled('span')(({ theme }) => ({
+const ButtonText = styled("span")(({ theme }) => ({
   fontFamily: theme.typography.secondFamily,
   fontWeight: 400,
-  fontSize: '24px',
-  lineHeight: '200%',
-  color: '#fff',
+  fontSize: "24px",
+  lineHeight: "200%",
+  color: "#fff",
   [theme.breakpoints.down(1280)]: {
-    fontSize: '18px',
-    lineHeight: '0',
-  }
+    fontSize: "18px",
+    lineHeight: "0",
+  },
 }));
 
-const Logo = styled(Image)(({ theme }) => ({
-  [theme.breakpoints.down(1280)]: {
-    width: '127px',
-    height: '34px',
-  }
-}));
-
-const BurgerMenuBtn = styled('button')(({ theme }) => ({
-  display: 'none',
-  background: 'transparent',
+const BurgerMenuBtn = styled("button")(({ theme }) => ({
+  display: "none",
+  background: "transparent",
   [theme.breakpoints.down(1024)]: {
-    display: 'block',
-  }
+    display: "block",
+  },
 }));
 
 const Header = () => {
@@ -161,65 +120,34 @@ const Header = () => {
     if (ref.current) {
       ref.current.style.animation = `pulse 0.5s alternate`;
       setTimeout(() => {
-        ref.current ? ref.current.style.animation = '' : '';
+        ref.current ? (ref.current.style.animation = "") : "";
       }, 500);
     }
-  }
+  };
 
   return (
     <HeaderUI>
       <CustomizedContainer>
         <HeaderWrapper>
-          <Logo
-            src={logo}
-            width={171}
-            height={50}
-            alt="Logo"
-          />
+          <Logo />
 
           <BurgerMenuBtn>
-            <Image
-              src={burgerMenuIcon}
-              width={38}
-              height={28}
-              alt="menu"
-            />
+            <Image src={burgerMenuIcon} width={38} height={28} alt="menu" />
           </BurgerMenuBtn>
 
-          <Navigation>
-            <NavigationList>
-              <NavigationItem>About</NavigationItem>
-              <NavigationItem>Roadmap</NavigationItem>
-              <NavigationItem>Gallery</NavigationItem>
-              <NavigationItem>How to buy</NavigationItem>
-              <NavigationItem>FAQ</NavigationItem>
-            </NavigationList>
-          </Navigation>
+          <Navigation place={'header'} />
 
-          <Button
-            onMouseLeave={scaleStar}
-          >
+          <Button onMouseLeave={scaleStar}>
             <ButtonBox>
-              <Image
-                ref={ref}
-                src={star}
-                width={22}
-                height={22}
-                alt="star"
-              />
+              <Image ref={ref} src={star} width={22} height={22} alt="star" />
               <ButtonText>BUY a Sheep</ButtonText>
-              <Image
-                src={star}
-                width={22}
-                height={22}
-                alt="star"
-              />
+              <Image src={star} width={22} height={22} alt="star" />
             </ButtonBox>
           </Button>
         </HeaderWrapper>
       </CustomizedContainer>
     </HeaderUI>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
