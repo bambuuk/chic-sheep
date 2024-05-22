@@ -2,11 +2,13 @@
 import { styled } from "@mui/material";
 import { CustomContainer } from "./CustomElements";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Logo from "./Logo";
+import Navigation from "./Navigation";
 import star from "/public/images/icons/yellowStar.svg";
 import burgerMenuIcon from "/public/images/icons/burgerMenu.svg";
-import Navigation from "./Navigation";
+import closeIcon from "/public/images/icons/header-close.svg";
+import { BurgerMenu } from "./BurgerMenu";
 
 const HeaderUI = styled("header")(({ theme }) => ({
   width: "100%",
@@ -18,6 +20,10 @@ const HeaderUI = styled("header")(({ theme }) => ({
   },
   [theme.breakpoints.down(1280)]: {
     padding: "0 46px",
+  },
+  [theme.breakpoints.down(1024)]: {
+    position: "relative",
+    zIndex: 1000,
   },
   [theme.breakpoints.down(768)]: {
     padding: "0 30px",
@@ -114,6 +120,12 @@ const BurgerMenuBtn = styled("button")(({ theme }) => ({
 }));
 
 const Header = () => {
+  const [isOpenBurgerMenu, setIsOpenBurgerMenu] = useState(false);
+
+  const ToggleBurgerMenu = () => {
+    setIsOpenBurgerMenu((state) => (state === true ? false : true));
+  };
+
   const ref = useRef<HTMLImageElement>(null);
 
   const scaleStar = () => {
@@ -126,27 +138,35 @@ const Header = () => {
   };
 
   return (
-    <HeaderUI id="top">
-      <CustomizedContainer>
-        <HeaderWrapper>
-          <Logo />
+    <>
+      <BurgerMenu />
+      <HeaderUI id="top">
+        <CustomizedContainer>
+          <HeaderWrapper>
+            <Logo />
 
-          <BurgerMenuBtn>
-            <Image src={burgerMenuIcon} width={38} height={28} alt="menu" />
-          </BurgerMenuBtn>
+            <BurgerMenuBtn onClick={ToggleBurgerMenu}>
+              <Image
+                src={!isOpenBurgerMenu ? burgerMenuIcon : closeIcon}
+                width={38}
+                height={28}
+                alt="menu"
+              />
+            </BurgerMenuBtn>
 
-          <Navigation place={"header"} />
+            <Navigation place={"header"} />
 
-          <Button onMouseLeave={scaleStar}>
-            <ButtonBox>
-              <Image ref={ref} src={star} width={22} height={22} alt="star" />
-              <ButtonText>BUY a Sheep</ButtonText>
-              <Image src={star} width={22} height={22} alt="star" />
-            </ButtonBox>
-          </Button>
-        </HeaderWrapper>
-      </CustomizedContainer>
-    </HeaderUI>
+            <Button onMouseLeave={scaleStar}>
+              <ButtonBox>
+                <Image ref={ref} src={star} width={22} height={22} alt="star" />
+                <ButtonText>BUY a Sheep</ButtonText>
+                <Image src={star} width={22} height={22} alt="star" />
+              </ButtonBox>
+            </Button>
+          </HeaderWrapper>
+        </CustomizedContainer>
+      </HeaderUI>
+    </>
   );
 };
 
