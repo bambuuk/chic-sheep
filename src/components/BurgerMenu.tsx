@@ -2,11 +2,13 @@
 
 import { Box, styled } from "@mui/material";
 import { CustomContainer } from "./CustomElements";
-import Logo from "./Logo";
 import Image from "next/image";
 import closeIcon from "/public/images/icons/header-close.svg";
 import { SocialNetworks } from "./SocialNetworks";
 import Link from "next/link";
+import logo from "/public/images/logo.svg";
+import { fadeIn, fadeOut } from "../assets/keyframes";
+import { useEffect, useState } from "react";
 
 const BurgerMenuUI = styled(Box)(({ theme }) => ({
   width: "100%",
@@ -14,6 +16,12 @@ const BurgerMenuUI = styled(Box)(({ theme }) => ({
   backgroundColor: "#090909",
   position: "fixed",
   zIndex: 999,
+  "&.fadeIn": {
+    animation: `${fadeIn} 0.3s ease-in both`,
+  },
+  "&.fadeOut": {
+    animation: `${fadeOut} 0.3s ease-out both`,
+  },
 }));
 
 const TopNavigation = styled("div")(({}) => ({
@@ -53,15 +61,14 @@ const MainContent = styled("div")(({ theme }) => ({
 }));
 
 const MainContentContainer = styled("div")(({}) => ({
-  padding: "70.5px 0 0 0",
   display: "flex",
   flexDirection: "column",
-  justifyContent: "center",
   alignItems: "center",
   gap: "50px",
+  transform: "translateY(50%)",
 }));
 
-const NavigationList = styled("ul")(({ }) => ({
+const NavigationList = styled("ul")(({}) => ({
   display: "flex",
   alignItems: "center",
   gap: "40px",
@@ -80,19 +87,42 @@ const NavigationItem = styled("li")(({ theme }) => ({
   },
 }));
 
+const LogoUI = styled(Image)(({ theme }) => ({
+  [theme.breakpoints.down(1280)]: {
+    width: "127px",
+    height: "34px",
+  },
+}));
+
 interface BurgerMenuProps {
   toggleBurgerMenu: () => void;
 }
 
 export const BurgerMenu = ({ toggleBurgerMenu }: BurgerMenuProps) => {
+  const [animationType, setAnimationType] = useState("fadeIn");
+
+  const closePopup = () => {
+    setAnimationType("fadeOut");
+    document.body.style.overflow = "visible";
+    setTimeout(() => {
+      toggleBurgerMenu();
+    }, 300);
+  };
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+  }, []);
+
   return (
-    <BurgerMenuUI>
+    <BurgerMenuUI className={animationType}>
       <TopNavigation>
         <TopNavigationWrapper>
           <TopNavigationContainer>
-            <Logo />
+            <Link href="#top" onClick={closePopup}>
+              <LogoUI src={logo} width={171} height={50} alt="Logo" />
+            </Link>
 
-            <BurgerMenuBtn onClick={toggleBurgerMenu}>
+            <BurgerMenuBtn onClick={closePopup}>
               <Image src={closeIcon} width={38} height={28} alt="menu" />
             </BurgerMenuBtn>
           </TopNavigationContainer>
@@ -104,19 +134,29 @@ export const BurgerMenu = ({ toggleBurgerMenu }: BurgerMenuProps) => {
           <MainContentContainer>
             <NavigationList>
               <NavigationItem>
-                <Link href="/#about" onClick={toggleBurgerMenu}>About</Link>
+                <Link href="/#about" onClick={closePopup}>
+                  About
+                </Link>
               </NavigationItem>
               <NavigationItem>
-                <Link href="/#roadmap" onClick={toggleBurgerMenu}>Roadmap</Link>
+                <Link href="/#roadmap" onClick={closePopup}>
+                  Roadmap
+                </Link>
               </NavigationItem>
               <NavigationItem>
-                <Link href="/#gallery" onClick={toggleBurgerMenu}>Gallery</Link>
+                <Link href="/#gallery" onClick={closePopup}>
+                  Gallery
+                </Link>
               </NavigationItem>
               <NavigationItem>
-                <Link href="/#how-to-buy" onClick={toggleBurgerMenu}>How to buy</Link>
+                <Link href="/#how-to-buy" onClick={closePopup}>
+                  How to buy
+                </Link>
               </NavigationItem>
               <NavigationItem>
-                <Link href="/#faqs" onClick={toggleBurgerMenu}>FAQ</Link>
+                <Link href="/#faqs" onClick={closePopup}>
+                  FAQ
+                </Link>
               </NavigationItem>
             </NavigationList>
 
