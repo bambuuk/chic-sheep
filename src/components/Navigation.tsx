@@ -8,7 +8,7 @@ interface NavigationUIProps {
 const NavigationUI = styled("nav")<NavigationUIProps>(({ theme, type }) => ({
   display: "block",
   [theme.breakpoints.down(1024)]: {
-    display: type === "footer" ? "block" : "none",
+    display: type === "full" ? "block" : "none",
   },
 }));
 
@@ -48,12 +48,12 @@ const NavigationItem = styled("li")(({ theme }) => ({
 }));
 
 interface NavigationProps {
-  place: string;
+  type: "full" | "usual";
 }
 
-export const Navigation = ({ place }: NavigationProps) => {
+export const Navigation = ({ type }: NavigationProps) => {
   return (
-    <NavigationUI type={place}>
+    <NavigationUI type={type}>
       <NavigationList>
         <NavigationItem>
           <Link href="/#about">About</Link>

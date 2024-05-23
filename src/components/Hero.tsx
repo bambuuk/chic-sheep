@@ -117,9 +117,10 @@ const TabletTitleDescr = styled("p")(({ theme }) => ({
   },
 }));
 
-const SpecialColor = styled("span")(({}) => ({
+const SpecialColor = styled("span")(({ theme }) => ({
   color: "#efad26",
   flexShrink: 1,
+  fontFamily: theme.typography.secondFamily,
 }));
 
 const MainImg = styled("img")(({ theme }) => ({
@@ -167,7 +168,7 @@ const Hero = () => {
           <Title>
             CHIC
             <br />
-            <Box sx={{ display: "flex" }}>
+            <Box sx={{ display: "flex", fontFamily: "Feogra" }}>
               SH
               <SpecialColor>EE</SpecialColor>
               PS

@@ -7,7 +7,6 @@ import Logo from "./Logo";
 import Navigation from "./Navigation";
 import star from "/public/images/icons/yellowStar.svg";
 import burgerMenuIcon from "/public/images/icons/burgerMenu.svg";
-import closeIcon from "/public/images/icons/header-close.svg";
 import { BurgerMenu } from "./BurgerMenu";
 
 const HeaderUI = styled("header")(({ theme }) => ({
@@ -20,10 +19,6 @@ const HeaderUI = styled("header")(({ theme }) => ({
   },
   [theme.breakpoints.down(1280)]: {
     padding: "0 46px",
-  },
-  [theme.breakpoints.down(1024)]: {
-    position: "relative",
-    zIndex: 1000,
   },
   [theme.breakpoints.down(768)]: {
     padding: "0 30px",
@@ -122,7 +117,7 @@ const BurgerMenuBtn = styled("button")(({ theme }) => ({
 const Header = () => {
   const [isOpenBurgerMenu, setIsOpenBurgerMenu] = useState(false);
 
-  const ToggleBurgerMenu = () => {
+  const toggleBurgerMenu = () => {
     setIsOpenBurgerMenu((state) => (state === true ? false : true));
   };
 
@@ -139,22 +134,21 @@ const Header = () => {
 
   return (
     <>
-      <BurgerMenu />
+      {isOpenBurgerMenu ? (
+        <BurgerMenu toggleBurgerMenu={toggleBurgerMenu} />
+      ) : (
+        ""
+      )}
       <HeaderUI id="top">
         <CustomizedContainer>
           <HeaderWrapper>
             <Logo />
 
-            <BurgerMenuBtn onClick={ToggleBurgerMenu}>
-              <Image
-                src={!isOpenBurgerMenu ? burgerMenuIcon : closeIcon}
-                width={38}
-                height={28}
-                alt="menu"
-              />
+            <BurgerMenuBtn onClick={toggleBurgerMenu}>
+              <Image src={burgerMenuIcon} width={38} height={28} alt="menu" />
             </BurgerMenuBtn>
 
-            <Navigation place={"header"} />
+            <Navigation type={"usual"} />
 
             <Button onMouseLeave={scaleStar}>
               <ButtonBox>
