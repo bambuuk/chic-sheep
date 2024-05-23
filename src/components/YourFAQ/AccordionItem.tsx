@@ -51,7 +51,9 @@ const Title = styled("h3")(({ theme }) => ({
   },
   [theme.breakpoints.down(768)]: {
     fontSize: "16px",
-    lineHeight: "136%",
+  },
+  [theme.breakpoints.down(400)]: {
+    fontSize: "14px",
   },
 }));
 
@@ -78,6 +80,10 @@ const Trigger = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down(768)]: {
     width: "44px",
     height: "44px",
+  },
+  [theme.breakpoints.down(400)]: {
+    width: "33px",
+    height: "33px",
   },
 }));
 
