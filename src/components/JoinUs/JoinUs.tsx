@@ -1,9 +1,11 @@
 import useControlButton from "@/hooks/useControlButton";
 import { Box, styled } from "@mui/material";
 import Image from "next/image";
-import { Button, ButtonBox, ButtonText, Star } from "./CustomElements";
+import { Button, ButtonBox, ButtonText, Star } from "../CustomElements";
 import star from "/public/images/icons/star-22-coral.svg";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import { useState } from "react";
+import SuccessPopup from "./SuccessPopup";
 
 const JoinUsUI = styled(Box)(({ theme }) => ({
   position: "relative",
@@ -189,9 +191,18 @@ const CustomButtonText = styled(ButtonText)(({ theme }) => ({
 export const JoinUs = () => {
   const { ref, scaleStar } = useControlButton({ type: "normal" });
   const { isTablet } = useMediaQuery();
+  const [isOpenPopup, setIsOpenPopup] = useState(false);
+
+  const handleClickOpen = () => {
+    setIsOpenPopup(true);
+  };
+  const handleClose = () => {
+    setIsOpenPopup(false);
+  };
 
   return (
     <JoinUsUI>
+      <SuccessPopup isOpenPopup={isOpenPopup} handleClose={handleClose} />
       <MainWrapper>
         <Picture
           src={isTablet ? "/images/joinUs-tablet.png" : "/images/joinUs.png"}
@@ -209,7 +220,7 @@ export const JoinUs = () => {
             have something interesting and useful.
           </Description>
 
-          <CustomButton onMouseLeave={scaleStar}>
+          <CustomButton onMouseLeave={scaleStar} onClick={handleClickOpen}>
             <ButtonBox>
               <Star ref={ref} src={star} width={22} height={22} alt="star" />
               <CustomButtonText>Join community</CustomButtonText>

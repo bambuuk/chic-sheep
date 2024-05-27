@@ -9,7 +9,7 @@ import {
   Section,
 } from "../CustomElements";
 import Accordion from "./Accordion";
-import { JoinUs } from "../JoinUs";
+import { JoinUs } from "../JoinUs/JoinUs";
 
 const CustomizedContainer = styled(CustomContainer)(({}) => ({
   position: "relative",
