@@ -1,20 +1,134 @@
 "use client";
-import * as React from "react";
-import Button from "@mui/material/Button";
+import { Fragment } from "react";
 import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
-import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
+import Image from "next/image";
+import { Box } from "@mui/material";
+import { Button, ButtonBox, ButtonText, Star } from "../CustomElements";
+import useControlButton from "@/hooks/useControlButton";
+import useMediaQuery from "@/hooks/useMediaQuery";
+
+import check from "/public/images/icons/check.svg";
+import star from "/public/images/icons/star-22-white.svg";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
-    padding: theme.spacing(2),
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
   },
-  "& .MuiDialogActions-root": {
-    padding: theme.spacing(1),
+  "& .MuiPaper-root": {
+    borderRadius: "50px",
+    border: "1px solid #4f4f4f",
+    background: "#090909",
+    width: "95%",
+    height: "80%",
+    maxWidth: "none",
+    maxHeight: "none",
+  },
+  [theme.breakpoints.down(576)]: {
+    "& .MuiPaper-root": {
+      height: "70%",
+    },
+  },
+}));
+
+const Info = styled(Box)(({ theme }) => ({
+  marginTop: "40px",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  flexDirection: "column",
+  gap: "20px",
+  [theme.breakpoints.down(1024)]: {
+    marginTop: "30px",
+  },
+}));
+
+const Title = styled("h3")(({ theme }) => ({
+  fontFamily: theme.typography.secondFamily,
+  fontWeight: 400,
+  fontSize: "30px",
+  color: "#fff",
+  textTransform: "uppercase",
+  [theme.breakpoints.down(576)]: {
+    fontSize: "20px",
+  },
+}));
+
+const Overview = styled("p")(({ theme }) => ({
+  fontFamily: theme.typography.fontFamily,
+  fontWeight: 300,
+  fontSize: "28px",
+  textAlign: "center",
+  color: "#fff",
+  lineHeight: "normal",
+  [theme.breakpoints.down(576)]: {
+    fontSize: "16px",
+  },
+}));
+
+const CustomButton = styled(Button)(({ theme }) => ({
+  marginTop: "40px",
+  maxWidth: "none",
+  borderColor: "#fff",
+  padding: "24px 27px",
+  width: "auto",
+  [theme.breakpoints.up(1024)]: {
+    "&:hover span": {
+      color: "#090909",
+    },
+  },
+}));
+
+const CustomButtonText = styled(ButtonText)(({ theme }) => ({
+  color: "#fff",
+  [theme.breakpoints.down(1500)]: {
+    fontSize: "20px",
+  },
+  [theme.breakpoints.down(1024)]: {
+    fontSize: "24px",
+  },
+  [theme.breakpoints.down(576)]: {
+    fontSize: "13px",
+  },
+}));
+
+const CustomIconButton = styled(IconButton)(({ theme }) => ({
+  position: "absolute",
+  right: "45px",
+  top: "60px",
+  "& path": {
+    transition: "all 0.4s",
+  },
+  "&:hover path": {
+    fill: "#FBB41A",
+  },
+  [theme.breakpoints.down(1024)]: {
+    right: "50px",
+    top: "50px",
+  },
+  [theme.breakpoints.down(576)]: {
+    right: "48px",
+    top: "30px",
+    "& svg": {
+      width: "20px",
+      height: "20px",
+    },
+  },
+  [theme.breakpoints.down(400)]: {
+    right: "30px",
+    top: "30px",
+  },
+}));
+
+const CheckImg = styled(Image)(({ theme }) => ({
+  [theme.breakpoints.down(576)]: {
+    width: "30px",
+    height: "29px",
   },
 }));
 
@@ -27,26 +141,17 @@ export default function SuccessPopup({
   isOpenPopup,
   handleClose,
 }: SuccessPopupProps) {
+  const { ref, scaleStar } = useControlButton({ type: "normal" });
+  const { isTablet } = useMediaQuery();
+
   return (
-    <React.Fragment>
+    <Fragment>
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={isOpenPopup}
       >
-        <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-          Modal title
-        </DialogTitle>
-        <IconButton
-          aria-label="close"
-          onClick={handleClose}
-          sx={{
-            position: "absolute",
-            right: 8,
-            top: 8,
-            color: (theme) => theme.palette.grey[500],
-          }}
-        >
+        <CustomIconButton aria-label="close" onClick={handleClose}>
           <svg
             width="30"
             height="30"
@@ -63,30 +168,28 @@ export default function SuccessPopup({
               fill="#BBBBBB"
             />
           </svg>
-        </IconButton>
-        <DialogContent dividers>
-          <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-            ac consectetur ac, vestibulum at eros.
-          </Typography>
-          <Typography gutterBottom>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-            auctor.
-          </Typography>
-          <Typography gutterBottom>
-            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo
-            cursus magna, vel scelerisque nisl consectetur et. Donec sed odio
-            dui. Donec ullamcorper nulla non metus auctor fringilla.
-          </Typography>
+        </CustomIconButton>
+        <DialogContent>
+          <CheckImg width={42} height={41} src={check} alt={"Check Icon"} />
+          <Info>
+            <Title>Success!</Title>
+            <Overview>
+              If you&rsquo;re seeing this, then you&rsquo;ve clicked on
+              &ldquo;Join community&rdquo;.
+              {isTablet ? "" : <br />}
+              This is just for example purposes.
+            </Overview>
+          </Info>
+
+          <CustomButton onMouseLeave={scaleStar} onClick={handleClose}>
+            <ButtonBox>
+              <Star ref={ref} src={star} width={22} height={22} alt="star" />
+              <CustomButtonText>Cool!</CustomButtonText>
+              <Star src={star} width={22} height={22} alt="star" />
+            </ButtonBox>
+          </CustomButton>
         </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleClose}>
-            Save changes
-          </Button>
-        </DialogActions>
       </BootstrapDialog>
-    </React.Fragment>
+    </Fragment>
   );
 }

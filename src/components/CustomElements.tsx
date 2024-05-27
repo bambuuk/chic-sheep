@@ -97,7 +97,7 @@ export const ButtonBox = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const ButtonText = styled(Box)(({ theme }) => ({
+export const ButtonText = styled("span")(({ theme }) => ({
   fontFamily: theme.typography.secondFamily,
   fontWeight: 400,
   fontSize: "24px",
