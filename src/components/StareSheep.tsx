@@ -19,15 +19,12 @@ const CustomizedContainer = styled(CustomContainer)(({}) => ({
 
 const MainWrapper = styled("div")(({ theme }) => ({
   paddingTop: "166.5px",
-  [theme.breakpoints.down(1024)]: {
-    paddingTop: "0",
-  },
 }));
 
 const SectionWrapper = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  paddingTop: "192px",
+  padding: "192px 0 219.5px 0",
   backgroundColor: "#141414",
   gap: "100px",
   [theme.breakpoints.down(1280)]: {
