@@ -41,20 +41,20 @@ const Title = styled("h1")(({ theme }) => ({
   lineHeight: "100%",
   color: "#fff",
   [theme.breakpoints.down(1920)]: {
-    fontSize: "335px",
+    fontSize: "clamp(53px, 17.8vw, 354px)",
     left: "-3px",
   },
   [theme.breakpoints.down(1700)]: {
-    fontSize: "265px",
+    fontSize: "clamp(53px, 17.3vw, 354px)",
     lineHeight: "90%",
     left: "-5px",
   },
   [theme.breakpoints.down(1500)]: {
-    fontSize: "240px",
+    fontSize: "clamp(53px, 18.9vw, 354px)",
     lineHeight: "97%",
   },
   [theme.breakpoints.down(1280)]: {
-    fontSize: "190px",
+    fontSize: "clamp(53px, 18.6vw, 354px)",
   },
   [theme.breakpoints.down(1024)]: {
     fontSize: "139px",
@@ -72,22 +72,34 @@ const Title = styled("h1")(({ theme }) => ({
 }));
 
 const TitleDescr = styled("p")(({ theme }) => ({
-  paddingTop: "238.5px",
+  paddingTop: "47%",
   fontFamily: theme.typography.fontFamily,
   fontWeight: 300,
   fontSize: "26px",
   color: "#bbb",
   maxWidth: "495px",
   width: "100%",
+  [theme.breakpoints.down(1920)]: {
+    paddingTop: "45%",
+  },
   [theme.breakpoints.down(1700)]: {
+    paddingTop: "44%",
     fontSize: "22px",
     maxWidth: "395px",
-    paddingTop: "180px",
+  },
+  [theme.breakpoints.down(1536)]: {
+    paddingTop: "40%",
+  },
+  [theme.breakpoints.down(1500)]: {
+    paddingTop: "46%",
   },
   [theme.breakpoints.down(1280)]: {
+    fontSize: "18px",
+    maxWidth: "330px",
+    paddingTop: "49%",
+  },
+  [theme.breakpoints.down(1024)]: {
     fontSize: "16px",
-    maxWidth: "275px",
-    paddingTop: "150px",
   },
 }));
 
