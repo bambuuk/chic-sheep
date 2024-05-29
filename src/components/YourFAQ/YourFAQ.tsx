@@ -42,6 +42,9 @@ const Title = styled("h2")(({ theme }) => ({
   lineHeight: "111%",
   color: "#fff",
   textTransform: "uppercase",
+  "& span": {
+    fontFamily: theme.typography.secondFamily,
+  },
   [theme.breakpoints.down(1700)]: {
     fontSize: "105px",
   },
