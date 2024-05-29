@@ -4,7 +4,7 @@ import { Section, CustomContainer } from "../CustomElements";
 import CustomizedAccordions from "./Accordion";
 
 const MainWrapper = styled("div")(({ theme }) => ({
-  padding: "191.5px 0 220px 0",
+  padding: "220.5px 0 220px 0",
   width: "100%",
   display: "grid",
   gridTemplateColumns: "52% 1fr",
