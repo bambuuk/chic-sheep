@@ -1,5 +1,5 @@
 "use client";
-import { styled } from "@mui/material";
+import { Box, styled } from "@mui/material";
 import {
   Section,
   CustomContainer,
@@ -13,28 +13,26 @@ import { roadmap } from "@/assets/data";
 
 const CustomizedContainer = styled(CustomContainer)(({ theme }) => ({
   position: "relative",
-  paddingBottom: "72.5px",
   zIndex: 100,
   backgroundColor: "#141414",
-  overflow: "hidden",
+  paddingBottom: "220px",
   [theme.breakpoints.down(1024)]: {
-    paddingTop: "120.5px",
     paddingBottom: "119.5px",
   },
   [theme.breakpoints.down(576)]: {
-    paddingTop: "85.5px",
+    paddingBottom: "89.5px",
   },
 }));
 
 const ContentWrapper = styled("div")(({ theme }) => ({
-  marginTop: "190px",
+  paddingTop: "190px",
   display: "flex",
   flexDirection: "column",
-  [theme.breakpoints.down(1700)]: {
-    // marginTop: "144px",
-  },
   [theme.breakpoints.down(1024)]: {
-    marginTop: "0",
+    paddingTop: "120.5px",
+  },
+  [theme.breakpoints.down(576)]: {
+    paddingTop: "90.5px",
   },
 }));
 
@@ -225,31 +223,33 @@ const OurRoadmap = () => {
   return (
     <Section id="roadmap">
       <CustomizedContainer>
-        <LineBox>
-          <DefaultLineBlock />
-          <MainLineBlock />
-          <DefaultLineBlock />
-        </LineBox>
+        <Box sx={{ position: "relative", width: "100%" }}>
+          <LineBox>
+            <DefaultLineBlock />
+            <MainLineBlock />
+            <DefaultLineBlock />
+          </LineBox>
 
-        <ContentWrapper>
-          <Title>OUR Roadmap</Title>
-          <Stages>
-            {roadmap.map(({ id, title, description, img, imgTablet }) => {
-              return (
-                <StageItem key={id}>
-                  <StageSubtitle>{title}</StageSubtitle>
-                  <StageImage
-                    src={isTablet ? imgTablet : img}
-                    width={345}
-                    height={345}
-                    alt="Sheep"
-                  />
-                  <StageDescription>{description}</StageDescription>
-                </StageItem>
-              );
-            })}
-          </Stages>
-        </ContentWrapper>
+          <ContentWrapper>
+            <Title>OUR Roadmap</Title>
+            <Stages>
+              {roadmap.map(({ id, title, description, img, imgTablet }) => {
+                return (
+                  <StageItem key={id}>
+                    <StageSubtitle>{title}</StageSubtitle>
+                    <StageImage
+                      src={isTablet ? imgTablet : img}
+                      width={345}
+                      height={345}
+                      alt="Sheep"
+                    />
+                    <StageDescription>{description}</StageDescription>
+                  </StageItem>
+                );
+              })}
+            </Stages>
+          </ContentWrapper>
+        </Box>
       </CustomizedContainer>
     </Section>
   );
