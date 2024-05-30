@@ -19,7 +19,7 @@ const CustomizedContainer = styled(CustomContainer)(({}) => ({
 const HeroWrapper = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  paddingBottom: "150px",
+  paddingBottom: "220px",
   [theme.breakpoints.down(1024)]: {
     paddingBottom: "119.5px",
   },

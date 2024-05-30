@@ -13,19 +13,13 @@ import { roadmap } from "@/assets/data";
 
 const CustomizedContainer = styled(CustomContainer)(({ theme }) => ({
   position: "relative",
-  paddingTop: "101.5px",
   paddingBottom: "72.5px",
   zIndex: 100,
-  top: "-1px",
   backgroundColor: "#141414",
   overflow: "hidden",
-  [theme.breakpoints.down(1700)]: {
-    paddingTop: "75.5px",
-  },
   [theme.breakpoints.down(1024)]: {
     paddingTop: "120.5px",
     paddingBottom: "119.5px",
-    top: "0",
   },
   [theme.breakpoints.down(576)]: {
     paddingTop: "85.5px",
@@ -33,11 +27,11 @@ const CustomizedContainer = styled(CustomContainer)(({ theme }) => ({
 }));
 
 const ContentWrapper = styled("div")(({ theme }) => ({
-  marginTop: "192px",
+  marginTop: "190px",
   display: "flex",
   flexDirection: "column",
   [theme.breakpoints.down(1700)]: {
-    marginTop: "144px",
+    // marginTop: "144px",
   },
   [theme.breakpoints.down(1024)]: {
     marginTop: "0",

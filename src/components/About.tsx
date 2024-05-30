@@ -1,29 +1,16 @@
 "use client";
 import { styled } from "@mui/material";
-import {
-  Section,
-  CustomContainer,
-  LineBox,
-  DefaultLineBlock,
-  MainLineBlock,
-} from "./CustomElements";
+import { Section, CustomContainer } from "./CustomElements";
 
 const CustomizedContainer = styled(CustomContainer)(({}) => ({
   position: "relative",
 }));
 
-const MainWrapper = styled("div")(({ theme }) => ({
-  paddingTop: "69.5px",
-  [theme.breakpoints.down(1024)]: {
-    paddingTop: "0",
-  },
-}));
-
 const SectionWrapper = styled("div")(({ theme }) => ({
   display: "grid",
-  gridTemplateColumns: "repeat(2, 1fr)",
+  gridTemplateColumns: "50% 1fr",
   gap: "61px",
-  padding: "150px 0 118px 0",
+  padding: "260px 0 220px 0",
   backgroundColor: "#141414",
   [theme.breakpoints.down(1280)]: {
     gap: "50px",
@@ -85,7 +72,7 @@ const Title = styled("h2")(({ theme }) => ({
     fontSize: "100px",
   },
   [theme.breakpoints.down(1280)]: {
-    fontSize: "90px",
+    fontSize: "80px",
   },
   [theme.breakpoints.down(576)]: {
     fontSize: "47px",
@@ -114,6 +101,7 @@ const Description = styled("p")(({ theme }) => ({
     },
   },
   [theme.breakpoints.down(1280)]: {
+    maxWidth: "90%",
     "& span": {
       fontSize: "20px",
     },
@@ -123,6 +111,7 @@ const Description = styled("p")(({ theme }) => ({
       fontSize: "24px",
     },
     gap: "20px",
+    maxWidth: "none",
   },
   [theme.breakpoints.down(576)]: {
     "& span": {
@@ -135,35 +124,26 @@ const About = () => {
   return (
     <Section id="about">
       <CustomizedContainer>
-        <LineBox>
-          <DefaultLineBlock />
-          <MainLineBlock />
-          <DefaultLineBlock />
-        </LineBox>
-
-        <MainWrapper>
-          <SectionWrapper>
-            <Picture src="/images/about.png" alt="Sheep" />
-            <TextBlock>
-              <Title>ABOUT Sheeps</Title>
-              <Description>
-                <span>
-                  Welcome to the enchanting world of NFT Chic Sheeps, where the
-                  extraordinary meets the woolly, and creativity is spun into a
-                  digital masterpiece.
-                </span>
-                <span>
-                  NFT Chic Sheeps aren&rsquo;t just an investment; they&rsquo;re
-                  a statement. As you explore the galleries of our woolly
-                  wonders, you&rsquo;re joining a community that&rsquo;s shaping
-                  the future of digital ownership. Say goodbye to traditional
-                  collectibles; say hello to a new era of ownership and
-                  expression.
-                </span>
-              </Description>
-            </TextBlock>
-          </SectionWrapper>
-        </MainWrapper>
+        <SectionWrapper>
+          <Picture src="/images/about.png" alt="Sheep" />
+          <TextBlock>
+            <Title>ABOUT Sheeps</Title>
+            <Description>
+              <span>
+                Welcome to the enchanting world of NFT Chic Sheeps, where the
+                extraordinary meets the woolly, and creativity is spun into a
+                digital masterpiece.
+              </span>
+              <span>
+                NFT Chic Sheeps aren&rsquo;t just an investment, they&rsquo;re a
+                statement. As you explore the galleries of our woolly wonders,
+                you&rsquo;re joining a community that&rsquo;s shaping the future
+                of digital ownership. Say goodbye to traditional collectibles,
+                say hello to a new era of ownership and expression.
+              </span>
+            </Description>
+          </TextBlock>
+        </SectionWrapper>
       </CustomizedContainer>
     </Section>
   );
