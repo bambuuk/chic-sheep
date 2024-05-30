@@ -15,6 +15,9 @@ const AccordionItemUI = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down(768)]: {
     padding: "41px 21px",
   },
+  [theme.breakpoints.down(420)]: {
+    padding: "35px 15px",
+  },
 }));
 
 const TitleBox = styled("div")(({}) => ({
@@ -53,7 +56,7 @@ const Title = styled("h3")(({ theme }) => ({
     fontSize: "16px",
   },
   [theme.breakpoints.down(400)]: {
-    fontSize: "14px",
+    fontSize: "12px",
   },
 }));
 
@@ -141,6 +144,12 @@ const Description = styled("p")(({ theme }) => ({
   },
   [theme.breakpoints.down(768)]: {
     fontSize: "16px",
+  },
+  [theme.breakpoints.down(576)]: {
+    maxWidth: "100%",
+  },
+  [theme.breakpoints.down(420)]: {
+    fontSize: "12px",
   },
 }));
 
