@@ -23,6 +23,9 @@ const HeaderUI = styled("header")(({ theme }) => ({
   [theme.breakpoints.down(768)]: {
     padding: "0 30px",
   },
+  [theme.breakpoints.down(420)]: {
+    padding: "0 20px",
+  },
 }));
 
 const CustomizedContainer = styled(CustomContainer)(({ theme }) => ({

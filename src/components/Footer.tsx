@@ -19,6 +19,9 @@ const FooterUI = styled("footer")(({ theme }) => ({
   [theme.breakpoints.down(768)]: {
     padding: "0 30px",
   },
+  [theme.breakpoints.down(420)]: {
+    padding: "0 20px",
+  },
 }));
 
 const Wrapper = styled("div")(({ theme }) => ({

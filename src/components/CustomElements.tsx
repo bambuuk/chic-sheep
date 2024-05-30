@@ -25,6 +25,9 @@ export const Section = styled("section")(({ theme }) => ({
   [theme.breakpoints.down(768)]: {
     padding: "0 30px",
   },
+  [theme.breakpoints.down(420)]: {
+    padding: "0 20px",
+  },
 }));
 
 export const LineBox = styled("div")(({ theme }) => ({
