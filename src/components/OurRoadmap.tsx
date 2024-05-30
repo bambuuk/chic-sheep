@@ -17,10 +17,10 @@ const CustomizedContainer = styled(CustomContainer)(({ theme }) => ({
   backgroundColor: "#141414",
   paddingBottom: "220px",
   [theme.breakpoints.down(1024)]: {
-    paddingBottom: "119.5px",
+    paddingBottom: "120px",
   },
   [theme.breakpoints.down(576)]: {
-    paddingBottom: "89.5px",
+    paddingBottom: "90px",
   },
 }));
 
@@ -29,10 +29,10 @@ const ContentWrapper = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   [theme.breakpoints.down(1024)]: {
-    paddingTop: "120.5px",
+    paddingTop: "120px",
   },
   [theme.breakpoints.down(576)]: {
-    paddingTop: "90.5px",
+    paddingTop: "90px",
   },
 }));
 

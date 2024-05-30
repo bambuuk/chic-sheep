@@ -16,12 +16,12 @@ const SectionWrapper = styled("div")(({ theme }) => ({
     gap: "50px",
   },
   [theme.breakpoints.down(1024)]: {
-    padding: "120.5px 0 120px 0",
+    padding: "120px 0 120px 0",
     gridTemplateColumns: "1fr",
     gridTemplateRows: "auto auto",
   },
   [theme.breakpoints.down(576)]: {
-    padding: "90.5px 0 89.5px 0",
+    padding: "90px 0 90px 0",
     gap: "30px",
   },
 }));

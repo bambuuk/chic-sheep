@@ -17,27 +17,23 @@ const CustomizedContainer = styled(CustomContainer)(({}) => ({
   position: "relative",
 }));
 
-const MainWrapper = styled("div")(({ theme }) => ({
-  paddingTop: "166.5px",
-}));
-
 const SectionWrapper = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  padding: "192px 0 219.5px 0",
+  padding: "190px 0 220px 0",
   backgroundColor: "#141414",
   gap: "100px",
   [theme.breakpoints.down(1280)]: {
     gap: "50px",
   },
   [theme.breakpoints.down(1024)]: {
-    padding: "120.5px 0 120px 0",
+    padding: "120px 0 120px 0",
     gridTemplateColumns: "1fr",
     gridTemplateRows: "auto auto",
     gap: "60px",
   },
   [theme.breakpoints.down(576)]: {
-    padding: "90.5px 0 89.5px 0",
+    padding: "90px 0 90px 0",
     gap: "40px",
   },
 }));
@@ -258,73 +254,60 @@ const StareSheep = () => {
   return (
     <Section id="gallery">
       <CustomizedContainer>
-        <LineBox>
-          <DefaultLineBlock />
-          <MainLineBlock />
-          <DefaultLineBlock />
-        </LineBox>
+        <SectionWrapper>
+          <Title>
+            Stare at
+            <br />
+            the sheeps
+          </Title>
 
-        <MainWrapper>
-          <SectionWrapper>
-            <Title>
-              Stare at
-              <br />
-              the sheeps
-            </Title>
+          <SheepList>
+            {stareSheep.map(
+              ({ title, description, features, bgColor, textColor, img }) => {
+                return (
+                  <SheepItem key={title}>
+                    <SheepImg src={img} width={815} height={835} alt="Sheep" />
+                    <SecondBlock>
+                      <SecondBlockWrapper>
+                        <SheepTitle>{title}</SheepTitle>
 
-            <SheepList>
-              {stareSheep.map(
-                ({ title, description, features, bgColor, textColor, img }) => {
-                  return (
-                    <SheepItem key={title}>
-                      <SheepImg
-                        src={img}
-                        width={815}
-                        height={835}
-                        alt="Sheep"
-                      />
-                      <SecondBlock>
-                        <SecondBlockWrapper>
-                          <SheepTitle>{title}</SheepTitle>
+                        <SheepDescr>{description}</SheepDescr>
 
-                          <SheepDescr>{description}</SheepDescr>
+                        {!isSmallMobile ? (
+                          <SheepFeatures>
+                            {features.map((item) => {
+                              return (
+                                <SheepFeature
+                                  key={item}
+                                  sx={{
+                                    backgroundColor: bgColor,
+                                    fontSize: textColor,
+                                  }}
+                                >
+                                  {item}
+                                </SheepFeature>
+                              );
+                            })}
+                          </SheepFeatures>
+                        ) : (
+                          ""
+                        )}
 
-                          {!isSmallMobile ? (
-                            <SheepFeatures>
-                              {features.map((item) => {
-                                return (
-                                  <SheepFeature
-                                    key={item}
-                                    sx={{
-                                      backgroundColor: bgColor,
-                                      fontSize: textColor,
-                                    }}
-                                  >
-                                    {item}
-                                  </SheepFeature>
-                                );
-                              })}
-                            </SheepFeatures>
-                          ) : (
-                            ""
-                          )}
+                        <ButtonWrapper>
+                          <CardButton text={"BUY a Sheep"} />
+                        </ButtonWrapper>
+                      </SecondBlockWrapper>
+                    </SecondBlock>
+                  </SheepItem>
+                );
+              }
+            )}
+          </SheepList>
 
-                          <ButtonWrapper>
-                            <CardButton text={"BUY a Sheep"} />
-                          </ButtonWrapper>
-                        </SecondBlockWrapper>
-                      </SecondBlock>
-                    </SheepItem>
-                  );
-                }
-              )}
-            </SheepList>
-
-            <Box sx={{ maxWidth: "1700px", width: "100%" }}>
-              <Button text={"Start your sheepish journey"} />
-            </Box>
-          </SectionWrapper>
-        </MainWrapper>
+          <Box sx={{ maxWidth: "1700px", width: "100%" }}>
+            <Button text={"Start your sheepish journey"} />
+          </Box>
+        </SectionWrapper>
       </CustomizedContainer>
     </Section>
   );
