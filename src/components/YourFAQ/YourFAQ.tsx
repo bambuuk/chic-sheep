@@ -1,5 +1,5 @@
 "use client";
-import { styled } from "@mui/material";
+import { Box, styled } from "@mui/material";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import {
   CustomContainer,
@@ -11,27 +11,27 @@ import {
 import Accordion from "./Accordion";
 import { JoinUs } from "../JoinUs/JoinUs";
 
-const CustomizedContainer = styled(CustomContainer)(({}) => ({
+const CustomizedContainer = styled(CustomContainer)(({ theme }) => ({
   position: "relative",
   zIndex: "100",
+  padding: "0 0 220px 0",
+  [theme.breakpoints.down(1024)]: {
+    padding: "0 0 120px 0",
+  },
+  [theme.breakpoints.down(576)]: {
+    padding: "0 0 90px 0",
+  },
 }));
 
 const YourFAQWrapper = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  gap: "100px",
-  padding: "192px 0 17px 0",
-  [theme.breakpoints.down(1280)]: {
-    padding: "192px 0 0 0",
-    gap: "60px",
-  },
+  padding: "190px 0 0 0",
   [theme.breakpoints.down(1024)]: {
     padding: "120px 0 0 0",
-    gap: "60px",
   },
   [theme.breakpoints.down(576)]: {
     padding: "90px 0 0 0",
-    gap: "40px",
   },
 }));
 
@@ -64,25 +64,26 @@ const YourFAQ = () => {
   return (
     <Section id="faqs">
       <CustomizedContainer>
-        <LineBox>
-          <DefaultLineBlock />
-          <MainLineBlock />
-          <DefaultLineBlock />
-        </LineBox>
+        <Box sx={{ position: "relative", width: "100%" }}>
+          <LineBox>
+            <DefaultLineBlock />
+            <MainLineBlock />
+            <DefaultLineBlock />
+          </LineBox>
 
-        <YourFAQWrapper>
-          <Title>
-            {isTablet ? (
-              <span>
-                Yor <br /> FAQ
-              </span>
-            ) : (
-              <span>Yor FAQ</span>
-            )}
-          </Title>
-          <Accordion />
-        </YourFAQWrapper>
-
+          <YourFAQWrapper>
+            <Title>
+              {isTablet ? (
+                <span>
+                  Yor <br /> FAQ
+                </span>
+              ) : (
+                <span>Yor FAQ</span>
+              )}
+            </Title>
+            <Accordion />
+          </YourFAQWrapper>
+        </Box>
         <JoinUs />
       </CustomizedContainer>
     </Section>

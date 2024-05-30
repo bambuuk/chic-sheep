@@ -8,24 +8,12 @@ import { useState } from "react";
 import SuccessPopup from "./SuccessPopup";
 
 const JoinUsUI = styled(Box)(({ theme }) => ({
-  position: "relative",
-  bottom: "-203px",
-  [theme.breakpoints.down(1700)]: {
-    bottom: "-170px",
-  },
-  [theme.breakpoints.down(1500)]: {
-    bottom: "-150px",
-  },
-  [theme.breakpoints.down(1280)]: {
-    bottom: "-120px",
-  },
+  padding: "220px 0 0 0",
   [theme.breakpoints.down(1024)]: {
-    bottom: "0",
-    padding: "200px 0 120px 0",
+    padding: "200px 0 0 0",
   },
-  [theme.breakpoints.down(1024)]: {
-    bottom: "0",
-    padding: "90px 0",
+  [theme.breakpoints.down(576)]: {
+    padding: "90px 0 0 0",
   },
 }));
 
@@ -201,7 +189,7 @@ export const JoinUs = () => {
   };
 
   return (
-    <JoinUsUI>
+    <JoinUsUI className="joinUs">
       <SuccessPopup isOpenPopup={isOpenPopup} handleClose={handleClose} />
       <MainWrapper>
         <Picture
