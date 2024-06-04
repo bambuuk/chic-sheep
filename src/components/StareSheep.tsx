@@ -1,12 +1,6 @@
 "use client";
 import { Box, styled } from "@mui/material";
-import {
-  Section,
-  CustomContainer,
-  LineBox,
-  DefaultLineBlock,
-  MainLineBlock,
-} from "./CustomElements";
+import { Section, CustomContainer } from "./CustomElements";
 import Image from "next/image";
 import CardButton from "./CardButton";
 import { stareSheep } from "@/assets/data";
@@ -281,7 +275,7 @@ const StareSheep = () => {
                                   key={item}
                                   sx={{
                                     backgroundColor: bgColor,
-                                    fontSize: textColor,
+                                    color: textColor,
                                   }}
                                 >
                                   {item}
