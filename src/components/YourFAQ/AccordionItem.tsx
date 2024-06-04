@@ -132,24 +132,29 @@ const Description = styled("p")(({ theme }) => ({
   maxWidth: "85%",
   width: "100%",
   transition: "all 0.5s",
+  lineHeight: "28px",
   [theme.breakpoints.down(1700)]: {
     fontSize: "20px",
+    lineHeight: "24px",
   },
   [theme.breakpoints.down(1280)]: {
     fontSize: "18px",
-    marginTop: "20px",
+    marginTop: "22px",
   },
   [theme.breakpoints.down(1024)]: {
     fontSize: "24px",
+    lineHeight: "28px",
   },
   [theme.breakpoints.down(768)]: {
     fontSize: "16px",
+    lineHeight: "20px",
   },
   [theme.breakpoints.down(576)]: {
     maxWidth: "100%",
   },
   [theme.breakpoints.down(420)]: {
-    fontSize: "12px",
+    fontSize: "14px",
+    lineHeight: "18px",
   },
 }));
 
