@@ -8,6 +8,7 @@ import StareSheep from "@/components/StareSheep";
 import HowToBuy from "@/components/HowToBuy/HowToBuy";
 import YourFAQ from "@/components/YourFAQ/YourFAQ";
 import { Footer } from "@/components/Footer";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
           <StareSheep />
           <HowToBuy />
           <YourFAQ />
+          <ScrollToTopButton />
         </main>
         <Footer />
       </ThemeProvider>
