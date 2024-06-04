@@ -112,6 +112,7 @@ const TabletTitleDescr = styled("p")(({ theme }) => ({
   color: "#bbb",
   maxWidth: "552px",
   width: "100%",
+  lineHeight: "24px",
   [theme.breakpoints.down(1280)]: {
     fontSize: "24px",
   },
@@ -119,12 +120,11 @@ const TabletTitleDescr = styled("p")(({ theme }) => ({
     display: "block",
   },
   [theme.breakpoints.down(768)]: {
-    maxWidth: "auto",
+    maxWidth: "none",
     fontSize: "22px",
   },
   [theme.breakpoints.down(576)]: {
     marginTop: "25px",
-    maxWidth: "auto",
     fontSize: "20px",
   },
 }));
