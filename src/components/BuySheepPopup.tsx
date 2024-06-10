@@ -8,6 +8,9 @@ import Image from "next/image";
 import { stareSheep } from "@/assets/data";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+  "& .MuiDialogContent-root": {
+    padding: 0,
+  },
   "& .MuiPaper-root": {
     borderRadius: "50px",
     border: "1px solid #4f4f4f",
@@ -16,6 +19,23 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     maxHeight: "none",
     padding: "60px 45px 90px 45px",
     margin: 0,
+    [theme.breakpoints.down(1024)]: {
+      padding: "130px 50px 100px 50px",
+    },
+    [theme.breakpoints.down(576)]: {
+      padding: "116px 30px 70px 30px",
+      width: "100%",
+      height: "100%",
+      borderRadius: "0",
+      border: "none",
+    },
+    [theme.breakpoints.down(420)]: {
+      padding: "110px 20px 70px 20px",
+      width: "100%",
+      height: "100%",
+      borderRadius: "0",
+      border: "none",
+    },
   },
 }));
 
@@ -52,14 +72,24 @@ const Wrapper = styled(Box)(({}) => ({
   flexDirection: "column",
 }));
 
-const SheepImgList = styled(Box)(({}) => ({
+const SheepImgList = styled(Box)(({ theme }) => ({
   display: "flex",
   "& > :not(:first-child)": {
     marginLeft: "-34px",
   },
+  [theme.breakpoints.down(576)]: {
+    "& > :not(:first-child)": {
+      marginLeft: "-20px",
+    },
+  },
+  [theme.breakpoints.down(420)]: {
+    "& > :not(:first-child)": {
+      marginLeft: "-18px",
+    },
+  },
 }));
 
-const SheepImgBox = styled(Box)(({}) => ({
+const SheepImgBox = styled(Box)(({ theme }) => ({
   width: "116px",
   height: "117px",
   borderRadius: "100px",
@@ -69,6 +99,14 @@ const SheepImgBox = styled(Box)(({}) => ({
   transition: "all 0.3s",
   "&:hover": {
     border: "2px solid #fbb41a",
+  },
+  [theme.breakpoints.down(576)]: {
+    width: "68px",
+    height: "70px",
+  },
+  [theme.breakpoints.down(420)]: {
+    width: "62px",
+    height: "62px",
   },
 }));
 
