@@ -6,19 +6,26 @@ import IconButton from "@mui/material/IconButton";
 import { Box } from "@mui/material";
 import Image from "next/image";
 import { stareSheep } from "@/assets/data";
+import CardButton from "./CardButton";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+  "& .MuiDialog-container": {
+    display: "block",
+    overflowY: "scroll",
+    padding: "215px 0 260px 0",
+  },
   "& .MuiDialogContent-root": {
     padding: 0,
   },
   "& .MuiPaper-root": {
+    margin: "0 auto",
+    padding: "60px 45px 90px 45px",
+    maxWidth: "1788px",
+    maxHeight: "none",
+    width: "93.125%",
     borderRadius: "50px",
     border: "1px solid #4f4f4f",
     background: "#090909",
-    maxWidth: "none",
-    maxHeight: "none",
-    padding: "60px 45px 90px 45px",
-    margin: 0,
     [theme.breakpoints.down(1024)]: {
       padding: "130px 50px 100px 50px",
     },
@@ -74,16 +81,16 @@ const Wrapper = styled(Box)(({}) => ({
 
 const SheepImgList = styled(Box)(({ theme }) => ({
   display: "flex",
-  "& > :not(:first-child)": {
+  "& > :not(:first-of-type)": {
     marginLeft: "-34px",
   },
   [theme.breakpoints.down(576)]: {
-    "& > :not(:first-child)": {
+    "& > :not(:first-of-type)": {
       marginLeft: "-20px",
     },
   },
   [theme.breakpoints.down(420)]: {
-    "& > :not(:first-child)": {
+    "& > :not(:first-of-type)": {
       marginLeft: "-18px",
     },
   },
@@ -114,6 +121,157 @@ const SheepImg = styled(Image)(({}) => ({
   width: "100%",
   height: "100%",
   objectFit: "cover",
+}));
+
+const InfoBox = styled(Box)(({}) => ({
+  marginTop: "50px",
+  display: "grid",
+  gridTemplateColumns: "1fr 48.8%",
+  columnGap: "39px",
+  width: "100%",
+  overflow: "hidden",
+}));
+
+const InfoImg = styled(Image)(({}) => ({
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
+  borderRadius: "50px",
+}));
+
+const Overview = styled(Box)(({}) => ({
+  padding: "39px 45px 60px 45px",
+  display: "flex",
+  flexDirection: "column",
+  borderRadius: "50px",
+  backgroundColor: "#141414",
+}));
+
+const DescriptionWrapper = styled(Box)(({}) => ({
+  display: "flex",
+  flexDirection: "column",
+  width: "85.5%",
+}));
+
+const Title = styled("h4")(({ theme }) => ({
+  fontFamily: theme.typography.secondFamily,
+  fontWeight: 400,
+  fontSize: "50px",
+  lineHeight: "120%",
+  color: "#fff",
+}));
+
+const Description = styled("p")(({ theme }) => ({
+  marginTop: "25px",
+  fontFamily: theme.typography.fontFamily,
+  fontWeight: 300,
+  fontSize: "28px",
+  color: "#bbb",
+  lineHeight: "normal",
+}));
+
+const SheepFeatures = styled("div")(({ theme }) => ({
+  display: "flex",
+  gap: "10px",
+  flexWrap: "wrap",
+  marginTop: "30px",
+  [theme.breakpoints.down(576)]: {
+    marginTop: "15px",
+  },
+}));
+
+const SheepFeature = styled("div")(({ theme }) => ({
+  borderRadius: "50px",
+  padding: "15px 30px",
+  background: "#62b8b9",
+  fontFamily: theme.typography.fontFamily,
+  fontWeight: 400,
+  fontSize: "24px",
+  lineHeight: "98%",
+  color: "#141414",
+  textTransform: "capitalize",
+  textAlign: "center",
+  [theme.breakpoints.down(1280)]: {
+    fontSize: "18px",
+  },
+  [theme.breakpoints.down(1024)]: {
+    fontSize: "20px",
+  },
+  [theme.breakpoints.down(768)]: {
+    fontSize: "18px",
+  },
+  [theme.breakpoints.down(576)]: {
+    fontSize: "12px",
+    lineHeight: "196%",
+  },
+}));
+
+const Specifications = styled("ul")(({}) => ({
+  display: "flex",
+  flexDirection: "column",
+  flex: "1",
+  width: "100%",
+  marginTop: "50px",
+  "& > li:not(:first-of-type)": {
+    paddingTop: "25.5px",
+  },
+  "& > li:last-child": {
+    paddingBottom: "0",
+  },
+}));
+
+const Characteristic = styled("li")(({}) => ({
+  paddingBottom: "24.5px",
+  fontSize: "30px",
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+}));
+
+const Divider = styled(Box)(({}) => ({
+  border: "1px solid #4f4f4f",
+  width: "738px",
+  height: "0px",
+}));
+
+const CharacteristicName = styled(Box)(({ theme }) => ({
+  fontFamily: theme.typography.fontFamily,
+  fontWeight: 300,
+  fontSize: "26px",
+  color: "#bbb",
+}));
+
+const FullPercent = styled(Box)(({ theme }) => ({
+  fontFamily: theme.typography.fontFamily,
+  fontWeight: 300,
+  fontSize: "26px",
+  color: "#bbb",
+  marginRight: "25px",
+}));
+
+const CharacteristicValue = styled(Box)(({ theme }) => ({
+  fontFamily: theme.typography.fontFamily,
+  fontWeight: 700,
+  fontSize: "26px",
+  color: "#fff",
+}));
+
+const TotalName = styled(Box)(({ theme }) => ({
+  fontFamily: theme.typography.fontFamily,
+  fontWeight: 700,
+  fontSize: "30px",
+  color: "#fff",
+}));
+
+const TotalValue = styled(Box)(({ theme }) => ({
+  fontFamily: theme.typography.fontFamily,
+  fontWeight: 700,
+  fontSize: "30px",
+  color: "#fbb41a",
+}));
+
+const ButtonWrapper = styled("div")(({ theme }) => ({
+  width: "100%",
 }));
 
 interface BuySheepPopupProps {
@@ -160,6 +318,7 @@ export default function BuySheepPopup({
                     sx={{
                       position: "relative",
                       zIndex: `${100 - index}`,
+                      // border: "2px solid #4f4f4f",
                     }}
                   >
                     <SheepImg src={img} width={116} height={117} alt="Sheep" />
@@ -167,6 +326,60 @@ export default function BuySheepPopup({
                 );
               })}
             </SheepImgList>
+
+            <InfoBox>
+              <InfoImg
+                src={"/images/stareSheep/eleanor.png"}
+                width={829}
+                height={850}
+                alt="Sheep"
+              />
+
+              <Overview>
+                <DescriptionWrapper>
+                  <Title>Pablo the Poetic</Title>
+
+                  <Description>
+                    Pablo loves the hushed conversations of poets and the
+                    melodic cadence of their verses.
+                  </Description>
+
+                  <SheepFeatures>
+                    <SheepFeature>Artistic soul</SheepFeature>
+                    <SheepFeature>Books lover</SheepFeature>
+                    <SheepFeature>Brave</SheepFeature>
+                  </SheepFeatures>
+                </DescriptionWrapper>
+
+                <Specifications>
+                  <Characteristic>
+                    <CharacteristicName>Current price:</CharacteristicName>
+                    <CharacteristicValue>0,0989 ETH</CharacteristicValue>
+                  </Characteristic>
+                  <Divider />
+                  <Characteristic>
+                    <CharacteristicName>Royalty:</CharacteristicName>
+                    <Box sx={{ display: "flex" }}>
+                      <FullPercent>{"Full (5%)"}</FullPercent>
+                      <CharacteristicValue>0,049 ETH</CharacteristicValue>
+                    </Box>
+                  </Characteristic>
+                  <Divider />
+                  <Characteristic>
+                    <CharacteristicName>Potential upside:</CharacteristicName>
+                    <CharacteristicValue>1.33x</CharacteristicValue>
+                  </Characteristic>
+                  <Divider />
+                  <Characteristic>
+                    <TotalName>You pay:</TotalName>
+                    <TotalValue>0,1479 ETH</TotalValue>
+                  </Characteristic>
+                </Specifications>
+                <ButtonWrapper>
+                  <CardButton text={"BUY a Sheep"} />
+                </ButtonWrapper>
+              </Overview>
+            </InfoBox>
           </Wrapper>
         </DialogContent>
       </BootstrapDialog>
