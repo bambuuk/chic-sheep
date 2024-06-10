@@ -8,6 +8,8 @@ import Navigation from "./Navigation";
 import star from "/public/images/icons/yellowStar.svg";
 import burgerMenuIcon from "/public/images/icons/burgerMenu.svg";
 import { BurgerMenu } from "./BurgerMenu";
+import useModalControl from "@/hooks/useModalControl";
+import BuySheepPopup from "./BuySheepPopup";
 
 const HeaderUI = styled("header")(({ theme }) => ({
   width: "100%",
@@ -119,6 +121,7 @@ const BurgerMenuBtn = styled("button")(({ theme }) => ({
 
 const Header = () => {
   const [isOpenBurgerMenu, setIsOpenBurgerMenu] = useState(false);
+  const { isModalOpen, onOpenModal, onCloseModal } = useModalControl();
 
   const toggleBurgerMenu = () => {
     setIsOpenBurgerMenu((state) => (state === true ? false : true));
@@ -153,7 +156,7 @@ const Header = () => {
 
             <Navigation type={"usual"} />
 
-            <Button onMouseLeave={scaleStar}>
+            <Button onMouseLeave={scaleStar} onClick={onOpenModal}>
               <ButtonBox>
                 <Image ref={ref} src={star} width={22} height={22} alt="star" />
                 <ButtonText>BUY a Sheep</ButtonText>
@@ -162,6 +165,7 @@ const Header = () => {
             </Button>
           </HeaderWrapper>
         </CustomizedContainer>
+        <BuySheepPopup isModalOpen={isModalOpen} onCloseModal={onCloseModal} />
       </HeaderUI>
     </>
   );
