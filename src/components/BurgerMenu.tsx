@@ -34,6 +34,9 @@ const TopNavigationWrapper = styled("div")(({ theme }) => ({
   [theme.breakpoints.down(768)]: {
     padding: "0 30px",
   },
+  [theme.breakpoints.down(420)]: {
+    padding: "0 20px",
+  },
 }));
 
 const TopNavigationContainer = styled(CustomContainer)(({}) => ({
@@ -57,6 +60,9 @@ const MainContent = styled("div")(({ theme }) => ({
   height: "100%",
   [theme.breakpoints.down(768)]: {
     padding: "0 30px",
+  },
+  [theme.breakpoints.down(420)]: {
+    padding: "0 20px",
   },
 }));
 
