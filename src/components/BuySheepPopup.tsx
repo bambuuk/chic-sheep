@@ -13,6 +13,9 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     display: "block",
     overflowY: "scroll",
     padding: "215px 0 260px 0",
+    [theme.breakpoints.down(1700)]: {
+      padding: "150px 0 190px 0",
+    },
   },
   "& .MuiDialogContent-root": {
     padding: 0,
@@ -26,6 +29,9 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     borderRadius: "50px",
     border: "1px solid #4f4f4f",
     background: "#090909",
+    [theme.breakpoints.down(1700)]: {
+      padding: "50px 40px 75px 40px",
+    },
     [theme.breakpoints.down(1024)]: {
       padding: "130px 50px 100px 50px",
     },
@@ -56,9 +62,12 @@ const CustomIconButton = styled(IconButton)(({ theme }) => ({
   "&:hover path": {
     fill: "#FBB41A",
   },
+  [theme.breakpoints.down(1700)]: {
+    right: "40px",
+    top: "50px",
+  },
   [theme.breakpoints.down(1024)]: {
     right: "50px",
-    top: "50px",
   },
   [theme.breakpoints.down(576)]: {
     right: "41px",
@@ -123,13 +132,16 @@ const SheepImg = styled(Image)(({}) => ({
   objectFit: "cover",
 }));
 
-const InfoBox = styled(Box)(({}) => ({
+const InfoBox = styled(Box)(({ theme }) => ({
   marginTop: "50px",
   display: "grid",
   gridTemplateColumns: "1fr 48.8%",
   columnGap: "39px",
   width: "100%",
   overflow: "hidden",
+  [theme.breakpoints.down(1700)]: {
+    columnGap: "30px",
+  },
 }));
 
 const InfoImg = styled(Image)(({}) => ({
@@ -139,15 +151,18 @@ const InfoImg = styled(Image)(({}) => ({
   borderRadius: "50px",
 }));
 
-const Overview = styled(Box)(({}) => ({
+const Overview = styled(Box)(({ theme }) => ({
   padding: "39px 45px 60px 45px",
   display: "flex",
   flexDirection: "column",
   borderRadius: "50px",
   backgroundColor: "#141414",
+  [theme.breakpoints.down(1700)]: {
+    padding: "30px 40px 40px 40px",
+  },
 }));
 
-const DescriptionWrapper = styled(Box)(({}) => ({
+const DescriptionWrapper = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   width: "85.5%",
@@ -159,6 +174,12 @@ const Title = styled("h4")(({ theme }) => ({
   fontSize: "50px",
   lineHeight: "120%",
   color: "#fff",
+  [theme.breakpoints.down(1920)]: {
+    fontSize: "45px",
+  },
+  [theme.breakpoints.down(1700)]: {
+    fontSize: "40px",
+  },
 }));
 
 const Description = styled("p")(({ theme }) => ({
@@ -168,6 +189,12 @@ const Description = styled("p")(({ theme }) => ({
   fontSize: "28px",
   color: "#bbb",
   lineHeight: "normal",
+  [theme.breakpoints.down(1920)]: {
+    fontSize: "24px",
+  },
+  [theme.breakpoints.down(1700)]: {
+    fontSize: "22px",
+  },
 }));
 
 const SheepFeatures = styled("div")(({ theme }) => ({
@@ -175,6 +202,9 @@ const SheepFeatures = styled("div")(({ theme }) => ({
   gap: "10px",
   flexWrap: "wrap",
   marginTop: "30px",
+  [theme.breakpoints.down(1700)]: {
+    marginTop: "25px",
+  },
   [theme.breakpoints.down(576)]: {
     marginTop: "15px",
   },
@@ -191,8 +221,11 @@ const SheepFeature = styled("div")(({ theme }) => ({
   color: "#141414",
   textTransform: "capitalize",
   textAlign: "center",
-  [theme.breakpoints.down(1280)]: {
-    fontSize: "18px",
+  [theme.breakpoints.down(1920)]: {
+    fontSize: "22px",
+  },
+  [theme.breakpoints.down(1700)]: {
+    padding: "13px 25px",
   },
   [theme.breakpoints.down(1024)]: {
     fontSize: "20px",
@@ -206,7 +239,7 @@ const SheepFeature = styled("div")(({ theme }) => ({
   },
 }));
 
-const Specifications = styled("ul")(({}) => ({
+const Specifications = styled("ul")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   flex: "1",
@@ -218,14 +251,31 @@ const Specifications = styled("ul")(({}) => ({
   "& > li:last-child": {
     paddingBottom: "0",
   },
+  [theme.breakpoints.down(1920)]: {
+    marginTop: "40px",
+    "& > li:not(:first-of-type)": {
+      paddingTop: "20px",
+    },
+  },
+  [theme.breakpoints.down(1700)]: {
+    marginTop: "35px",
+    "& > li:not(:first-of-type)": {
+      paddingTop: "18px",
+    },
+  },
 }));
 
-const Characteristic = styled("li")(({}) => ({
+const Characteristic = styled("li")(({ theme }) => ({
   paddingBottom: "24.5px",
-  fontSize: "30px",
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
+  [theme.breakpoints.down(1920)]: {
+    paddingBottom: "20px",
+  },
+  [theme.breakpoints.down(1700)]: {
+    paddingBottom: "18px",
+  },
 }));
 
 const Divider = styled(Box)(({}) => ({
@@ -239,6 +289,12 @@ const CharacteristicName = styled(Box)(({ theme }) => ({
   fontWeight: 300,
   fontSize: "26px",
   color: "#bbb",
+  [theme.breakpoints.down(1920)]: {
+    fontSize: "24px",
+  },
+  [theme.breakpoints.down(1700)]: {
+    fontSize: "22px",
+  },
 }));
 
 const FullPercent = styled(Box)(({ theme }) => ({
@@ -247,6 +303,12 @@ const FullPercent = styled(Box)(({ theme }) => ({
   fontSize: "26px",
   color: "#bbb",
   marginRight: "25px",
+  [theme.breakpoints.down(1920)]: {
+    fontSize: "24px",
+  },
+  [theme.breakpoints.down(1700)]: {
+    fontSize: "22px",
+  },
 }));
 
 const CharacteristicValue = styled(Box)(({ theme }) => ({
@@ -254,6 +316,12 @@ const CharacteristicValue = styled(Box)(({ theme }) => ({
   fontWeight: 700,
   fontSize: "26px",
   color: "#fff",
+  [theme.breakpoints.down(1920)]: {
+    fontSize: "24px",
+  },
+  [theme.breakpoints.down(1700)]: {
+    fontSize: "22px",
+  },
 }));
 
 const TotalName = styled(Box)(({ theme }) => ({
@@ -261,6 +329,12 @@ const TotalName = styled(Box)(({ theme }) => ({
   fontWeight: 700,
   fontSize: "30px",
   color: "#fff",
+  [theme.breakpoints.down(1920)]: {
+    fontSize: "27px",
+  },
+  [theme.breakpoints.down(1700)]: {
+    fontSize: "25px",
+  },
 }));
 
 const TotalValue = styled(Box)(({ theme }) => ({
@@ -268,6 +342,12 @@ const TotalValue = styled(Box)(({ theme }) => ({
   fontWeight: 700,
   fontSize: "30px",
   color: "#fbb41a",
+  [theme.breakpoints.down(1920)]: {
+    fontSize: "27px",
+  },
+  [theme.breakpoints.down(1700)]: {
+    fontSize: "25px",
+  },
 }));
 
 const ButtonWrapper = styled("div")(({ theme }) => ({
@@ -343,13 +423,13 @@ export default function BuySheepPopup({
                     Pablo loves the hushed conversations of poets and the
                     melodic cadence of their verses.
                   </Description>
-
-                  <SheepFeatures>
-                    <SheepFeature>Artistic soul</SheepFeature>
-                    <SheepFeature>Books lover</SheepFeature>
-                    <SheepFeature>Brave</SheepFeature>
-                  </SheepFeatures>
                 </DescriptionWrapper>
+
+                <SheepFeatures>
+                  <SheepFeature>Artistic soul</SheepFeature>
+                  <SheepFeature>Books lover</SheepFeature>
+                  <SheepFeature>Brave</SheepFeature>
+                </SheepFeatures>
 
                 <Specifications>
                   <Characteristic>
