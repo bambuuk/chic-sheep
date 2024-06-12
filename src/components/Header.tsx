@@ -9,7 +9,7 @@ import star from "/public/images/icons/yellowStar.svg";
 import burgerMenuIcon from "/public/images/icons/burgerMenu.svg";
 import { BurgerMenu } from "./BurgerMenu";
 import useModalControl from "@/hooks/useModalControl";
-import BuySheepPopup from "./BuySheepPopup";
+import BuySheepPopup from "./BuySheepPopup/BuySheepPopup";
 
 const HeaderUI = styled("header")(({ theme }) => ({
   width: "100%",

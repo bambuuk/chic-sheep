@@ -6,7 +6,7 @@ import IconButton from "@mui/material/IconButton";
 import { Box } from "@mui/material";
 import Image from "next/image";
 import { stareSheep } from "@/assets/data";
-import CardButton from "./CardButton";
+import BuyButton from "./BuyButton";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialog-container": {
@@ -18,6 +18,9 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     },
     [theme.breakpoints.down(1500)]: {
       padding: "130px 0 170px 0",
+    },
+    [theme.breakpoints.down(1280)]: {
+      padding: "120px 0 150px 0",
     },
   },
   "& .MuiDialogContent-root": {
@@ -38,23 +41,23 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     [theme.breakpoints.down(1500)]: {
       padding: "40px 30px 50px 30px",
     },
-    [theme.breakpoints.down(1024)]: {
-      padding: "130px 50px 100px 50px",
-    },
-    [theme.breakpoints.down(576)]: {
-      padding: "116px 30px 70px 30px",
-      width: "100%",
-      height: "100%",
-      borderRadius: "0",
-      border: "none",
-    },
-    [theme.breakpoints.down(420)]: {
-      padding: "110px 20px 70px 20px",
-      width: "100%",
-      height: "100%",
-      borderRadius: "0",
-      border: "none",
-    },
+    // [theme.breakpoints.down(1024)]: {
+    //   padding: "130px 50px 100px 50px",
+    // },
+    // [theme.breakpoints.down(576)]: {
+    //   padding: "116px 30px 70px 30px",
+    //   width: "100%",
+    //   height: "100%",
+    //   borderRadius: "0",
+    //   border: "none",
+    // },
+    // [theme.breakpoints.down(420)]: {
+    //   padding: "110px 20px 70px 20px",
+    //   width: "100%",
+    //   height: "100%",
+    //   borderRadius: "0",
+    //   border: "none",
+    // },
   },
 }));
 
@@ -153,6 +156,9 @@ const InfoBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down(1700)]: {
     columnGap: "30px",
   },
+  [theme.breakpoints.down(1280)]: {
+    columnGap: "20px",
+  },
 }));
 
 const InfoImg = styled(Image)(({}) => ({
@@ -174,6 +180,9 @@ const Overview = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down(1500)]: {
     padding: "30px",
   },
+  [theme.breakpoints.down(1280)]: {
+    padding: "25px",
+  },
 }));
 
 const DescriptionWrapper = styled(Box)(({ theme }) => ({
@@ -182,6 +191,9 @@ const DescriptionWrapper = styled(Box)(({ theme }) => ({
   width: "85.5%",
   [theme.breakpoints.down(1500)]: {
     width: "95%",
+  },
+  [theme.breakpoints.down(1280)]: {
+    width: "100%",
   },
 }));
 
@@ -199,6 +211,10 @@ const Title = styled("h4")(({ theme }) => ({
   },
   [theme.breakpoints.down(1500)]: {
     fontSize: "38px",
+  },
+  [theme.breakpoints.down(1280)]: {
+    fontSize: "30px",
+    lineHeight: "110%",
   },
 }));
 
@@ -219,6 +235,10 @@ const Description = styled("p")(({ theme }) => ({
     fontSize: "20px",
     marginTop: "20px",
   },
+  [theme.breakpoints.down(1280)]: {
+    fontSize: "18px",
+    marginTop: "15px",
+  },
 }));
 
 const SheepFeatures = styled("div")(({ theme }) => ({
@@ -231,6 +251,9 @@ const SheepFeatures = styled("div")(({ theme }) => ({
   },
   [theme.breakpoints.down(1500)]: {
     marginTop: "20px",
+  },
+  [theme.breakpoints.down(1280)]: {
+    marginTop: "15px",
   },
 }));
 
@@ -255,6 +278,10 @@ const SheepFeature = styled("div")(({ theme }) => ({
     padding: "12px 24px",
     fontSize: "18px",
   },
+  [theme.breakpoints.down(1280)]: {
+    padding: "10px 15px",
+    fontSize: "16px",
+  },
 }));
 
 const Specifications = styled("ul")(({ theme }) => ({
@@ -263,6 +290,7 @@ const Specifications = styled("ul")(({ theme }) => ({
   flex: "1",
   width: "100%",
   marginTop: "50px",
+  overflow: "hidden",
   "& > li:not(:first-of-type)": {
     paddingTop: "25.5px",
   },
@@ -287,6 +315,12 @@ const Specifications = styled("ul")(({ theme }) => ({
       paddingTop: "14px",
     },
   },
+  [theme.breakpoints.down(1280)]: {
+    marginTop: "20px",
+    "& > li:not(:first-of-type)": {
+      paddingTop: "12px",
+    },
+  },
 }));
 
 const Characteristic = styled("li")(({ theme }) => ({
@@ -302,6 +336,9 @@ const Characteristic = styled("li")(({ theme }) => ({
   },
   [theme.breakpoints.down(1500)]: {
     paddingBottom: "14px",
+  },
+  [theme.breakpoints.down(1280)]: {
+    paddingBottom: "12px",
   },
 }));
 
@@ -325,6 +362,9 @@ const CharacteristicName = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down(1500)]: {
     fontSize: "18px",
   },
+  [theme.breakpoints.down(1280)]: {
+    fontSize: "16px",
+  },
 }));
 
 const FullPercent = styled(Box)(({ theme }) => ({
@@ -342,6 +382,9 @@ const FullPercent = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down(1500)]: {
     fontSize: "18px",
   },
+  [theme.breakpoints.down(1280)]: {
+    fontSize: "16px",
+  },
 }));
 
 const CharacteristicValue = styled(Box)(({ theme }) => ({
@@ -357,6 +400,9 @@ const CharacteristicValue = styled(Box)(({ theme }) => ({
   },
   [theme.breakpoints.down(1500)]: {
     fontSize: "18px",
+  },
+  [theme.breakpoints.down(1280)]: {
+    fontSize: "16px",
   },
 }));
 
@@ -374,6 +420,9 @@ const TotalName = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down(1500)]: {
     fontSize: "20px",
   },
+  [theme.breakpoints.down(1280)]: {
+    fontSize: "18px",
+  },
 }));
 
 const TotalValue = styled(Box)(({ theme }) => ({
@@ -389,6 +438,9 @@ const TotalValue = styled(Box)(({ theme }) => ({
   },
   [theme.breakpoints.down(1500)]: {
     fontSize: "20px",
+  },
+  [theme.breakpoints.down(1280)]: {
+    fontSize: "18px",
   },
 }));
 
@@ -498,7 +550,7 @@ export default function BuySheepPopup({
                   </Characteristic>
                 </Specifications>
                 <ButtonWrapper>
-                  <CardButton text={"BUY a Sheep"} />
+                  <BuyButton text={"BUY a Sheep"} />
                 </ButtonWrapper>
               </Overview>
             </InfoBox>

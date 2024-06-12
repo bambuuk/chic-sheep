@@ -1,5 +1,5 @@
 "use client";
-import { Box, styled } from "@mui/material";
+import { Box, styled, Button as ButtonBtn } from "@mui/material";
 import Image from "next/image";
 
 export const CustomContainer = styled("div")({
@@ -54,7 +54,7 @@ export const MainLineBlock = styled("div")(({}) => ({
   borderRight: "1px solid #4f4f4f",
 }));
 
-export const Button = styled("button")(({ theme }) => ({
+export const Button = styled(ButtonBtn)(({ theme }) => ({
   width: "100%",
   height: "70px",
   border: "3px solid #fff",
@@ -100,7 +100,7 @@ export const ButtonBox = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const ButtonText = styled("span")(({ theme }) => ({
+export const ButtonText = styled(Box)(({ theme }) => ({
   fontFamily: theme.typography.secondFamily,
   fontWeight: 400,
   fontSize: "24px",
