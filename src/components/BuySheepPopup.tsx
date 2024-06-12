@@ -16,6 +16,9 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     [theme.breakpoints.down(1700)]: {
       padding: "150px 0 190px 0",
     },
+    [theme.breakpoints.down(1500)]: {
+      padding: "130px 0 170px 0",
+    },
   },
   "& .MuiDialogContent-root": {
     padding: 0,
@@ -31,6 +34,9 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     background: "#090909",
     [theme.breakpoints.down(1700)]: {
       padding: "50px 40px 75px 40px",
+    },
+    [theme.breakpoints.down(1500)]: {
+      padding: "40px 30px 50px 30px",
     },
     [theme.breakpoints.down(1024)]: {
       padding: "130px 50px 100px 50px",
@@ -66,7 +72,12 @@ const CustomIconButton = styled(IconButton)(({ theme }) => ({
     right: "40px",
     top: "50px",
   },
+  [theme.breakpoints.down(1500)]: {
+    right: "30px",
+    top: "40px",
+  },
   [theme.breakpoints.down(1024)]: {
+    top: "50px",
     right: "50px",
   },
   [theme.breakpoints.down(576)]: {
@@ -160,12 +171,18 @@ const Overview = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down(1700)]: {
     padding: "30px 40px 40px 40px",
   },
+  [theme.breakpoints.down(1500)]: {
+    padding: "30px",
+  },
 }));
 
 const DescriptionWrapper = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   width: "85.5%",
+  [theme.breakpoints.down(1500)]: {
+    width: "95%",
+  },
 }));
 
 const Title = styled("h4")(({ theme }) => ({
@@ -179,6 +196,9 @@ const Title = styled("h4")(({ theme }) => ({
   },
   [theme.breakpoints.down(1700)]: {
     fontSize: "40px",
+  },
+  [theme.breakpoints.down(1500)]: {
+    fontSize: "38px",
   },
 }));
 
@@ -195,6 +215,10 @@ const Description = styled("p")(({ theme }) => ({
   [theme.breakpoints.down(1700)]: {
     fontSize: "22px",
   },
+  [theme.breakpoints.down(1500)]: {
+    fontSize: "20px",
+    marginTop: "20px",
+  },
 }));
 
 const SheepFeatures = styled("div")(({ theme }) => ({
@@ -205,8 +229,8 @@ const SheepFeatures = styled("div")(({ theme }) => ({
   [theme.breakpoints.down(1700)]: {
     marginTop: "25px",
   },
-  [theme.breakpoints.down(576)]: {
-    marginTop: "15px",
+  [theme.breakpoints.down(1500)]: {
+    marginTop: "20px",
   },
 }));
 
@@ -227,15 +251,9 @@ const SheepFeature = styled("div")(({ theme }) => ({
   [theme.breakpoints.down(1700)]: {
     padding: "13px 25px",
   },
-  [theme.breakpoints.down(1024)]: {
-    fontSize: "20px",
-  },
-  [theme.breakpoints.down(768)]: {
+  [theme.breakpoints.down(1500)]: {
+    padding: "12px 24px",
     fontSize: "18px",
-  },
-  [theme.breakpoints.down(576)]: {
-    fontSize: "12px",
-    lineHeight: "196%",
   },
 }));
 
@@ -263,6 +281,12 @@ const Specifications = styled("ul")(({ theme }) => ({
       paddingTop: "18px",
     },
   },
+  [theme.breakpoints.down(1500)]: {
+    marginTop: "25px",
+    "& > li:not(:first-of-type)": {
+      paddingTop: "14px",
+    },
+  },
 }));
 
 const Characteristic = styled("li")(({ theme }) => ({
@@ -275,6 +299,9 @@ const Characteristic = styled("li")(({ theme }) => ({
   },
   [theme.breakpoints.down(1700)]: {
     paddingBottom: "18px",
+  },
+  [theme.breakpoints.down(1500)]: {
+    paddingBottom: "14px",
   },
 }));
 
@@ -295,6 +322,9 @@ const CharacteristicName = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down(1700)]: {
     fontSize: "22px",
   },
+  [theme.breakpoints.down(1500)]: {
+    fontSize: "18px",
+  },
 }));
 
 const FullPercent = styled(Box)(({ theme }) => ({
@@ -309,6 +339,9 @@ const FullPercent = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down(1700)]: {
     fontSize: "22px",
   },
+  [theme.breakpoints.down(1500)]: {
+    fontSize: "18px",
+  },
 }));
 
 const CharacteristicValue = styled(Box)(({ theme }) => ({
@@ -321,6 +354,9 @@ const CharacteristicValue = styled(Box)(({ theme }) => ({
   },
   [theme.breakpoints.down(1700)]: {
     fontSize: "22px",
+  },
+  [theme.breakpoints.down(1500)]: {
+    fontSize: "18px",
   },
 }));
 
@@ -335,6 +371,9 @@ const TotalName = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down(1700)]: {
     fontSize: "25px",
   },
+  [theme.breakpoints.down(1500)]: {
+    fontSize: "20px",
+  },
 }));
 
 const TotalValue = styled(Box)(({ theme }) => ({
@@ -347,6 +386,9 @@ const TotalValue = styled(Box)(({ theme }) => ({
   },
   [theme.breakpoints.down(1700)]: {
     fontSize: "25px",
+  },
+  [theme.breakpoints.down(1500)]: {
+    fontSize: "20px",
   },
 }));
 
