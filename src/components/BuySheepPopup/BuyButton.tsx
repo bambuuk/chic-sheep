@@ -17,6 +17,14 @@ const BuyButton = ({ text }: ButtonProps) => {
           height: "50px",
           border: "2px solid #fff",
         },
+        [theme.breakpoints.down(1024)]: {
+          height: "70px",
+          border: "3px solid #fff",
+        },
+        [theme.breakpoints.down(576)]: {
+          height: "50px",
+          border: "3px solid #fff",
+        },
       })}
     >
       <ButtonBox>
@@ -25,6 +33,12 @@ const BuyButton = ({ text }: ButtonProps) => {
           sx={(theme) => ({
             [theme.breakpoints.down(1280)]: {
               fontSize: "18px",
+            },
+            [theme.breakpoints.down(1024)]: {
+              fontSize: "24px",
+            },
+            [theme.breakpoints.down(576)]: {
+              fontSize: "13px",
             },
           })}
         >

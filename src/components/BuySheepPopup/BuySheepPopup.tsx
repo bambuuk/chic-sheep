@@ -22,6 +22,12 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     [theme.breakpoints.down(1280)]: {
       padding: "120px 0 150px 0",
     },
+    [theme.breakpoints.down(1024)]: {
+      padding: "40px 0 60px 0",
+    },
+    [theme.breakpoints.down(576)]: {
+      padding: "0",
+    },
   },
   "& .MuiDialogContent-root": {
     padding: 0,
@@ -41,16 +47,17 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     [theme.breakpoints.down(1500)]: {
       padding: "40px 30px 50px 30px",
     },
-    // [theme.breakpoints.down(1024)]: {
-    //   padding: "130px 50px 100px 50px",
-    // },
-    // [theme.breakpoints.down(576)]: {
-    //   padding: "116px 30px 70px 30px",
-    //   width: "100%",
-    //   height: "100%",
-    //   borderRadius: "0",
-    //   border: "none",
-    // },
+    [theme.breakpoints.down(1024)]: {
+      padding: "130px 50px 100px 50px",
+      width: "100%",
+      maxWidth: "700px",
+    },
+    [theme.breakpoints.down(576)]: {
+      padding: "116px 30px 50px 30px",
+      width: "100%",
+      borderRadius: "0",
+      border: "none",
+    },
     // [theme.breakpoints.down(420)]: {
     //   padding: "110px 20px 70px 20px",
     //   width: "100%",
@@ -82,6 +89,9 @@ const CustomIconButton = styled(IconButton)(({ theme }) => ({
   [theme.breakpoints.down(1024)]: {
     top: "50px",
     right: "50px",
+    "& path": {
+      fill: "#FBB41A",
+    },
   },
   [theme.breakpoints.down(576)]: {
     right: "41px",
@@ -97,9 +107,12 @@ const CustomIconButton = styled(IconButton)(({ theme }) => ({
   },
 }));
 
-const Wrapper = styled(Box)(({}) => ({
+const Wrapper = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
+  [theme.breakpoints.down(1024)]: {
+    alignItems: "center",
+  },
 }));
 
 const SheepImgList = styled(Box)(({ theme }) => ({
@@ -130,6 +143,10 @@ const SheepImgBox = styled(Box)(({ theme }) => ({
   "&:hover": {
     border: "2px solid #fbb41a",
   },
+  [theme.breakpoints.down(768)]: {
+    width: "100px",
+    height: "102px",
+  },
   [theme.breakpoints.down(576)]: {
     width: "68px",
     height: "70px",
@@ -159,6 +176,16 @@ const InfoBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down(1280)]: {
     columnGap: "20px",
   },
+  [theme.breakpoints.down(1024)]: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "50px",
+    maxWidth: "600px",
+  },
+  [theme.breakpoints.down(576)]: {
+    gap: "40px",
+    marginTop: "40px",
+  },
 }));
 
 const InfoImg = styled(Image)(({}) => ({
@@ -182,6 +209,12 @@ const Overview = styled(Box)(({ theme }) => ({
   },
   [theme.breakpoints.down(1280)]: {
     padding: "25px",
+  },
+  [theme.breakpoints.down(1024)]: {
+    padding: "35px 35px 60px 35px",
+  },
+  [theme.breakpoints.down(576)]: {
+    padding: "25px 20px 50px 20px",
   },
 }));
 
@@ -216,6 +249,14 @@ const Title = styled("h4")(({ theme }) => ({
     fontSize: "30px",
     lineHeight: "110%",
   },
+  [theme.breakpoints.down(1024)]: {
+    fontSize: "34px",
+    lineHeight: "176%",
+  },
+  [theme.breakpoints.down(576)]: {
+    fontSize: "22px",
+    lineHeight: "150%",
+  },
 }));
 
 const Description = styled("p")(({ theme }) => ({
@@ -239,6 +280,14 @@ const Description = styled("p")(({ theme }) => ({
     fontSize: "18px",
     marginTop: "15px",
   },
+  [theme.breakpoints.down(1024)]: {
+    fontSize: "24px",
+    marginTop: "25px",
+  },
+  [theme.breakpoints.down(1024)]: {
+    fontSize: "16px",
+    marginTop: "15px",
+  },
 }));
 
 const SheepFeatures = styled("div")(({ theme }) => ({
@@ -254,6 +303,12 @@ const SheepFeatures = styled("div")(({ theme }) => ({
   },
   [theme.breakpoints.down(1280)]: {
     marginTop: "15px",
+  },
+  [theme.breakpoints.down(1024)]: {
+    marginTop: "30px",
+  },
+  [theme.breakpoints.down(576)]: {
+    marginTop: "25px",
   },
 }));
 
@@ -281,6 +336,15 @@ const SheepFeature = styled("div")(({ theme }) => ({
   [theme.breakpoints.down(1280)]: {
     padding: "10px 15px",
     fontSize: "16px",
+  },
+  [theme.breakpoints.down(1024)]: {
+    padding: "8px 20px",
+    fontSize: "20px",
+  },
+  [theme.breakpoints.down(576)]: {
+    padding: "3px 20px",
+    fontSize: "12px",
+    lineHeight: "196%",
   },
 }));
 
@@ -321,6 +385,18 @@ const Specifications = styled("ul")(({ theme }) => ({
       paddingTop: "12px",
     },
   },
+  [theme.breakpoints.down(1024)]: {
+    marginTop: "50px",
+    "& > li:not(:first-of-type)": {
+      paddingTop: "25.5px",
+    },
+  },
+  [theme.breakpoints.down(576)]: {
+    marginTop: "30px",
+    "& > li:not(:first-of-type)": {
+      paddingTop: "15.5px",
+    },
+  },
 }));
 
 const Characteristic = styled("li")(({ theme }) => ({
@@ -340,11 +416,17 @@ const Characteristic = styled("li")(({ theme }) => ({
   [theme.breakpoints.down(1280)]: {
     paddingBottom: "12px",
   },
+  [theme.breakpoints.down(1024)]: {
+    paddingBottom: "24.5px",
+  },
+  [theme.breakpoints.down(1024)]: {
+    paddingBottom: "14.5px",
+  },
 }));
 
 const Divider = styled(Box)(({}) => ({
   border: "1px solid #4f4f4f",
-  width: "738px",
+  width: "100%",
   height: "0px",
 }));
 
@@ -363,6 +445,12 @@ const CharacteristicName = styled(Box)(({ theme }) => ({
     fontSize: "18px",
   },
   [theme.breakpoints.down(1280)]: {
+    fontSize: "16px",
+  },
+  [theme.breakpoints.down(1024)]: {
+    fontSize: "24px",
+  },
+  [theme.breakpoints.down(576)]: {
     fontSize: "16px",
   },
 }));
@@ -385,6 +473,12 @@ const FullPercent = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down(1280)]: {
     fontSize: "16px",
   },
+  [theme.breakpoints.down(1024)]: {
+    fontSize: "24px",
+  },
+  [theme.breakpoints.down(576)]: {
+    fontSize: "16px",
+  },
 }));
 
 const CharacteristicValue = styled(Box)(({ theme }) => ({
@@ -402,6 +496,12 @@ const CharacteristicValue = styled(Box)(({ theme }) => ({
     fontSize: "18px",
   },
   [theme.breakpoints.down(1280)]: {
+    fontSize: "16px",
+  },
+  [theme.breakpoints.down(1024)]: {
+    fontSize: "24px",
+  },
+  [theme.breakpoints.down(576)]: {
     fontSize: "16px",
   },
 }));
@@ -423,6 +523,12 @@ const TotalName = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down(1280)]: {
     fontSize: "18px",
   },
+  [theme.breakpoints.down(1024)]: {
+    fontSize: "26px",
+  },
+  [theme.breakpoints.down(576)]: {
+    fontSize: "18px",
+  },
 }));
 
 const TotalValue = styled(Box)(({ theme }) => ({
@@ -442,10 +548,20 @@ const TotalValue = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down(1280)]: {
     fontSize: "18px",
   },
+  [theme.breakpoints.down(1024)]: {
+    fontSize: "26px",
+  },
+  [theme.breakpoints.down(576)]: {
+    fontSize: "18px",
+  },
 }));
 
 const ButtonWrapper = styled("div")(({ theme }) => ({
   width: "100%",
+  marginTop: "60px",
+  [theme.breakpoints.down(576)]: {
+    marginTop: "40px",
+  },
 }));
 
 interface BuySheepPopupProps {
