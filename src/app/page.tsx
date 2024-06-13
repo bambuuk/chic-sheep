@@ -1,5 +1,6 @@
+"use client";
 import Header from "@/components/Header";
-import { ThemeProvider } from "@mui/material";
+import { ThemeProvider, styled } from "@mui/material";
 import { theme } from "./theme";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -10,12 +11,18 @@ import YourFAQ from "@/components/YourFAQ/YourFAQ";
 import { Footer } from "@/components/Footer";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 
+const Main = styled("main")({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+});
+
 export default function Home() {
   return (
     <>
       <ThemeProvider theme={theme}>
         <Header />
-        <main>
+        <Main>
           <Hero />
           <About />
           <OurRoadmap />
@@ -23,7 +30,7 @@ export default function Home() {
           <HowToBuy />
           <YourFAQ />
           <ScrollToTopButton />
-        </main>
+        </Main>
         <Footer />
       </ThemeProvider>
     </>

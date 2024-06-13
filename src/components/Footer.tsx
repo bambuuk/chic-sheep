@@ -10,6 +10,7 @@ const FooterUI = styled("footer")(({ theme }) => ({
   width: "100%",
   maxWidth: "1920px",
   padding: "0 110px",
+  margin: "0 auto",
   [theme.breakpoints.down("xl")]: {
     padding: "0 50px",
   },

@@ -16,6 +16,7 @@ const HeaderUI = styled("header")(({ theme }) => ({
   maxWidth: "1920px",
   padding: "0 110px",
   borderBottom: "1px solid #4f4f4f",
+  margin: "0 auto",
   [theme.breakpoints.down("xl")]: {
     padding: "0 50px",
   },
