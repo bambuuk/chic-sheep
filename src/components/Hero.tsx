@@ -8,6 +8,8 @@ import {
   Section,
 } from "./CustomElements";
 import Button from "./Button";
+import BuySheepPopup from "./BuySheepPopup/BuySheepPopup";
+import useModalControl from "@/hooks/useModalControl";
 
 const HeroUI = styled(Section)(({}) => ({}));
 
@@ -162,6 +164,8 @@ const MainImg = styled("img")(({ theme }) => ({
 }));
 
 const Hero = () => {
+  const { isModalOpen, onOpenModal, onCloseModal } = useModalControl();
+
   return (
     <HeroUI>
       <CustomizedContainer>
@@ -194,11 +198,15 @@ const Hero = () => {
 
           <MainImg src="/images/heroSheep.png" alt="Sheep" />
 
-          <Box sx={{ marginTop: "60px", maxWidth: "1700px", width: "100%" }}>
+          <Box
+            sx={{ marginTop: "60px", maxWidth: "1700px", width: "100%" }}
+            onClick={onOpenModal}
+          >
             <Button text={"Start your sheepish journey"} />
           </Box>
         </HeroWrapper>
       </CustomizedContainer>
+      <BuySheepPopup isModalOpen={isModalOpen} onCloseModal={onCloseModal} />
     </HeroUI>
   );
 };

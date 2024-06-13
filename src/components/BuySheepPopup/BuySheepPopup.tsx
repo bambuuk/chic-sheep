@@ -58,13 +58,9 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
       borderRadius: "0",
       border: "none",
     },
-    // [theme.breakpoints.down(420)]: {
-    //   padding: "110px 20px 70px 20px",
-    //   width: "100%",
-    //   height: "100%",
-    //   borderRadius: "0",
-    //   border: "none",
-    // },
+    [theme.breakpoints.down(420)]: {
+      padding: "110px 20px 45px 20px",
+    },
   },
 }));
 
@@ -257,6 +253,10 @@ const Title = styled("h4")(({ theme }) => ({
     fontSize: "22px",
     lineHeight: "150%",
   },
+  [theme.breakpoints.down(420)]: {
+    fontSize: "20px",
+    lineHeight: "120%",
+  },
 }));
 
 const Description = styled("p")(({ theme }) => ({
@@ -284,9 +284,12 @@ const Description = styled("p")(({ theme }) => ({
     fontSize: "24px",
     marginTop: "25px",
   },
-  [theme.breakpoints.down(1024)]: {
+  [theme.breakpoints.down(576)]: {
     fontSize: "16px",
     marginTop: "15px",
+  },
+  [theme.breakpoints.down(420)]: {
+    fontSize: "14px",
   },
 }));
 
@@ -345,6 +348,9 @@ const SheepFeature = styled("div")(({ theme }) => ({
     padding: "3px 20px",
     fontSize: "12px",
     lineHeight: "196%",
+  },
+  [theme.breakpoints.down(420)]: {
+    padding: "3px 15px",
   },
 }));
 
@@ -478,6 +484,9 @@ const FullPercent = styled(Box)(({ theme }) => ({
   },
   [theme.breakpoints.down(576)]: {
     fontSize: "16px",
+  },
+  [theme.breakpoints.down(420)]: {
+    marginRight: "10px",
   },
 }));
 
