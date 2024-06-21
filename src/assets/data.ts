@@ -1,3 +1,10 @@
+import imgPablo from "/public/images/stareSheep/pablo.png";
+import imgLeo from "/public/images/stareSheep/leo.png";
+import imgFiona from "/public/images/stareSheep/fiona.png";
+import imgFelix from "/public/images/stareSheep/felix.png";
+import imgEleanor from "/public/images/stareSheep/eleanor.png";
+import imgLeonardo from "/public/images/stareSheep/leonardo.png";
+
 export const roadmap = [
   {
     title: "Concept & Creation",
@@ -49,7 +56,11 @@ export const stareSheep = [
     features: ["Artistic soul", "Books lover", "Brave"],
     bgColor: "#62b8b9",
     textColor: "#141414",
-    img: "/images/stareSheep/pablo.png",
+    img: imgPablo,
+    id: "1",
+    currentPrice: 0.0989,
+    royalty: 0.049,
+    potentialUpside: 1.33,
   },
   {
     title: "Leo the Legendary",
@@ -58,7 +69,11 @@ export const stareSheep = [
     features: ["Dreamer", "Magician", "Illusionist"],
     bgColor: "#ea531b",
     textColor: "#fff",
-    img: "/images/stareSheep/leo.png",
+    img: imgLeo,
+    id: "2",
+    currentPrice: 0.0975,
+    royalty: 0.048,
+    potentialUpside: 1.5,
   },
   {
     title: "Fiona the Flamboyant",
@@ -67,7 +82,11 @@ export const stareSheep = [
     features: ["Fashionista", "Designer", "Good girl"],
     bgColor: "#b6346b",
     textColor: "#fff",
-    img: "/images/stareSheep/fiona.png",
+    img: imgFiona,
+    id: "3",
+    currentPrice: 0.099,
+    royalty: 0.0049,
+    potentialUpside: 1.25,
   },
   {
     title: "Felix the Fearless",
@@ -76,7 +95,11 @@ export const stareSheep = [
     features: ["Brave", "Soldier", "Hunter"],
     bgColor: "#e5783e",
     textColor: "#fff",
-    img: "/images/stareSheep/felix.png",
+    img: imgFelix,
+    id: "4",
+    currentPrice: 0.099,
+    royalty: 0.0049,
+    potentialUpside: 1.25,
   },
   {
     title: "Eleanor the Eloquent",
@@ -85,7 +108,11 @@ export const stareSheep = [
     features: ["Actress", "Creator", "Elegant"],
     bgColor: "#bfddfa",
     textColor: "#141414",
-    img: "/images/stareSheep/eleanor.png",
+    img: imgEleanor,
+    id: "5",
+    currentPrice: 0.0989,
+    royalty: 0.049,
+    potentialUpside: 1.33,
   },
   {
     title: "Leonardo Baa Vinci",
@@ -94,33 +121,37 @@ export const stareSheep = [
     features: ["Artist", "Bright", "Aesthete"],
     bgColor: "#fbb41a",
     textColor: "#141414",
-    img: "/images/stareSheep/leonardo.png",
+    img: imgLeonardo,
+    id: "6",
+    currentPrice: 0.0989,
+    royalty: 0.049,
+    potentialUpside: 1.33,
   },
 ];
 
 export const FAQs = [
   {
-    title: 'What is a digital wallet, and why do I need one?',
+    title: "What is a digital wallet, and why do I need one?",
     description: `Sheep minting commences, each gaining a unique identity. They debut in our digital gallery, ready for collectors worldwide.
     It's a celebration of imagination and technology.`,
   },
   {
-    title: 'Which cryptocurrencies are accepted for purchasing NFT Sheeps?',
+    title: "Which cryptocurrencies are accepted for purchasing NFT Sheeps?",
     description: `Ethereum (ETH) is the most commonly accepted cryptocurrency for buying NFTs, including NFT Sheeps. 
     Ensure your digital wallet contains enough ETH to make the purchase.`,
   },
   {
-    title: 'Is there a limit to how many NFT Sheeps I can own?',
+    title: "Is there a limit to how many NFT Sheeps I can own?",
     description: `No, there's typically no limit to how many NFT Sheeps you can own. You can collect as many as you desire and can afford. 
     NFT Sheeps are unique and valuable due to their rarity, artistic quality, and the creative vision of their creators.`,
   },
   {
-    title: 'What happens to my NFT Sheeps if the website shuts down?',
+    title: "What happens to my NFT Sheeps if the website shuts down?",
     description: `If the platform hosting your NFT Sheeps were to shut down, your ownership of the NFTs would remain unaffected. 
     The NFTs are stored on the blockchain, and you can access them using your digital wallet.`,
   },
   {
-    title: 'What is the community like for NFT Sheeps collectors?',
+    title: "What is the community like for NFT Sheeps collectors?",
     description: `          The NFT Sheeps community is a vibrant and creative space. 
     You can engage with other collectors, artists, and enthusiasts through social media, online forums, and virtual events.`,
   },

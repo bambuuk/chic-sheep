@@ -260,7 +260,13 @@ const StareSheep = () => {
               ({ title, description, features, bgColor, textColor, img }) => {
                 return (
                   <SheepItem key={title}>
-                    <SheepImg src={img} width={815} height={835} alt="Sheep" />
+                    <SheepImg
+                      src={img}
+                      width={815}
+                      height={835}
+                      alt="Sheep"
+                      placeholder="blur"
+                    />
                     <SecondBlock>
                       <SecondBlockWrapper>
                         <SheepTitle>{title}</SheepTitle>
