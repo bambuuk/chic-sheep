@@ -73,17 +73,17 @@ const DescriptionWrapper = styled(Box)(({ theme }) => ({
 const Title = styled("h4")(({ theme }) => ({
   fontFamily: theme.typography.secondFamily,
   fontWeight: 400,
-  fontSize: "50px",
+  fontSize: "48px",
   lineHeight: "120%",
   color: "#fff",
   [theme.breakpoints.down(1920)]: {
-    fontSize: "45px",
+    fontSize: "42px",
   },
   [theme.breakpoints.down(1700)]: {
-    fontSize: "40px",
+    fontSize: "36px",
   },
   [theme.breakpoints.down(1500)]: {
-    fontSize: "38px",
+    fontSize: "32px",
   },
   [theme.breakpoints.down(1280)]: {
     fontSize: "30px",

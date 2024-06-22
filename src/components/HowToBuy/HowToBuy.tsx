@@ -27,8 +27,9 @@ const MainWrapper = styled("div")(({ theme }) => ({
 const SheepImg = styled("img")(({ theme }) => ({
   width: "100%",
   height: "100%",
-  objectFit: "contain",
+  objectFit: "cover",
   position: "relative",
+  borderRadius: "50px",
   left: "-2px",
   [theme.breakpoints.down(1024)]: {
     gridRow: "2 / 3",
@@ -42,9 +43,9 @@ const InfoBox = styled("div")(({ theme }) => ({
   gap: "60px",
   width: "100%",
   position: "relative",
-  top: "-29px",
+  top: "-30px",
   [theme.breakpoints.down(1920)]: {
-    top: "-0",
+    top: "-18px",
     gap: "50px",
   },
   [theme.breakpoints.down(1700)]: {
@@ -52,13 +53,14 @@ const InfoBox = styled("div")(({ theme }) => ({
     top: "-15px",
   },
   [theme.breakpoints.down(1500)]: {
-    top: "-10px",
+    top: "-8px",
   },
   [theme.breakpoints.down(1280)]: {
-    top: "-0",
+    top: "-5px",
     gap: "20px",
   },
   [theme.breakpoints.down(1024)]: {
+    top: "0",
     gap: "62px",
   },
   [theme.breakpoints.down(576)]: {
