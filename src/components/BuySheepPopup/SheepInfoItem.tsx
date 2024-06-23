@@ -452,7 +452,15 @@ export const SheepInfoItem = ({ data }: SheepInfoItemProps) => {
 
         <SheepFeatures>
           {features.map((item) => (
-            <SheepFeature key={item}>{item}</SheepFeature>
+            <SheepFeature
+              key={item}
+              sx={{
+                backgroundColor: bgColor,
+                color: textColor,
+              }}
+            >
+              {item}
+            </SheepFeature>
           ))}
         </SheepFeatures>
 
