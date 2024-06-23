@@ -6,6 +6,9 @@ import CardButton from "./CardButton";
 import { stareSheep } from "@/assets/data";
 import Button from "./Button";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import BuySheepPopup from "./BuySheepPopup/BuySheepPopup";
+import useModalControl from "@/hooks/useModalControl";
+import { useState } from "react";
 
 const CustomizedContainer = styled(CustomContainer)(({}) => ({
   position: "relative",
@@ -244,6 +247,13 @@ const ButtonWrapper = styled("div")(({ theme }) => ({
 
 const StareSheep = () => {
   const { isSmallMobile } = useMediaQuery();
+  const { isModalOpen, onOpenModal, onCloseModal } = useModalControl();
+  const [idSheepOpen, setIdSheepOpen] = useState("");
+
+  const handleOpen = (id: string) => {
+    onOpenModal();
+    setIdSheepOpen(id);
+  };
 
   return (
     <Section id="gallery">
@@ -257,7 +267,15 @@ const StareSheep = () => {
 
           <SheepList>
             {stareSheep.map(
-              ({ title, description, features, bgColor, textColor, img }) => {
+              ({
+                title,
+                description,
+                features,
+                bgColor,
+                textColor,
+                img,
+                id,
+              }) => {
                 return (
                   <SheepItem key={title}>
                     <SheepImg
@@ -293,7 +311,7 @@ const StareSheep = () => {
                           ""
                         )}
 
-                        <ButtonWrapper>
+                        <ButtonWrapper onClick={() => handleOpen(id)}>
                           <CardButton text={"BUY a Sheep"} />
                         </ButtonWrapper>
                       </SecondBlockWrapper>
@@ -309,6 +327,11 @@ const StareSheep = () => {
           </Box>
         </SectionWrapper>
       </CustomizedContainer>
+      <BuySheepPopup
+        isModalOpen={isModalOpen}
+        onCloseModal={onCloseModal}
+        id={idSheepOpen}
+      />
     </Section>
   );
 };

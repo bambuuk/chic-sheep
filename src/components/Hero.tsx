@@ -33,34 +33,33 @@ const HeroWrapper = styled("div")(({ theme }) => ({
 const Title = styled("h1")(({ theme }) => ({
   marginTop: "55.5px",
   position: "relative",
-  left: "-22px",
+  left: "-1.29%",
   display: "flex",
   flexWrap: "wrap",
   flexShrink: 1,
   fontFamily: theme.typography.secondFamily,
   fontWeight: 400,
-  fontSize: "354px",
+  fontSize: "353px",
   lineHeight: "100%",
   color: "#fff",
   [theme.breakpoints.down(1920)]: {
-    fontSize: "clamp(53px, 17.8vw, 354px)",
-    left: "-3px",
+    fontSize: "clamp(53px, 18.05vw, 354px)",
   },
   [theme.breakpoints.down(1700)]: {
-    fontSize: "clamp(53px, 17.3vw, 354px)",
+    fontSize: "clamp(53px, 17.5vw, 354px)",
     lineHeight: "90%",
-    left: "-5px",
   },
   [theme.breakpoints.down(1500)]: {
-    fontSize: "clamp(53px, 18.9vw, 354px)",
+    fontSize: "clamp(53px, 19.1vw, 354px)",
     lineHeight: "97%",
   },
   [theme.breakpoints.down(1280)]: {
-    fontSize: "clamp(53px, 18.6vw, 354px)",
+    fontSize: "clamp(53px, 18.85vw, 354px)",
   },
   [theme.breakpoints.down(1024)]: {
     fontSize: "139px",
     marginTop: "100px",
+    left: "-1%",
   },
   [theme.breakpoints.down(768)]: {
     fontSize: "105px",
@@ -69,7 +68,6 @@ const Title = styled("h1")(({ theme }) => ({
   [theme.breakpoints.down(576)]: {
     fontSize: "53px",
     lineHeight: "86%",
-    left: "-3px",
   },
 }));
 

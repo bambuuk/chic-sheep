@@ -5,7 +5,7 @@ import IconButton from "@mui/material/IconButton";
 import { Box } from "@mui/material";
 import Image from "next/image";
 import { stareSheep } from "@/assets/data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SheepInfoItem } from "./SheepInfoItem";
 import { StareSheepInfo } from "@/types/StareSheepInfo";
 
@@ -181,10 +181,31 @@ export default function BuySheepPopup({
     setSheepInfo(stareSheep.filter((item) => item.id === id));
   };
 
+  const closePopup = () => {
+    onCloseModal();
+    setTimeout(() => {
+      setSheepId("1");
+      setSheepInfo([stareSheep[0]]);
+    }, 400);
+  };
+
+  useEffect(() => {
+    setSheepId(id ? id : stareSheep[0].id);
+    setSheepInfo(stareSheep.filter((item) => item.id === sheepId));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isModalOpen]);
+
+  useEffect(() => {
+    setSheepId(id ? id : stareSheep[0].id);
+    setSheepInfo(
+      stareSheep.filter((item) => item.id === (id ? id : stareSheep[0].id))
+    );
+  }, [id]);
+
   return (
     <>
       <BootstrapDialog
-        onClose={onCloseModal}
+        onClose={closePopup}
         aria-labelledby="customized-dialog-title"
         open={isModalOpen}
       >
@@ -235,7 +256,7 @@ export default function BuySheepPopup({
               })}
             </SheepImgList>
 
-            <SheepInfoItem data={sheepInfo} />
+            {sheepInfo.length > 0 && <SheepInfoItem data={sheepInfo} />}
           </Wrapper>
         </DialogContent>
       </BootstrapDialog>
