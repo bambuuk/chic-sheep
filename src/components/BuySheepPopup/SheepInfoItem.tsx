@@ -419,9 +419,10 @@ const ButtonWrapper = styled("div")(({ theme }) => ({
 
 interface SheepInfoItemProps {
   data: StareSheepInfo[];
+  onOpenCongrats: () => void;
 }
 
-export const SheepInfoItem = ({ data }: SheepInfoItemProps) => {
+export const SheepInfoItem = ({ data, onOpenCongrats }: SheepInfoItemProps) => {
   const {
     title,
     description,
@@ -494,7 +495,7 @@ export const SheepInfoItem = ({ data }: SheepInfoItemProps) => {
             </TotalValue>
           </Characteristic>
         </Specifications>
-        <ButtonWrapper>
+        <ButtonWrapper onClick={onOpenCongrats}>
           <BuyButton text={"BUY a Sheep"} />
         </ButtonWrapper>
       </Overview>

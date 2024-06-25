@@ -10,7 +10,7 @@ import logo from "/public/images/logo.svg";
 import { fadeIn, fadeOut } from "../assets/keyframes";
 import { useEffect, useState } from "react";
 
-const BurgerMenuUI = styled(Box)(({ theme }) => ({
+const BurgerMenuUI = styled(Box)(({}) => ({
   width: "100%",
   height: "100%",
   backgroundColor: "#090909",

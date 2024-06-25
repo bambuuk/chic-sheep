@@ -8,6 +8,8 @@ import { stareSheep } from "@/assets/data";
 import { useEffect, useState } from "react";
 import { SheepInfoItem } from "./SheepInfoItem";
 import { StareSheepInfo } from "@/types/StareSheepInfo";
+import { CongratsMessage } from "../CongratsMessage";
+import useModalControl from "@/hooks/useModalControl";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialog-container": {
@@ -175,6 +177,11 @@ export default function BuySheepPopup({
   const [sheepInfo, setSheepInfo] = useState<StareSheepInfo[]>(
     stareSheep.filter((item) => item.id === sheepId)
   );
+  const {
+    isModalOpen: isOpenCongrats,
+    onOpenModal: onOpenCongrats,
+    onCloseModal: onCloseCongrats,
+  } = useModalControl();
 
   const switchSheep = (id: string) => {
     setSheepId(id);
@@ -209,6 +216,11 @@ export default function BuySheepPopup({
         aria-labelledby="customized-dialog-title"
         open={isModalOpen}
       >
+        {isOpenCongrats ? (
+          <CongratsMessage onClose={onCloseCongrats} sheepId={sheepId} />
+        ) : (
+          ""
+        )}
         <CustomIconButton aria-label="close" onClick={onCloseModal}>
           <svg
             width="30"
@@ -256,7 +268,9 @@ export default function BuySheepPopup({
               })}
             </SheepImgList>
 
-            {sheepInfo.length > 0 && <SheepInfoItem data={sheepInfo} />}
+            {sheepInfo.length > 0 && (
+              <SheepInfoItem data={sheepInfo} onOpenCongrats={onOpenCongrats} />
+            )}
           </Wrapper>
         </DialogContent>
       </BootstrapDialog>

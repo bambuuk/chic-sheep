@@ -6,12 +6,11 @@ import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
 import Image from "next/image";
 import { Box } from "@mui/material";
-import { Button, ButtonBox, ButtonText, Star } from "../CustomElements";
 import useControlButton from "@/hooks/useControlButton";
 import useMediaQuery from "@/hooks/useMediaQuery";
 
 import check from "/public/images/icons/check.svg";
-import star from "/public/images/icons/star-22-white.svg";
+import { CoolButton } from "../CoolButton";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -71,32 +70,6 @@ const Overview = styled("p")(({ theme }) => ({
   },
 }));
 
-const CustomButton = styled(Button)(({ theme }) => ({
-  marginTop: "40px",
-  maxWidth: "none",
-  borderColor: "#fff",
-  padding: "24px 27px",
-  width: "auto",
-  [theme.breakpoints.up(1024)]: {
-    "&:hover span": {
-      color: "#090909",
-    },
-  },
-}));
-
-const CustomButtonText = styled(ButtonText)(({ theme }) => ({
-  color: "#fff",
-  [theme.breakpoints.down(1500)]: {
-    fontSize: "20px",
-  },
-  [theme.breakpoints.down(1024)]: {
-    fontSize: "24px",
-  },
-  [theme.breakpoints.down(576)]: {
-    fontSize: "13px",
-  },
-}));
-
 const CustomIconButton = styled(IconButton)(({ theme }) => ({
   position: "absolute",
   right: "45px",
@@ -141,7 +114,6 @@ export default function SuccessPopup({
   isOpenPopup,
   handleClose,
 }: SuccessPopupProps) {
-  const { ref, scaleStar } = useControlButton({ type: "normal" });
   const { isTablet } = useMediaQuery();
 
   return (
@@ -181,13 +153,9 @@ export default function SuccessPopup({
             </Overview>
           </Info>
 
-          <CustomButton onMouseLeave={scaleStar} onClick={handleClose}>
-            <ButtonBox>
-              <Star ref={ref} src={star} width={22} height={22} alt="star" />
-              <CustomButtonText>Cool!</CustomButtonText>
-              <Star src={star} width={22} height={22} alt="star" />
-            </ButtonBox>
-          </CustomButton>
+          <Box sx={{ marginTop: "40px" }}>
+            <CoolButton handleClose={handleClose} colorType="white-black" />
+          </Box>
         </DialogContent>
       </BootstrapDialog>
     </Fragment>
