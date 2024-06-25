@@ -30,6 +30,7 @@ const CongratsUI = styled(Box)(({ theme }) => ({
   },
   [theme.breakpoints.down(576)]: {
     padding: "44px 30px 51px 30px",
+    borderRadius: "0px 0px 50px 50px",
   },
   [theme.breakpoints.down(420)]: {
     padding: "34px 15px 41px 15px",
