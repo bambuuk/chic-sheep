@@ -1,6 +1,7 @@
 @font-face {
   font-family: Feogra;
   src: url("/fonts/Feogra-Demo-BF64dc66c9ef4b4.otf") format("opentype");
+  font-display: swap;
 }
 
 * {
