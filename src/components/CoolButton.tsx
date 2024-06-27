@@ -14,10 +14,8 @@ const CustomButton = styled(Button)<CustomButtonProps>(
     borderColor: colorType === "white-black" ? "#fff" : "#141414",
     padding: "24px 27px",
     width: "100%",
-    [theme.breakpoints.up(1024)]: {
-      "&:hover div": {
-        color: colorType === "white-black" ? "#090909" : "#fff",
-      },
+    "&:hover div": {
+      color: colorType === "white-black" ? "#090909" : "#fff",
     },
   })
 );

@@ -36,6 +36,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     padding: 0,
   },
   "& .MuiPaper-root": {
+    overflow: "hidden",
     margin: "0 auto",
     padding: "60px 45px 90px 45px",
     maxWidth: "1788px",
@@ -217,7 +218,11 @@ export default function BuySheepPopup({
         open={isModalOpen}
       >
         {isOpenCongrats ? (
-          <CongratsMessage onClose={onCloseCongrats} sheepId={sheepId} />
+          <CongratsMessage
+            onClose={onCloseCongrats}
+            sheepId={sheepId}
+            onCloseMainModal={onCloseModal}
+          />
         ) : (
           ""
         )}

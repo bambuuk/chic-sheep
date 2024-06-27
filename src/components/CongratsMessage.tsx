@@ -9,18 +9,24 @@ const CongratsUI = styled(Box)(({ theme }) => ({
   position: "absolute",
   zIndex: "101",
   color: "white",
-  top: 0,
+  bottom: 0,
   left: 0,
-  padding: "32px 45px",
+  padding: "60px 45px",
   border: "1px solid #4f4f4f",
   backgroundColor: "#fbb41a",
   borderRadius: "50px",
   width: "100%",
   "&.slideInTop": {
-    animation: `${slideInTop} 0.5s ease-in both`,
+    animation: `${slideInTop} 0.4s ease-in both`,
   },
   "&.slideOutTop": {
-    animation: `${slideOutTop} 0.5s ease-out both`,
+    animation: `${slideOutTop} 0.4s ease-out both`,
+  },
+  [theme.breakpoints.down(1700)]: {
+    padding: "50px 45px",
+  },
+  [theme.breakpoints.down(1500)]: {
+    padding: "30px 45px",
   },
   [theme.breakpoints.down(1280)]: {
     padding: "20px",
@@ -30,7 +36,7 @@ const CongratsUI = styled(Box)(({ theme }) => ({
   },
   [theme.breakpoints.down(576)]: {
     padding: "44px 30px 51px 30px",
-    borderRadius: "0px 0px 50px 50px",
+    borderRadius: "50px 50px 0px 0px ",
   },
   [theme.breakpoints.down(420)]: {
     padding: "34px 15px 41px 15px",
@@ -111,16 +117,22 @@ const ButtonWrapper = styled(Box)(({ theme }) => ({
 interface CongratsMessage {
   onClose: () => void;
   sheepId: string;
+  onCloseMainModal: () => void;
 }
 
-export const CongratsMessage = ({ onClose, sheepId }: CongratsMessage) => {
+export const CongratsMessage = ({
+  onClose,
+  sheepId,
+  onCloseMainModal,
+}: CongratsMessage) => {
   const [animationType, setAnimationType] = useState("slideInTop");
 
   const closePopup = () => {
     setAnimationType("slideOutTop");
     setTimeout(() => {
       onClose();
-    }, 500);
+      onCloseMainModal();
+    }, 400);
   };
 
   const img = stareSheep.filter((item) => item.id === sheepId)[0].img;
