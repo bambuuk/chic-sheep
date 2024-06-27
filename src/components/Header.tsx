@@ -70,7 +70,7 @@ const Button = styled("button")(({ theme }) => ({
     transition: "transform 0.5s ease-in-out",
     transform: "scale(1)",
   },
-  "&:hover div img:first-child": {
+  "&:hover div img:first-of-type": {
     transform: "scale(80)",
     zIndex: "-1",
   },

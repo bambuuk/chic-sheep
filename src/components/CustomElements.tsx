@@ -82,7 +82,7 @@ export const Button = styled(ButtonBtn)(({ theme }) => ({
     transform: "scale(1)",
     position: "relative",
   },
-  "&:hover div img:first-child": {
+  "&:hover div img:first-of-type": {
     transform: "scale(180)",
   },
   [theme.breakpoints.down(576)]: {
