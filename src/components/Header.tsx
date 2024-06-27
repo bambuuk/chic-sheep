@@ -160,7 +160,7 @@ const Header = () => {
             <Button onMouseLeave={scaleStar} onClick={onOpenModal}>
               <ButtonBox>
                 <Image ref={ref} src={star} width={22} height={22} alt="star" />
-                <ButtonText>BUY a Sheep</ButtonText>
+                <ButtonText>BUY A SHEEP</ButtonText>
                 <Image src={star} width={22} height={22} alt="star" />
               </ButtonBox>
             </Button>

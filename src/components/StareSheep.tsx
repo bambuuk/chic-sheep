@@ -322,7 +322,7 @@ const StareSheep = () => {
             )}
           </SheepList>
 
-          <Box sx={{ maxWidth: "1700px", width: "100%" }}>
+          <Box sx={{ maxWidth: "1700px", width: "100%" }} onClick={onOpenModal}>
             <Button text={"Start your sheepish journey"} />
           </Box>
         </SectionWrapper>

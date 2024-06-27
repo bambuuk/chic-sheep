@@ -91,10 +91,6 @@ h6 {
   font-weight: inherit;
 }
 
-* {
-  font-family: "Inter", sans-serif;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -108,21 +104,21 @@ button {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: rgb(117, 116, 116);
+  background-color: rgb(53, 53, 53);
   margin: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #1a1b1c;
+  background-color: #666666;
   border: solid 2px #3b3f47;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #49525a;
-  border: solid 2px #252b31;
+  background-color: #a7a7a7;
+  border: solid 2px #3b3f47;
 }
