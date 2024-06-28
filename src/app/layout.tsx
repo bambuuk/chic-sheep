@@ -4,6 +4,7 @@ import "./globals.css";
 import Head from "next/head";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("http://localhost:3000/"),
   title: "Chic Sheeps",
   description:
     "Welcome to the enchanting world of NFT Chic Sheeps, where the extraordinary meets the woolly, and creativity is spun into a digital masterpiece.",
@@ -18,13 +19,13 @@ export const metadata: Metadata = {
       "Explore the extraordinary world of NFT Chic Sheeps, join a community shaping the future of digital ownership with these woolly wonders.",
     url: "chic-sheep.vercel.app",
     siteName: "Chic Sheeps",
-    images: [
-      {
-        url: "/openGraph/sheep.png",
-        width: 1200,
-        height: 630,
-      },
-    ],
+    // images: [
+    //   {
+    //     url: "/openGraph/sheep.png",
+    //     width: 1200,
+    //     height: 630,
+    //   },
+    // ],
     locale: "en-EN",
     type: "website",
   },
