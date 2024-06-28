@@ -21,6 +21,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/openGraph/sheep.png",
+        width: 1200,
+        height: 630,
       },
     ],
     locale: "en-EN",
