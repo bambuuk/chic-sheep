@@ -12,7 +12,7 @@ const LogoUI = styled(Image)(({ theme }) => ({
 
 const Logo = () => {
   return (
-    <Link href="#top">
+    <Link href="/">
       <LogoUI src={logo} width={171} height={50} alt="Logo" />
     </Link>
   );

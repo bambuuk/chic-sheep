@@ -4,8 +4,18 @@ import "./globals.css";
 import Head from "next/head";
 
 export const metadata: Metadata = {
-  title: "Chic Sheep",
-  description: "Buy cool NFT",
+  title: "Chic Sheeps",
+  description: "Buy a cool NFT",
+  icons: {
+    icon: ["/favicons/favicon.ico"],
+    apple: ["/favicons/apple-touch-icon.png"],
+    shortcut: ["/favicons/apple-touch-icon.png"],
+  },
+  openGraph: {
+    title: "Chic Sheep",
+    description: "Buy a cool NFT",
+    images: ["/openGraph/sheep.png"],
+  },
 };
 
 const inter = Inter({
