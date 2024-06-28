@@ -13,10 +13,17 @@ export const metadata: Metadata = {
     shortcut: ["/favicons/apple-touch-icon.png"],
   },
   openGraph: {
-    title: "Chic Sheep",
+    title: "Chic Sheeps",
     description:
       "Explore the extraordinary world of NFT Chic Sheeps, join a community shaping the future of digital ownership with these woolly wonders.",
-    images: ["/openGraph/sheep.png"],
+    url: "chic-sheep.vercel.app",
+    siteName: "Chic Sheeps",
+    images: [
+      {
+        url: "/openGraph/sheep.png",
+      },
+    ],
+    locale: "en-EN",
   },
 };
 
