@@ -5,7 +5,8 @@ import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Chic Sheeps",
-  description: "Buy a cool NFT",
+  description:
+    "Welcome to the enchanting world of NFT Chic Sheeps, where the extraordinary meets the woolly, and creativity is spun into a digital masterpiece.",
   icons: {
     icon: ["/favicons/favicon.ico"],
     apple: ["/favicons/apple-touch-icon.png"],
@@ -13,7 +14,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Chic Sheep",
-    description: "Buy a cool NFT",
+    description:
+      "Explore the extraordinary world of NFT Chic Sheeps, join a community shaping the future of digital ownership with these woolly wonders.",
     images: ["/openGraph/sheep.png"],
   },
 };
