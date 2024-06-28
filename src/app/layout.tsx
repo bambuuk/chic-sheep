@@ -7,19 +7,20 @@ export const metadata: Metadata = {
   title: "Chic Sheeps",
   description:
     "Welcome to the enchanting world of NFT Chic Sheeps, where the extraordinary meets the woolly, and creativity is spun into a digital masterpiece.",
-  icons: {
-    icon: ["/favicons/favicon.ico"],
-    apple: ["/favicons/apple-touch-icon.png"],
-    shortcut: ["/favicons/apple-touch-icon.png"],
-  },
+  // icons: {
+  //   icon: ["/favicons/favicon.ico"],
+  //   apple: ["/favicons/apple-touch-icon.png"],
+  //   shortcut: ["/favicons/apple-touch-icon.png"],
+  // },
   openGraph: {
     title: "Chic Sheeps",
     description:
       "Explore the extraordinary world of NFT Chic Sheeps, join a community shaping the future of digital ownership with these woolly wonders.",
     url: "chic-sheep.vercel.app",
     siteName: "Chic Sheeps",
-    images: ["/openGraph/sheep.png"],
+    // images: ["/openGraph/sheep.png"],
     locale: "en-EN",
+    type: "website",
   },
 };
 
