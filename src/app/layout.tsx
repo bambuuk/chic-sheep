@@ -17,15 +17,7 @@ export const metadata: Metadata = {
     title: "Chic Sheeps",
     description:
       "Explore the extraordinary world of NFT Chic Sheeps, join a community shaping the future of digital ownership with these woolly wonders.",
-    url: "chic-sheep.vercel.app",
     siteName: "Chic Sheeps",
-    // images: [
-    //   {
-    //     url: "/openGraph/sheep.png",
-    //     width: 1200,
-    //     height: 630,
-    //   },
-    // ],
     locale: "en-EN",
     type: "website",
   },
