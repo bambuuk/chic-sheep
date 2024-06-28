@@ -18,6 +18,13 @@ export const metadata: Metadata = {
     description:
       "Explore the extraordinary world of NFT Chic Sheeps, join a community shaping the future of digital ownership with these woolly wonders.",
     siteName: "Chic Sheeps",
+    images: [
+      {
+        url: "/openGraph/sheep.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
     locale: "en-EN",
     type: "website",
   },
